@@ -11,6 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/InCarNaTeDuDe/test.git"
   },
+"dependencies": {
+    "express": "^4.16.4",
+    "require": "^2.4.20"
+  },
+   "engines": {
+        "node": "8.11.2",
+        "npm": "5.6.0"
+    } ,
   "author": "",
   "license": "ISC",
   "bugs": {
