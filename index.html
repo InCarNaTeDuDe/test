@@ -16,10 +16,11 @@
   <!-- FontAwesome CDN  -->
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+  <link href="http://hangingcage.com/WebContent/css/style.css" rel="stylesheet">
+  <link href="http://hangingcage.com/WebContent/css/responsive.css" rel="stylesheet">
   <style>
     :root {
-      --main-bg-color: #ba3622;
+      --main-bg-color: #cf3d27;
       --border: #ea4d35;
       --fg-white: #FFF;
     }
@@ -43,26 +44,74 @@
     }
 
     /*Theme End*/
-    
+
     /*Aligment Styles*/
-    .items-center{
+    .items-center {
       display: flex;
       align-items: center;
     }
+
+    .display-content-center {
+      display: flex;
+      justify-content: center;
+    }
+
     /**Alignment Styles End**/
-    
+
     /*** Paddings ***/
-      .pd5{
-        padding:5px;
-      }
+    .pd5 {
+      padding: 5px;
+    }
+
     /** Paddings End **/
+
+    /** Tabs **/
+    .tab-content {
+      position: relative;
+      top: 60px;
+    }
+
+    /** Tabs End **/
+
+    /**Food**/
+    #food .flex-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      width: 90%;
+    }
+
+    #food .flex-wrap .card {
+      position: relative;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 1px solid rgba(0, 0, 0, .125);
+      border-radius: .25rem;
+    }
+
+    /** Media Queries **/
+    @media screen and (max-width: 991px) {
+      .content-login-wrap {
+        padding: 36px 0;
+      }
+    }
+
+    /** End **/
   </style>
 </head>
 
 <body>
 
   <div ng-app="myApp" ng-controller="myCtrl">
-    <nav class="navbar navbar-inverse fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header items-center">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -72,7 +121,7 @@
           </button>
           <a class="navbar-brand" href="#home">HangingCage</a>
           <a href="tel:+91 (636)-014-9357">
-            <i class="fa fa-phone pd5"></i>Call: +91 (636)-014-9357
+            <i class="fa fa-phone pd5"></i>+91 (636)-014-9357
           </a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
@@ -91,26 +140,160 @@
     </nav>
     <div class="tab-content">
       <div id="home" class="tab-pane fade in active">
-        <h3>HOME</h3>
-        <p>Home content.</p>
+        <div class="main-container container">
+          <!-- Content Login Wrap Starts -->
+          <div class="content-login-wrap row">
+            <div class="col-md-6 col-sm-12" ng-switch="ui.content">
+              <div ng-switch-when="loader" class="loader-wrapper">
+                <div class="loader"></div>
+              </div>
+              <form ng-switch-when="form">
+                <!-- Nested Row Starts -->
+                <div
+                  style="color:#FFF !important;background:#000;padding-top: 10px;display: flex;flex-direction: column;">
+                  <h6 style="margin:12px;" class="text-center"><b>Please Provide Your Information,If any queries...</b>
+                  </h6>
+                  <div class="col-sm-12">
+                    <label class="sr-only" for="newsletter-city">Please Enter your Name</label>
+                    <input type="text" ng-model="name" class="form-control" id="newsletter-city"
+                      placeholder="Please Enter your Name">
+                  </div>
+                  <div class="col-sm-12" style="margin-top: 20px;">
+                    <label class="sr-only" for="newsletter-email">Enter Phone Number</label>
+                    <input type="text" class="form-control" ng-model="phone" id="newsletter-email"
+                      placeholder="Enter Phone Number">
+                  </div>
+                  <div class="col-sm-12">
+                    <button class="btn btn-prime btn-block text-uppercase text-weight-bold animation"
+                      ng-click="getHelp(name,phone)">Get Help from us</button>
+                  </div>
+                  <div class="col-sm-12 text-center">
+                    <h6 class="text-weight-bold">
+                      <label>
+                        <input type="checkbox">
+                        <span>I have read &amp; accepted the terms and conditions and privacy policy</span>
+                      </label>
+                    </h6>
+                  </div>
+                </div>
+                <!-- Nested Row Ends -->
+              </form>
+            </div>
+            <!-- Divider For Small Devices -->
+            <div class="w-10 d-xs-block d-sm-block d-md-none">
+              <br>
+              <hr><br>
+            </div>
+            <div class="col-md-4 col-sm-12 offset-md-2">
+              <p> One cannot think well, love well, sleep well, if one has not dined well.<br />
+                So,Take a taste. Come join us. Life is so endlessly delicious. </p>
+              <button class="btn btn-block btn-fb animation">
+                <a style="display:flex;justify-content:space-evenly;align-items:center;color:#FFF;text-decoration:none"
+                  href="https://www.facebook.com/Hanging-Cage-RestoCafe-100401028139484" target="_blank">
+                  <i class="fa fa-facebook"></i>Like on Facebook
+                </a>
+              </button>
+              <button class="btn btn-block btn-prime tiny animation">
+                <a style="color:#FFF;display:flex;justify-content:center;align-items:center;text-decoration:none"
+                  href="https://www.zomato.com/hi/bangalore/hanging-cage-resto-cafe-kanakapura-road-bangalore/reviews?city_id=4&tab=reviews"
+                  target="_blank"> Reviews on Zomato
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="food" class="tab-pane fade">
-        <h3>Food List</h3>
-        <p>Food List Content</p>
-      </div>
-      <div id="about" class="tab-pane fade">
-        <h3>About Us</h3>
-        <p>About us section..</p>
-      </div>
-      <div id="contact" class="tab-pane fade">
-        <h3>Contact Us</h3>
-        <p>Contact us section..</p>
+
+    </div>
+    <div id="food" class="tab-pane fade display-content-center">
+      <div class="flex-wrap">
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/burger.png" alt="burger">
+          <div class="text-center">
+            <h4><b>Burger</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/sandwitch.svg" alt="Sandwitch">
+          <div class="text-center">
+            <h4><b>Sandwitch</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/fries.jpeg" alt="Fries">
+          <div class="text-center">
+            <h4><b>Fries</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/chineese.jpg" alt="Chineese">
+          <div class="text-center">
+            <h4><b>Chineese Veg Starters</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/chineese.jpg" alt="Chineese">
+          <div class="text-center">
+            <h4><b>Chineese Non-Veg</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/biryani-veg.png" alt="Biriyani">
+          <div class="text-center">
+            <h4><b>Special Veg Matka Biriyani</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/biryani.png" alt="Biriyani">
+          <div class="text-center">
+            <h4><b>Chicken Biriyani</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/shakes.png" alt="shakes">
+          <div class="text-center">
+            <h4><b>Shakes</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/icecream.png" alt="icecream">
+          <div class="text-center">
+            <h4><b>Ice Creams</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/sundae.png" alt="Sundaes">
+          <div class="text-center">
+            <h4><b>Sundaes</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/falooda.png" alt="Falooda">
+          <div class="text-center">
+            <h4><b>Falooda</b></h4>
+          </div>
+        </div>
+        <div class="card">
+          <img src="http://hangingcage.com/WebContent/images/food.png" alt="Food">
+          <div class="text-center">
+            <h4><b>Time Limited Special Dishes</b></h4>
+          </div>
+        </div>
       </div>
     </div>
-    First Name: <input type="text" ng-model="firstName"><br>
-    Last Name: <input type="text" ng-model="lastName"><br>
-    <br>
-    Full Name: {{firstName + " " + lastName}}
+    <div id="about" class="tab-pane fade">
+      <h3>About Us</h3>
+      <p>About us section..</p>
+    </div>
+    <div id="contact" class="tab-pane fade">
+      <h3>Contact Us</h3>
+      <p>Contact us section..</p>
+    </div>
+  </div>
+  First Name: <input type="text" ng-model="firstName"><br>
+  Last Name: <input type="text" ng-model="lastName"><br>
+  <br>
+  Full Name: {{firstName + " " + lastName}}
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -121,6 +304,9 @@
     app.controller('myCtrl', function ($scope) {
       $scope.firstName = "John";
       $scope.lastName = "Doe";
+      $scope.ui = {
+        content: 'form'
+      };
     });
   </script>
 
