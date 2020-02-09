@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 
 <head>
-  <title>Black Cyber</title>
+  <title>HangingCage | Resto Cafe</title>
   <meta charset="utf-8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
@@ -45,6 +45,13 @@
 
     /* Theme Start */
     .navbar-inverse {
+      background-color: var(--main-bg-color) !important;
+      padding: 0;
+      border: solid var(--border) !important;
+      border-width: 1px 0 0 0;
+    }
+
+    #nav {
       background-color: var(--main-bg-color) !important;
       padding: 0;
       border: solid var(--border) !important;
@@ -195,7 +202,7 @@
 <body ng-controller="myCtrl">
 
   <div>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav id="nav" class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header items-spaced-center">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
