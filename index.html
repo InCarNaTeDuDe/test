@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp">
 
 <head>
-  <title>HangingCage | Resto Cafe</title>
+  <title>Black Cyber</title>
   <meta charset="utf-8">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
@@ -39,6 +39,23 @@
       padding-right: 0;
       padding-left: 2px;
     }
+
+    @media screen and (min-width:768px) {
+      .container-fluid {
+        display: flex;
+      }
+    }
+
+    @media screen and (max-width: 1200px) {
+      .container-fluid .navbar-header {
+        flex: 0 0 50%;
+      }
+    }
+
+    @media screen and (min-width: 1200px) {
+      .container-fluid .navbar-header {
+        flex: 0.5;
+      }
     }
 
     /*Overrides End*/
@@ -223,10 +240,10 @@
             <li><a data-toggle="tab" href="#about">About Us</a></li>
             <li><a data-toggle="tab" href="#contact">Contact Us</a></li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <!-- <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </nav>
