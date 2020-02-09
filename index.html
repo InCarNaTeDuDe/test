@@ -253,7 +253,7 @@
             <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
             <li><a data-toggle="tab" ng-click="navigateToContent()" href="#food">Food List</a></li>
             <li><a data-toggle="tab" href="#about">About Us</a></li>
-            <li><a data-toggle="tab" href="#contact">Contact Us</a></li>
+            <li data-toggle="collapse"><a data-toggle="tab" href="#contact">Contact Us</a></li>
           </ul>
           <!-- <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -422,6 +422,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script>
+    $(".navbar-nav li").click=function(){
+      $("#myNavbar").toggleClass("in")
+    };
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function ($scope) {
       $scope.firstName = "John";
