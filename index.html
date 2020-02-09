@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp" >
+<html lang="en" ng-app="myApp">
 
 <head>
   <title>Black Cyber</title>
@@ -14,8 +14,9 @@
     href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic"
     rel="stylesheet" type="text/css">
   <!-- FontAwesome CDN  -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="preload" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
   <link href="http://hangingcage.com/WebContent/css/style.css" rel="stylesheet">
   <link href="http://hangingcage.com/WebContent/css/responsive.css" rel="stylesheet">
   <style>
@@ -28,6 +29,19 @@
     a {
       color: var(--fg-white) !important;
     }
+
+    /*Overrides*/
+    .navbar-toggle {
+      margin-right: 0;
+    }
+
+    .navbar-brand {
+      padding-right: 0;
+      padding-left: 2px;
+    }
+    }
+
+    /*Overrides End*/
 
     /* Theme Start */
     .navbar-inverse {
@@ -45,10 +59,74 @@
 
     /*Theme End*/
 
+    /* Logo */
+    .navbar-header .logo {
+      margin: 0;
+      height: 45px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      transition: all .85s ease-in-out;
+      animation: move 2.5s ease-in-out infinite;
+      -webkit-animation: move 2.5s ease-in-out infinite;
+      -moz-animation: move 2.5s ease-in-out infinite;
+      -o-animation: move 2.5s ease-in-out infinite;
+    }
+
+    @keyframes identifier {
+
+      0%,
+      100% {
+        transform: rotate(20deg);
+      }
+
+      50% {
+        transform: rotate(-20deg);
+      }
+    }
+
+    @-webkit-keyframes move {
+
+      0%,
+      100% {
+        transform: rotate(20deg);
+      }
+
+      50% {
+        transform: rotate(-20deg);
+      }
+    }
+
+    @-moz-keyframes move {
+
+      0%,
+      100% {
+        transform: rotate(20deg);
+      }
+
+      50% {
+        transform: rotate(-20deg);
+      }
+    }
+
+    @-o-keyframes move {
+
+      0%,
+      100% {
+        transform: rotate(20deg);
+      }
+
+      50% {
+        transform: rotate(-20deg);
+      }
+    }
+
+    /* Logo End */
+
     /*Aligment Styles*/
-    .items-center {
+    .items-spaced-center {
       display: flex;
       align-items: center;
+      justify-content: space-between;
     }
 
     .display-content-center {
@@ -105,6 +183,12 @@
     }
 
     /** End **/
+
+    #food,
+    #about,
+    #contact {
+      display: none;
+    }
   </style>
 </head>
 
@@ -113,12 +197,13 @@
   <div>
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
-        <div class="navbar-header items-center">
+        <div class="navbar-header items-spaced-center">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <img class="logo" src="http://hangingcage.com/WebContent/images/logo.png" alt="Logo" height="40" />
           <a class="navbar-brand" href="#home">HangingCage</a>
           <a href="tel:+91 (636)-014-9357">
             <i class="fa fa-phone pd5"></i>+91 (636)-014-9357
@@ -127,7 +212,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
             <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-            <li><a data-toggle="tab" href="#food">Food List</a></li>
+            <li><a data-toggle="tab" ng-click="navigateToContent()" href="#food">Food List</a></li>
             <li><a data-toggle="tab" href="#about">About Us</a></li>
             <li><a data-toggle="tab" href="#contact">Contact Us</a></li>
           </ul>
@@ -203,97 +288,95 @@
           </div>
         </div>
       </div>
-
-    </div>
-    <div id="food" class="tab-pane fade display-content-center">
-      <div class="flex-wrap">
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/burger.png" alt="burger">
-          <div class="text-center">
-            <h4><b>Burger</b></h4>
+      <div id="food" class="tab-pane fade display-content-center">
+        <div class="flex-wrap">
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/burger.png" alt="burger">
+            <div class="text-center">
+              <h4><b>Burger</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/sandwitch.svg" alt="Sandwitch">
-          <div class="text-center">
-            <h4><b>Sandwitch</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/sandwitch.svg" alt="Sandwitch">
+            <div class="text-center">
+              <h4><b>Sandwitch</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/fries.jpeg" alt="Fries">
-          <div class="text-center">
-            <h4><b>Fries</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/fries.jpeg" alt="Fries">
+            <div class="text-center">
+              <h4><b>Fries</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/chineese.jpg" alt="Chineese">
-          <div class="text-center">
-            <h4><b>Chineese Veg Starters</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/chineese.jpg" alt="Chineese">
+            <div class="text-center">
+              <h4><b>Chineese Veg Starters</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/chineese.jpg" alt="Chineese">
-          <div class="text-center">
-            <h4><b>Chineese Non-Veg</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/chineese.jpg" alt="Chineese">
+            <div class="text-center">
+              <h4><b>Chineese Non-Veg</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/biryani-veg.png" alt="Biriyani">
-          <div class="text-center">
-            <h4><b>Special Veg Matka Biriyani</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/biryani-veg.png" alt="Biriyani">
+            <div class="text-center">
+              <h4><b>Special Veg Matka Biriyani</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/biryani.png" alt="Biriyani">
-          <div class="text-center">
-            <h4><b>Chicken Biriyani</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/biryani.png" alt="Biriyani">
+            <div class="text-center">
+              <h4><b>Chicken Biriyani</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/shakes.png" alt="shakes">
-          <div class="text-center">
-            <h4><b>Shakes</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/shakes.png" alt="shakes">
+            <div class="text-center">
+              <h4><b>Shakes</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/icecream.png" alt="icecream">
-          <div class="text-center">
-            <h4><b>Ice Creams</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/icecream.png" alt="icecream">
+            <div class="text-center">
+              <h4><b>Ice Creams</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/sundae.png" alt="Sundaes">
-          <div class="text-center">
-            <h4><b>Sundaes</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/sundae.png" alt="Sundaes">
+            <div class="text-center">
+              <h4><b>Sundaes</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/falooda.png" alt="Falooda">
-          <div class="text-center">
-            <h4><b>Falooda</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/falooda.png" alt="Falooda">
+            <div class="text-center">
+              <h4><b>Falooda</b></h4>
+            </div>
           </div>
-        </div>
-        <div class="card">
-          <img src="http://hangingcage.com/WebContent/images/food.png" alt="Food">
-          <div class="text-center">
-            <h4><b>Time Limited Special Dishes</b></h4>
+          <div class="card">
+            <img src="http://hangingcage.com/WebContent/images/food.png" alt="Food">
+            <div class="text-center">
+              <h4><b>Time Limited Special Dishes</b></h4>
+            </div>
           </div>
         </div>
       </div>
+      <div id="about" class="tab-pane fade">
+        <h3>About Us</h3>
+        <p>About us section..</p>
+      </div>
+      <div id="contact" class="tab-pane fade">
+        <h3>Contact Us</h3>
+        <p>Contact us section..</p>
+      </div>
     </div>
-    <div id="about" class="tab-pane fade">
-      <h3>About Us</h3>
-      <p>About us section..</p>
-    </div>
-    <div id="contact" class="tab-pane fade">
-      <h3>Contact Us</h3>
-      <p>Contact us section..</p>
-    </div>
-  </div>
-  First Name: <input type="text" ng-model="firstName"><br>
-  Last Name: <input type="text" ng-model="lastName"><br>
-  <br>
-  Full Name: {{firstName + " " + lastName}}
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    <br>
+    Full Name: {{firstName + " " + lastName}}
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -306,6 +389,12 @@
       $scope.lastName = "Doe";
       $scope.ui = {
         content: 'form'
+      };
+      function enableContent(id) {
+        $(id).css({ display: "block" });
+      }
+      $scope.navigateToContent = function () {
+        enableContent("#food");
       };
     });
   </script>
