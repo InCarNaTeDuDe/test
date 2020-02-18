@@ -2,9 +2,15 @@ const express = require('express'),
     app = express(),
     path = require('path');
 
+
+app.use(express.static(path.join(__dirname, '/')));
 app.get('/', (req, res) => {
     res.sendFile('index.html', { root: __dirname });
 });
+
+app.get("/sw", (req, res) => {
+    res.sendFile(path.join(__dirname, "/sw.js"));
+})
 
 
 app.get('/get', (req, res) => { res.send("Hello") });
