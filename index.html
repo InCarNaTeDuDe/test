@@ -2648,7 +2648,6 @@
 </head>
 
 <body ng-controller="myCtrl">
-
 	<div>
 		<nav id="nav" class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
@@ -2679,10 +2678,10 @@
 			</div>
 		</nav>
 		<div class="tab-content">
-			<div class="alert alert-success alert-dismissible fade in" ng-if="!ui.isOnline">
+			<div class="alert alert-success alert-dismissible fade in">
 				<a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 				<strong>You Appeared to be Offline!</strong>
-			  </div>
+			</div>
 			<div id="home" class="tab-pane fade in active">
 				<div class="main-container container">
 					<!-- Content Login Wrap Starts -->
@@ -2846,10 +2845,14 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script defer>
-		if (location.protocol==='http:') {
-			console.log("Requested from insecure origin.So re-directing...")
+		navigator.onLine ?
+			$(".alert-success").remove("hide") :
+			$(".alert-success").addClass("hide");
+	</script>
+	<script defer>
+		if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
 			location.href = "https://blackcyber.herokuapp.com";
-		 }
+		}
 		if ('serviceWorker' in navigator) {
 			window.addEventListener("load", () => {
 				navigator.serviceWorker.register(
@@ -2874,8 +2877,7 @@
 			$scope.firstName = "John";
 			$scope.lastName = "Doe";
 			$scope.ui = {
-				content: 'form',
-				isOnline: navigator.onLine
+				content: 'form'
 			};
 			function enableContent(id) {
 				$(id).css({ display: "block" });
@@ -2885,5 +2887,7 @@
 			};
 		});
 	</script>
+
 </body>
+
 </html>
