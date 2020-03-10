@@ -1,7 +1,7 @@
 const cacheName = "cache-v1";
 
 const resourcesToCache = [
-    '/', '/index.html'
+    '/', '/index.html','images/'
 ];
 
 self.addEventListener('install', function (event) {
