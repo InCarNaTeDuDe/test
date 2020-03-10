@@ -2845,7 +2845,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<script>
+	<script defer>
+		if (location.protocol==='http:') {
+			console.log("Requested from insecure origin.So re-directing...")
+			location.href = "https://blackcyber.herokuapp.com";
+		 }
 		if ('serviceWorker' in navigator) {
 			window.addEventListener("load", () => {
 				navigator.serviceWorker.register(
