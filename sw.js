@@ -1,7 +1,7 @@
 const cacheName = "cache-v1";
 
 const resourcesToCache = [
-    '/', '/index.html','images/biryani-veg.png','images/biryani.png','images/burger.png','images/chineese.jpg','images/falooda.png','images/food.png','images/fries.jpeg','images/icecream.png','images/logo.png','images/shakes.png','images/sandwitch.svg','images/shakes.png','images/sundae.png'
+    '/', '/index.html','images/biryani-veg.png','images/biryani.png','images/burger.png','images/chineese.jpg','images/falooda.png','images/food.png','images/fries.jpeg','images/icecream.png','images/logo.png','images/shakes.png','images/sandwitch.svg','images/sundae.png'
 ];
 
 self.addEventListener('install', function (event) {
