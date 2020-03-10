@@ -2845,9 +2845,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	<script defer>
-		navigator.onLine ?
-			$(".alert-success").remove("hide") :
-			$(".alert-success").addClass("hide");
+		if (navigator.onLine)
+			$(".alert-success").remove("hide");
 	</script>
 	<script defer>
 		if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
