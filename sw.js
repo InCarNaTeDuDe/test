@@ -1,7 +1,7 @@
-const cacheName = "cache-v1";
+var cacheName = "cache-v1";
 
-const resourcesToCache = [
-    '/', '/index.html','images/biryani-veg.png','images/biryani.png','images/burger.png','images/chineese.jpg','images/falooda.png','images/food.png','images/fries.jpeg','images/icecream.png','images/logo.png','images/shakes.png','images/sandwitch.svg','images/sundae.png'
+var resourcesToCache = [
+    '/', '/index.html','images/biryani-veg.png','images/biryani.png','images/burger.png','images/chineese.jpg','images/falooda.png','images/food.png','images/fries.jpeg','images/icecream.png','images/logo.png','images/shakes.png','images/sandwitch.svg','images/sundae.png','https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js','https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js','https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js','https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0'
 ];
 
 self.addEventListener('install', function (event) {
