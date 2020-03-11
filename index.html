@@ -1372,7 +1372,7 @@
 
       @media screen and (min-width: 1200px) {
          .container-fluid .navbar-header {
-            flex: 0.5;
+            flex: 0.6;
          }
       }
 
@@ -2638,6 +2638,21 @@
             padding: 10px 0 0 0;
          }
       }
+      
+      .items-center{
+         display: flex;
+         align-items: center;
+      }
+      .a2hs-wrapper {
+         display: flex;
+         flex-direction: column;
+         height: 325px;
+         justify-content: space-between;
+      }
+
+      .a2hs-wrapper .btn-success {
+         font-size: 16px;
+      }
 
       /** End **/
    </style>
@@ -2660,12 +2675,17 @@
                </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-               <ul class="nav navbar-nav">
-                  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-                  <li><a data-toggle="tab" ng-click="navigateToContent('#food')" href="#food">Food List</a></li>
-                  <li><a data-toggle="tab" ng-click="navigateToContent('#about')" href="#about">About Us</a></li>
+              <ul class="nav navbar-nav items-center">
+                  <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-home pd5"
+                           aria-hidden="true"></i>Home</a></li>
+                  <li><a data-toggle="tab" ng-click="navigateToContent('#food')" href="#food"><i
+                           class="fa fa-cutlery pd5" aria-hidden="true"></i>
+                        Food List</a></li>
+                  <li><a data-toggle="tab" ng-click="navigateToContent('#about')" href="#about"><i
+                           class="fa fa-info-circle pd5" aria-hidden="true"></i>
+                        About Us</a></li>
                   <li data-toggle="collapse"><a data-toggle="tab" ng-click="navigateToContent('#contact')"
-                        href="#contact">Contact Us</a></li>
+                        href="#contact"><i class="fa fa-user-circle pd5" aria-hidden="true"></i>Contact Us</a></li>
                </ul>
                <!-- <ul class="nav navbar-nav navbar-right">
                   <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -2727,11 +2747,10 @@
                      </form>
                   </div>
                   <!-- Divider For Small Devices -->
-                  <div class="w-10 d-xs-block d-sm-block d-md-none">
-                     <br>
-                     <hr><br>
-                  </div>
-                  <div class="col-md-4 col-sm-12 offset-md-2">
+                 <div class="col-md-4 col-sm-12 offset-md-2 a2hs-wrapper">
+                     <button ng-click="a2hs()" class="btn btn-success">
+                        <strong><i class="fa fa-home pd5" aria-hidden="true"></i>Add to Home Screen</strong>
+                     </button>
                      <p> One cannot think well, love well, sleep well, if one has not dined well.<br />
                         So,Take a taste. Come join us. Life is so endlessly delicious. </p>
                      <button class="btn btn-block btn-fb animation">
