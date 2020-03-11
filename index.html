@@ -2,3200 +2,3037 @@
 <html lang="en" ng-app="myApp">
 
 <head>
-	<title>HangingCage | RestoCafe</title>
-	<meta charset="utf-8">
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-	<meta http-equiv="Pragma" content="no-cache" />
-	<meta http-equiv="Expires" content="0" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
-	<link rel="icon" href="images/logo.png" type="image/x-icon">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-	<!-- Google Web Fonts -->
-	<link
-		href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic"
-		rel="stylesheet" type="text/css">
-	<!-- FontAwesome CDN  -->
-	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<!--   <link href="http://hangingcage.com/WebContent/css/style.css" rel="stylesheet"> -->
-	<style>
-		body {
-			font: 14px/24px 'Lato', Arial, Helvetica, sans-serif;
-			color: #303030;
-			background: #fff;
-			overflow-x: hidden;
-		}
-
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 {
-			font-family: 'Lato', sans-serif;
-		}
-
-		h1 {
-			font-size: 60px;
-		}
-
-		h2 {
-			font-size: 48px;
-		}
-
-		h3 {
-			font-size: 36px;
-		}
-
-		h4 {
-			font-size: 30px;
-		}
-
-		h5 {
-			font-size: 24px;
-		}
-
-		h6 {
-			font-size: 18px;
-		}
-
-		.btn-linkedin,
-		.btn-linkedin:hover,
-		.btn-linkedin:focus,
-		.btn-linkedin:active,
-		.btn-linkedin.active,
-		.btn-twitter,
-		.btn-twitter:hover,
-		.btn-twitter:focus,
-		.btn-twitter:active,
-		.btn-twitter.active,
-		.btn-fb,
-		.btn-fb:hover,
-		.btn-fb:focus,
-		.btn-fb:active,
-		.btn-fb.active,
-		.btn-main:hover,
-		.btn-main:focus,
-		.btn-main:active,
-		.btn-main.active,
-		.btn-prime,
-		.btn-prime:hover,
-		.btn-prime:focus,
-		.btn-prime:active,
-		.btn-prime.active,
-		.btn-tertiary,
-		.btn-tertiary:hover,
-		.btn-tertiary:focus,
-		.btn-tertiary:active,
-		.btn-tertiary.active,
-		.btn-black,
-		.btn-black:hover,
-		.btn-black:focus,
-		.btn-black:active,
-		.btn-black.active {
-			color: #fff;
-		}
-
-		.btn-linkedin {
-			background-color: #006dc0;
-		}
-
-		.btn-linkedin:hover,
-		.btn-linkedin:focus,
-		.btn-linkedin:active,
-		.btn-linkedin.active {
-			background-color: #0a548c;
-		}
-
-		.btn-twitter {
-			background-color: #29c5f6;
-		}
-
-		.btn-twitter:hover,
-		.btn-twitter:focus,
-		.btn-twitter:active,
-		.btn-twitter.active {
-			background-color: #23a1c9;
-		}
-
-		.btn-fb {
-			background-color: #3b5998;
-		}
-
-		.btn-fb:hover,
-		.btn-fb:focus,
-		.btn-fb:active,
-		.btn-fb.active {
-			background-color: #2f4778;
-		}
-
-		.btn-linkedin,
-		.btn-twitter,
-		.btn-fb {
-			border: none;
-		}
-
-		.btn-main {
-			color: #222;
-			background-color: #fff;
-			border: 1px solid #cf3d27;
-		}
-
-		.btn-main:hover,
-		.btn-main:focus,
-		.btn-main:active,
-		.btn-main.active {
-			background-color: #cf3d27;
-		}
-
-		.btn-prime {
-			background-color: #cf3d27;
-		}
-
-		.btn-prime:hover,
-		.btn-prime:focus,
-		.btn-prime:active,
-		.btn-prime.active {
-			background-color: #b4321e;
-		}
-
-		.btn-tertiary {
-			background-color: #ffc000;
-		}
-
-		.btn-tertiary:hover,
-		.btn-tertiary:focus,
-		.btn-tertiary:active,
-		.btn-tertiary.active {
-			background-color: #333;
-		}
-
-		.btn-black {
-			background-color: #2e2e2e;
-		}
-
-		.btn-black:hover,
-		.btn-black:focus,
-		.btn-black:active,
-		.btn-black.active {
-			background-color: #000;
-		}
-
-		.btn-light {
-			background-color: #fff;
-		}
-
-		.btn-light,
-		.btn-light:hover,
-		.btn-light:active,
-		.btn-light.active {
-			color: #141414;
-		}
-
-		.btn-light:hover,
-		.btn-light:active,
-		.btn-light.active {
-			background-color: #f4f4f4;
-		}
-
-		.btn-circle,
-		.btn-circle:hover,
-		.btn-circle:focus,
-		.btn-circle:active,
-		.btn-circle.active {
-			width: 120px;
-			height: 60px;
-			line-height: 60px;
-			background-color: #fff;
-		}
-
-		/* Header Styles Starts */
-
-		.main-header {
-			padding-top: 15px;
-			padding-bottom: 20px;
-			background-color: #cf3d27;
-		}
-
-		.logo {
-			margin-top: 19px;
-			transition: all .85s ease-in-out;
-			animation: move 2.5s ease-in-out infinite;
-			-webkit-animation: move 2.5s ease-in-out infinite;
-			-moz-animation: move 2.5s ease-in-out infinite;
-			-o-animation: move 2.5s ease-in-out infinite;
-			height: 60px;
-			margin-right: 20px;
-			border-radius: 50%;
-			border: 1px solid orangered;
-		}
-
-		.logo:hover {
-			transform: rotate(690deg);
-		}
-
-		@keyframes move {
-
-			0%,
-			100% {
-				transform: rotate(20deg);
-			}
-
-			50% {
-				transform: rotate(-20deg);
-			}
-		}
-
-		@-webkit-keyframes move {
-
-			0%,
-			100% {
-				transform: rotate(20deg);
-			}
-
-			50% {
-				transform: rotate(-20deg);
-			}
-		}
-
-		@-moz-keyframes move {
-
-			0%,
-			100% {
-				transform: rotate(20deg);
-			}
-
-			50% {
-				transform: rotate(-20deg);
-			}
-		}
-
-		@-o-keyframes move {
-
-			0%,
-			100% {
-				transform: rotate(20deg);
-			}
-
-			50% {
-				transform: rotate(-20deg);
-			}
-		}
-
-		/* Top Links Styles Starts */
-
-		.top-links {
-			margin-bottom: 20px;
-		}
-
-		.top-links li+li {
-			padding-left: 15px;
-		}
-
-		.top-links li a {
-			color: #fff;
-		}
-
-		/* Order Info Styles Starts */
-
-		.order-info {
-			margin-bottom: 0;
-		}
-
-		.order-info li {
-			color: #fff;
-		}
-
-		.order-info li.lead {
-			margin-bottom: 0;
-			font-size: 24px;
-			font-weight: bold;
-		}
-
-		.order-info li.lead .fa {
-			margin-right: 10px;
-			font-size: 22px;
-		}
-
-		.order-info li.lead,
-		.order-info li.lead .fa {
-			vertical-align: middle;
-		}
-
-		.order-info li .btn-light {
-			padding: 5px 20px;
-		}
-
-		/* Main Menu Styles Starts */
-
-		.main-menu {
-			margin-bottom: 0;
-			padding: 0;
-			background-color: #ba3622;
-			border: solid #ea4d35;
-			border-width: 1px 0 0 0;
-		}
-
-		.main-menu .navbar-collapse {
-			padding-left: 0;
-			padding-right: 0;
-		}
-
-		.main-menu .navbar-nav>.nav-item>a {
-			padding: 15px 18px;
-			color: #fff;
-		}
-
-		.main-menu .navbar-nav>.nav-item:hover>a,
-		.main-menu .navbar-nav>.nav-item>a:hover,
-		.main-menu .navbar-nav>.nav-item>a:focus,
-		.main-menu .navbar-nav>.nav-item.active>a {
-			background-color: #ea4d35;
-		}
-
-		.main-menu .navbar-nav>.nav-item>a .fa {
-			margin-left: 8px;
-			font-size: 18px;
-		}
-
-		.main-menu .dropdown-menu {
-			margin-top: 0;
-			background-color: #ea4d35;
-			border: none;
-		}
-
-		.main-menu .dropdown-menu>a.dropdown-item {
-			padding: 7px 16px;
-			color: #fff;
-			font-size: 13px;
-			font-weight: bold;
-			line-height: normal;
-		}
-
-		.main-menu .dropdown-menu>a.dropdown-item .fa {
-			margin-right: 5px;
-			font-size: 16px;
-		}
-
-		.main-menu .dropdown-menu>a.dropdown-item:hover,
-		.main-menu .dropdown-menu>a.dropdown-item:focus,
-		.main-menu .dropdown-menu>a.dropdown-item.active {
-			background-color: #ca402b;
-		}
-
-		/* Search Section Styles Starts */
-
-
-		/* Breadcrumb Styles Starts */
-
-		/* Main Container Styles Starts */
-
-		.main-container {
-			padding-top: 50px;
-			padding-bottom: 50px;
-		}
-
-		/* Main Banner Section Styles Starts */
-
-		.main-banner {
-			padding-top: 100px;
-			padding-bottom: 100px;
-			color: #fff;
-		}
-
-		.main-banner.one {
-			background-image: url(../images/main-banner-img1.jpg);
-		}
-
-		.main-banner.two {
-			background-image: url(../images/main-banner-img2.jpg);
-		}
-
-		.main-banner.three {
-			padding-top: 30%;
-			padding-bottom: 60px;
-			background-image: url(../images/main-banner-img3.jpg);
-		}
-
-		.main-banner.three.flip {
-			background-image: url(../images/food-wallpaper.png);
-		}
-
-		.main-banner h1 {
-			font-weight: bold;
-		}
-
-		.main-banner ul {
-			margin-top: 15px;
-			margin-bottom: 15px;
-		}
-
-		.main-banner li {
-			padding-top: 15px;
-			font-size: 18px;
-		}
-
-		.banner-area {
-			margin-top: 30px;
-			margin-bottom: 30px;
-		}
-
-		/* Section Styles Starts */
-
-		.section {
-			padding-top: 70px;
-			padding-bottom: 70px;
-		}
-
-		/* Intro Section Styles Starts */
-
-		.intro-section {
-			padding-top: 40px;
-			padding-bottom: 20px;
-			background-color: #eee;
-		}
-
-		.intro-section .fa {
-			width: 90px;
-			height: 90px;
-			line-height: 90px;
-			font-size: 48px;
-			background-color: #fff;
-			border: 1px solid #303030;
-		}
-
-		.intro-section h6 {
-			margin-top: 20px;
-			margin-bottom: 20px;
-		}
-
-		/* Welcome Section Styles Starts */
-
-
-		/* Team Section Styles Starts */
-
-		/* Login Page Styles Starts */
-
-		.content-login-wrap {
-			margin-bottom: 50px;
-			padding: 45px;
-			background-color: #fff;
-			border: 8px solid #eee;
-		}
-
-		.content-login-wrap h4 {
-			margin-top: 0;
-			margin-bottom: 30px;
-		}
-
-		.content-login-wrap .form-control {
-			padding: 10px 20px;
-			height: 42px;
-			color: #222;
-			font-size: 16px;
-			background-color: #f2f2f2;
-			border: 1px solid #ccc;
-		}
-
-		.content-login-wrap .checkbox input[type=checkbox] {
-			margin-top: 6px;
-		}
-
-		.content-login-wrap .btn-prime,
-		.content-login-wrap .btn-tertiary {
-			margin-top: 15px;
-			margin-bottom: 20px;
-			padding: 9px 18px;
-			position: relative;
-			font-size: 24px;
-			font-weight: bold;
-		}
-
-		.content-login-wrap .btn-tertiary {
-			margin-top: 20px;
-			margin-bottom: 20px;
-			padding: 10px 20px;
-		}
-
-		.content-login-wrap .btn-prime>.fa,
-		.content-login-wrap .btn-tertiary>.fa {
-			position: absolute;
-			top: 32%;
-			right: 5%;
-		}
-
-		.content-login-wrap .btn-twitter,
-		.content-login-wrap .btn-fb,
-		.content-login-wrap .btn-prime.tiny {
-			padding: 9px 18px;
-			font-size: 16px;
-			font-weight: bold;
-			text-align: left;
-		}
-
-		.content-login-wrap .btn-prime.tiny {
-			margin-top: 5px;
-		}
-
-		.content-login-wrap .btn-twitter>.fa,
-		.content-login-wrap .btn-fb>.fa,
-		.content-login-wrap .btn-prime.tiny>.fa {
-			margin-right: 10px;
-			padding-top: 5px;
-			padding-bottom: 5px;
-			width: 30px;
-			border-right: 1px solid rgba(255, 255, 255, 0.4);
-		}
-
-		.content-login-wrap .btn-prime.tiny>.fa {
-			position: static;
-		}
-
-		.content-login-wrap .help-block {
-			color: #333;
-			font-weight: bold;
-		}
-
-		/* Contact Page Styles Starts */
-
-		.contact-form-section {
-			margin-bottom: 15px;
-		}
-
-		.contact-form-section h3 {
-			margin-bottom: 50px;
-		}
-
-		.contact-form-section .form-group {
-			margin-bottom: 20px;
-		}
-
-		.contact-form-section .form-control {
-			padding: 12px 20px;
-			font-size: 18px;
-			color: #979797;
-			border-color: #cacaca;
-		}
-
-		.contact-form-section .form-control:focus {
-			border-color: #999;
-		}
-
-		.contact-form-section input.form-control {
-			height: 46px;
-		}
-
-		.contact-form-section textarea.form-control {
-			padding: 20px 30px;
-		}
-
-		.contact-form-section .btn-prime {
-			margin-top: 15px;
-			padding: 10px 50px;
-			font-size: 18px;
-			font-weight: bold;
-		}
-
-		.contact-details {
-			padding-top: 60px;
-			padding-bottom: 60px;
-			background-color: #eee;
-			border-bottom: 1px solid #fff;
-		}
-
-		.contact-details h5 {
-			margin-bottom: 40px;
-			padding-bottom: 15px;
-			color: #4b4b4b;
-			border-bottom: 3px solid #cf3d27;
-		}
-
-		.contact-details h5,
-		.contact-details h6 {
-			font-weight: bold;
-		}
-
-		.contact-details h5,
-		.contact-right-col h6 {
-			margin-top: 0;
-		}
-
-		.contact-left-col ul {
-			margin-bottom: 55px;
-			color: #222;
-		}
-
-		.contact-left-col ul:last-of-type {
-			margin-bottom: 0;
-		}
-
-		.contact-left-col ul>li {
-			font-weight: 300;
-		}
-
-		.contact-left-col ul>li>h6 {
-			margin-top: 3px;
-			color: #1d1d1d;
-		}
-
-		.contact-right-col h6 {
-			line-height: 26px;
-		}
-
-		.contact-right-col ul>li+li {
-			margin-top: 15px;
-		}
-
-		.contact-right-col ul>li,
-		.contact-right-col ul>li a {
-			color: #222;
-			font-weight: 300;
-		}
-
-		.contact-right-col .fa,
-		.contact-right-col ul>li a:hover,
-		.contact-right-col ul>li a:focus {
-			color: #cf3d27;
-		}
-
-		.contact-right-col ul>li>.col-xs-2 {
-			width: 12%;
-		}
-
-		.contact-right-col ul>li>.col-xs-10 {
-			width: 88%;
-		}
-
-		.contact-right-col ul>li:first-of-type>.col-xs-10 {
-			padding-left: 5px;
-		}
-
-		.contact-right-col ul>li:first-of-type .fa {
-			margin-top: 3px;
-		}
-
-		.contact-right-col .fa {
-			font-size: 24px;
-			vertical-align: text-top;
-		}
-
-		/* Pagination Styles Starts */
-
-		.pagination {
-			margin-top: 30px;
-			margin-bottom: 30px;
-		}
-
-		.pagination>li.page-item {
-			display: inline-block;
-			margin-right: 6px;
-		}
-
-		.pagination>li.page-item:last-of-type {
-			margin-right: 0;
-		}
-
-		.pagination>li.page-item>a {
-			padding: 4px 10px;
-			font-size: 16px;
-			color: #4e4e4e;
-			background-color: #fff;
-			border-color: #d1d1d1;
-		}
-
-		.pagination>li.page-item>a:focus,
-		.pagination>li.page-item>a:hover {
-			color: #323232;
-			background-color: #eee;
-			border-color: #d2d2d2;
-		}
-
-		.pagination>li.page-item.active>a,
-		.pagination>li.page-item.active>a:focus,
-		.pagination>li.page-item.active>a:hover {
-			color: #fff;
-			background-color: #cf3d27;
-			border-color: #a62d1b;
-		}
-
-		/* Download App Section Styles Starts */
-
-		.dowload-app .content {
-			padding-right: 40px;
-			padding-left: 30px;
-		}
-
-		.dowload-app h3 {
-			margin-top: 20px;
-			margin-bottom: 20px;
-			color: #cf3d27;
-		}
-
-		.dowload-app h5 {
-			margin-bottom: 30px;
-			color: #282828;
-		}
-
-		.dowload-app li+li {
-			margin-left: 15px;
-		}
-
-		/* Footer Top Styles Starts */
-
-		.footer-top {
-			padding-top: 50px;
-			padding-bottom: 50px;
-			color: #fff;
-			background-color: #282828;
-		}
-
-		.footer-top h3 {
-			margin-top: 0;
-			margin-bottom: 20px;
-		}
-
-		.footer-top ul {
-			margin-bottom: 20px;
-		}
-
-		.footer-top li {
-			font-size: 18px;
-		}
-
-		.footer-top li:last-of-type {
-			margin-left: 20px;
-		}
-
-		.footer-top li .fa {
-			margin-right: 10px;
-			color: #cf3d27;
-		}
-
-		.newsletter-form {
-			margin-top: 40px;
-		}
-
-		.newsletter-form .form-control {
-			padding: 12px 24px;
-			height: 46px;
-			color: #979797;
-			background-color: #fff;
-			border: none;
-		}
-
-		.newsletter-form .form-control,
-		.newsletter-form .btn-prime {
-			font-size: 18px;
-		}
-
-		.newsletter-form .btn-prime {
-			padding-top: 9px;
-			padding-bottom: 9px;
-		}
-
-		.newsletter-form h6 {
-			margin-top: 35px;
-			margin-bottom: 0;
-			font-size: 17px;
-		}
-
-		.newsletter-form h6 span {
-			margin-left: 6px;
-		}
-
-		/* Footer Area Styles Starts */
-
-		.main-footer {
-			padding-top: 55px;
-			background-color: #181818;
-		}
-
-		.main-footer,
-		.main-footer a {
-			color: #fff;
-		}
-
-		.page-links {
-			margin-top: 14px;
-			margin-bottom: 0;
-		}
-
-		.page-links li {
-			padding-left: 5px;
-			padding-right: 5px;
-		}
-
-		.sm-links {
-			margin-top: 10px;
-			margin-bottom: 0;
-		}
-
-		.sm-links li a.btn-prime {
-			padding: 5px 10px;
-		}
-
-		.foot-address {
-			padding-top: 35px;
-			padding-bottom: 35px;
-		}
-
-		.page-links li,
-		.sm-links li .fa,
-		.foot-address li {
-			font-size: 18px;
-		}
-
-		.foot-address li:last-of-type {
-			padding-top: 4px;
-		}
-
-		.footer-links-section {
-			padding-top: 30px;
-			padding-bottom: 30px;
-			border: dashed #474747;
-			border-width: 1px 0;
-		}
-
-		.footer-links-section h5 {
-			margin-bottom: 20px;
-		}
-
-		.footer-links-section li {
-			padding-top: 3px;
-		}
-
-		.copyright {
-			padding-top: 30px;
-			padding-bottom: 20px;
-		}
-
-		/* Modal Window Styles Starts */
-
-		#registerModal .modal-content {
-			border: 8px solid #eee;
-		}
-
-		#registerModal .modal-header {
-			position: relative;
-			border: none;
-		}
-
-		#registerModal .modal-header .modal-title {
-			margin-top: 10px;
-			width: 100%;
-			display: block;
-		}
-
-		#registerModal .modal-header .close {
-			position: absolute;
-			right: 20px;
-		}
-
-		#registerModal .modal-body {
-			padding-left: 60px;
-			padding-right: 60px;
-			padding-bottom: 40px;
-		}
-
-		#registerModal .modal-body .form-control {
-			padding: 10px 20px;
-			min-height: 42px;
-			color: #222;
-			font-size: 16px;
-			background-color: #f2f2f2;
-			border: 1px solid #ccc;
-		}
-
-		#registerModal .modal-body .help-block {
-			color: #333;
-		}
-
-		#registerModal .modal-body .btn-tertiary {
-			padding: 10px 20px;
-			position: relative;
-			font-size: 20px;
-			font-weight: bold;
-		}
-
-		#registerModal .modal-body .btn-tertiary>.fa {
-			position: absolute;
-			top: 32%;
-			right: 5%;
-		}
-
-		#change-location .modal-header {
-			padding: 100px 25px 25px;
-			position: relative;
-			background: url(../images/modal-img1.jpg) no-repeat left top;
-			border: none;
-		}
-
-		#change-location .modal-header .close {
-			margin-top: -90px;
-			position: absolute;
-			right: 20px;
-			opacity: 1;
-		}
-
-		#change-location .modal-header,
-		#change-location .modal-header .close {
-			color: #fff;
-		}
-
-		#change-location .modal-body ul {
-			margin-top: 15px;
-		}
-
-		#change-location .modal-body ul li {
-			padding: 5px;
-			font-size: 18px;
-		}
-
-		#change-location .modal-body ul li a {
-			color: #333;
-		}
-
-		/* List Styles Starts */
-
-		.list-style-1 {
-			margin-top: 15px;
-		}
-
-		.list-style-1 li {
-			padding-top: 10px;
-		}
-
-		.list-style-2 {
-			margin-bottom: 20px;
-		}
-
-		.list-style-2 li {
-			margin-top: 6px;
-			font-size: 16px;
-			color: #646464;
-		}
-
-		.list-style-2 li:before {
-			content: "\f00c";
-			margin-right: 10px;
-			font-size: 15px;
-			color: #8a8a8a;
-		}
-
-		.list-style-3 {
-			list-style-type: lower-alpha;
-		}
-
-		.list-style-3 li {
-			margin-bottom: 10px;
-			padding-left: 6px;
-		}
-
-		.list-style-4 {
-			list-style-type: decimal;
-		}
-
-		.list-style-4 li {
-			margin-bottom: 10px;
-			padding-left: 6px;
-		}
-
-		.list-banner-style-1 {
-			margin-bottom: 0;
-		}
-
-		.list-banner-style-1 li {
-			margin-bottom: 16px;
-		}
-
-		/* Generic Styles Starts */
-
-		.parallax {
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center;
-			background-attachment: fixed;
-		}
-
-		.food-menu-grid .hover-content .overlay h4 a:hover {
-			text-decoration: none;
-		}
-
-		.text-weight-thin {
-			font-weight: 100;
-		}
-
-		.text-weight-extra-light {
-			font-weight: 200;
-		}
-
-		.text-weight-light {
-			font-weight: 300;
-		}
-
-		.text-weight-normal {
-			font-weight: 400;
-		}
-
-		.text-weight-medium {
-			font-weight: 500;
-		}
-
-		.text-weight-bold {
-			font-weight: 700;
-		}
-
-		.text-weight-ultra-bold {
-			font-weight: 900;
-		}
-
-		.text-spl-color {
-			color: #cf3d27;
-		}
-
-		.text-muted {
-			color: #787878;
-		}
-
-		.img-center {
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.clause-style-1 {
-			padding-left: 50px;
-			color: #000;
-			font-weight: bold;
-		}
-
-		.spacer {
-			height: 5px;
-		}
-
-		.spacer.big {
-			height: 10px;
-		}
-
-		.spacer-1 {
-			height: 60px;
-		}
-
-		.spacer-1.medium {
-			height: 40px;
-		}
-
-		.spacer-1.condensed {
-			height: 30px;
-		}
-
-		.about-join-team-section .form-control,
-		.about-join-team-section .btn,
-		.nav-menu-tabs>li>a,
-		.pagination,
-		.pagination>li.page-item:first-child>a.page-link,
-		.pagination>li.page-item:last-child>a.page-link {
-			-webkit-border-radius: 0;
-			-moz-border-radius: 0;
-			border-radius: 0;
-		}
-
-		.hotels-list-grid .grid-box .delivery-time,
-		.circle {
-			-webkit-border-radius: 100%;
-			-moz-border-radius: 100%;
-			border-radius: 100%;
-		}
-
-		.btn-circle {
-			-webkit-border-radius: 120px 120px 0 0;
-			-moz-border-radius: 120px 120px 0 0;
-			border-radius: 120px 120px 0 0;
-		}
-
-		.top-search .search-panel .btn {
-			-webkit-border-radius: 3px 0 0 3px;
-			-moz-border-radius: 3px 0 0 3px;
-			border-radius: 3px 0 0 3px;
-		}
-
-		.top-search .btn-prime {
-			-webkit-border-radius: 0 3px 3px 0;
-			-moz-border-radius: 0 3px 3px 0;
-			border-radius: 0 3px 3px 0;
-		}
-
-		.btn-prime,
-		.reviews-form-box .form-control,
-		.newsletter-form .form-control {
-			-webkit-border-radius: 2px;
-			-moz-border-radius: 2px;
-			border-radius: 2px;
-		}
-
-		.border-radius-4,
-		.hotels-list-grid .grid-box,
-		.reviews-form-box,
-		.content-login-wrap,
-		.content-login-wrap .btn-prime.tiny {
-			-webkit-border-radius: 4px;
-			-moz-border-radius: 4px;
-			border-radius: 4px;
-		}
-
-		.hotels-list .right-col .btn-prime,
-		.hotels-list-grid .grid-box-info .btn-prime,
-		.food-menu-grid .hover-content,
-		.offer-col {
-			-webkit-border-radius: 5px;
-			-moz-border-radius: 5px;
-			border-radius: 5px;
-		}
-
-		.main-heading-1 .btn-main,
-		.hotels-list-grid .grid-box-ratings li a.badge {
-			-webkit-border-radius: 25px;
-			-moz-border-radius: 25px;
-			border-radius: 25px;
-		}
-
-		.offer-col .img-fluid {
-			-webkit-border-radius: 5px 5px 0 0;
-			-moz-border-radius: 5px 5px 0 0;
-			border-radius: 5px 5px 0 0;
-		}
-
-		#change-location .modal-header {
-			-webkit-border-radius: 6px 6px 0 0;
-			-moz-border-radius: 6px 6px 0 0;
-			border-radius: 6px 6px 0 0;
-		}
-
-		.no-boxshadow,
-		.top-search .search-panel .btn,
-		.top-search .search-panel .btn:focus,
-		.top-search .form-control:hover,
-		.top-search .form-control:focus,
-		.about-join-team-section .form-control:hover,
-		.about-join-team-section .form-control:focus,
-		.reviews-form-box .form-control:hover,
-		.reviews-form-box .form-control:focus,
-		.reachus-form .form-control:hover,
-		.reachus-form .form-control:focus,
-		.content-login-wrap .form-control:hover,
-		.content-login-wrap .form-control:focus,
-		.contact-form-section .form-control:hover,
-		.contact-form-section .form-control:focus,
-		#registerModal .modal-body .form-control:hover,
-		#registerModal .modal-body .form-control:focus,
-		.btn:hover,
-		.btn:focus,
-		.sidearea-filter .form-control {
-			-webkit-box-shadow: none;
-			-moz-box-shadow: none;
-			box-shadow: none;
-		}
-
-		.top-search .search-panel .dropdown-menu {
-			-webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, .175);
-			-moz-box-shadow: 3px 3px 6px rgba(0, 0, 0, .175);
-			box-shadow: 3px 3px 6px rgba(0, 0, 0, .175);
-		}
-
-		.hotels-list-grid .grid-box .delivery-time {
-			-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-			-moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-			box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
-		}
-
-		.main-menu,
-			{
-			-webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-			-moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-			box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-		}
-
-		.main-menu .dropdown-menu,
-			{
-			-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-			-moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-			box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-		}
-
-		.btn-circle {
-			-webkit-box-shadow: 0 -3px 0 3px rgba(255, 255, 255, 0.4);
-			-moz-box-shadow: 0 -3px 0 3px rgba(255, 255, 255, 0.4);
-			box-shadow: 0 -3px 0 3px rgba(255, 255, 255, 0.4);
-		}
-
-		.btn-circle:hover {
-			-webkit-box-shadow: 0 -4px 0 4px rgba(255, 255, 255, 0.6);
-			-moz-box-shadow: 0 -4px 0 4px rgba(255, 255, 255, 0.6);
-			box-shadow: 0 -4px 0 4px rgba(255, 255, 255, 0.6);
-		}
-
-		.breadcrumb li+li::before,
-		.hotels-list .right-col .sub-title .fa:after,
-		.list-style-2 li::before {
-			font-family: 'FontAwesome';
-			src: url('../font-awesome/fonts/fontawesome-webfont.eot?v=4.4.0');
-			src: url('../font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../font-awesome/fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../font-awesome/fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../font-awesome/fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../font-awesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
-		}
-
-		.animation,
-		.animation a {
-			-webkit-transition: all 0.5s ease 0s;
-			-moz-transition: all 0.5s ease 0s;
-			transition: all 0.5s ease 0s;
-		}
-
-		.animation-1,
-		.animation-1 a {
-			-webkit-transition: all 1s ease;
-			-moz-transition: all 1s ease;
-			transition: all 1s ease;
-		}
-
-		.card {
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-			transition: 0.3s;
-			width: 50%;
-			text-align: center !important;
-		}
-
-		.card img {
-			width: 90%;
-			height: 60%;
-			margin: auto;
-		}
-
-		.card:hover {
-			box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-		}
-
-		.container {
-			padding: 2px 16px;
-		}
-
-		.loader-wrapper {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			height: 100%;
-			background: antiquewhite;
-		}
-
-		.loader-wrapper .loader {
-			border: 5px solid #f3f3f3;
-			border-radius: 50%;
-			border-top: 5px solid red;
-			width: 30px;
-			height: 30px;
-			-webkit-animation: spin 1s linear infinite;
-			/* Safari */
-			animation: spin 1s linear infinite;
-		}
-
-		/* Safari */
-		@-webkit-keyframes spin {
-			0% {
-				-webkit-transform: rotate(0deg);
-			}
-
-			100% {
-				-webkit-transform: rotate(360deg);
-			}
-		}
-
-		@-moz-keyframes spin {
-			0% {
-				-webkit-transform: rotate(0deg);
-			}
-
-			100% {
-				-webkit-transform: rotate(360deg);
-			}
-		}
-
-		@-o-keyframes spin {
-			0% {
-				-webkit-transform: rotate(0deg);
-			}
-
-			100% {
-				-webkit-transform: rotate(360deg);
-			}
-		}
-
-		@keyframes spin {
-			0% {
-				transform: rotate(0deg);
-			}
-
-			100% {
-				transform: rotate(360deg);
-			}
-		}
-	</style>
-	<!--   <link href="http://hangingcage.com/WebContent/css/responsive.css" rel="stylesheet"> -->
-	<style>
-		:root {
-			--main-bg-color: #cf3d27;
-			--border: #ea4d35;
-			--fg-white: #FFF;
-		}
-
-		a {
-			color: var(--fg-white) !important;
-		}
-
-		/*Overrides*/
-		.navbar-toggle {
-			margin-right: 0;
-		}
-
-		.navbar-brand {
-			padding-right: 0;
-			padding-left: 2px;
-		}
-
-		@media screen and (min-width:768px) {
-			.container-fluid {
-				display: flex;
-			}
-		}
-
-		@media screen and (max-width: 1200px) {
-			.container-fluid .navbar-header {
-				flex: 0 0 50%;
-			}
-		}
-
-		@media screen and (min-width: 1200px) {
-			.container-fluid .navbar-header {
-				flex: 0.5;
-			}
-		}
-
-		/*Overrides End*/
-
-		/* Theme Start */
-		.navbar-inverse {
-			background-color: var(--main-bg-color) !important;
-			padding: 0;
-			border: solid var(--border) !important;
-			border-width: 1px 0 0 0;
-		}
-
-		#nav {
-			background-color: var(--main-bg-color) !important;
-			padding: 0;
-			border: solid var(--border) !important;
-			border-width: 1px 0 0 0;
-		}
-
-		.navbar-inverse .navbar-collapse,
-		.navbar-inverse .navbar-form {
-			border: none;
-		}
-
-		#nav .navbar-toggle,
-		#nav .navbar-toggle:hover,
-		#nav .navbar-toggle:focus,
-		#nav .navbar-toggle:active {
-			border-color: var(--border);
-		}
-
-		#nav .navbar-toggle:focus,
-		#nav .navbar-toggle:active,
-		#nav .navbar-toggle:active,
-		.navbar-inverse .navbar-nav>.active>a,
-		.navbar-inverse .navbar-nav>.active>a:focus,
-		.navbar-inverse .navbar-nav>.active>a:hover {
-			background: var(--border);
-		}
-
-		/*Theme End*/
-
-		/* Logo */
-		.navbar-header .logo {
-			margin: 0;
-			height: 45px;
-			border-radius: 50%;
-			border: 1px solid var(--border);
-			transition: all .85s ease-in-out;
-			animation: move 2.5s ease-in-out infinite;
-			-webkit-animation: move 2.5s ease-in-out infinite;
-			-moz-animation: move 2.5s ease-in-out infinite;
-			-o-animation: move 2.5s ease-in-out infinite;
-		}
-
-		@keyframes identifier {
-
-			0%,
-			100% {
-				transform: rotate(20deg);
-			}
-
-			50% {
-				transform: rotate(-20deg);
-			}
-		}
-
-		@-webkit-keyframes move {
-
-			0%,
-			100% {
-				transform: rotate(20deg);
-			}
-
-			50% {
-				transform: rotate(-20deg);
-			}
-		}
-
-		@-moz-keyframes move {
-
-			0%,
-			100% {
-				transform: rotate(20deg);
-			}
-
-			50% {
-				transform: rotate(-20deg);
-			}
-		}
-
-		@-o-keyframes move {
-
-			0%,
-			100% {
-				transform: rotate(20deg);
-			}
-
-			50% {
-				transform: rotate(-20deg);
-			}
-		}
-
-		/* Logo End */
-
-		/*Aligment Styles*/
-		.items-spaced-center {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-		}
-
-		.display-content-center {
-			display: flex;
-			justify-content: center;
-		}
-
-		/**Alignment Styles End**/
-
-		/*** Paddings ***/
-		.pd5 {
-			padding: 5px;
-		}
-
-		/** Paddings End **/
-
-		/** Tabs **/
-		.tab-content {
-			position: relative;
-			top: 60px;
-		}
-
-		/** Tabs End **/
-
-		/**Food**/
-		#food .flex-wrap {
-			display: flex;
-			flex-wrap: wrap;
-			width: 90%;
-		}
-
-		#food .flex-wrap .card {
-			position: relative;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-			flex-direction: column;
-			min-width: 0;
-			word-wrap: break-word;
-			background-color: #fff;
-			background-clip: border-box;
-			border: 1px solid rgba(0, 0, 0, .125);
-			border-radius: .25rem;
-		}
-
-		/** Media Queries **/
-		@media screen and (max-width: 991px) {
-			.content-login-wrap {
-				padding: 36px 0;
-			}
-		}
-
-		/** End **/
-		.container-fluid {
-			font-weight: 600;
-			font-size: large;
-		}
-
-		#food,
-		#about,
-		#contact {
-			display: none;
-		}
-
-		/** Responsive.css **/
-		/* Extra small devices - xs (portrait phones, less than 576px) */
-		@media (max-width: 575px) {
-
-			/* Main Menu Styles Starts */
-
-			.main-menu .navbar-collapse {
-				padding: 10px 0;
-				-webkit-box-shadow: inset 0 1px 0 #ea4d35;
-				-moz-box-shadow: inset 0 1px 0 #ea4d35;
-				box-shadow: inset 0 1px 0 #ea4d35;
-			}
-
-			.main-menu .navbar-toggler {
-				margin: 6px 10px;
-				padding: 4px 4px 8px;
-				color: #fff;
-			}
-
-			.main-menu .navbar-toggler:hover,
-			.main-menu .navbar-toggler:focus {
-				background-color: #ea4d35;
-				outline: none;
-			}
-
-			.main-menu .navbar-toggler span {
-				height: auto;
-			}
-
-			.main-menu .navbar-nav>.nav-item>a {
-				padding: 5px 10px;
-			}
-
-			/* Main Banner Section Styles Starts */
-
-			.main-banner {
-				padding-top: 50px;
-				padding-bottom: 50px;
-			}
-
-			.main-banner h1 {
-				font-size: 48px;
-			}
-
-			/* Main Container Styles Starts */
-
-			.main-container h1 {
-				font-size: 50px;
-			}
-
-			/* Welcome Section Styles Starts */
-
-			.welcome-box {
-				padding: 0 15px 15px;
-				margin-bottom: 20px;
-			}
-
-			.welcome-box h1 {
-				margin-bottom: 15px;
-				font-size: 40px;
-			}
-
-			/* Side Block Styles Starts */
-
-			.side-block-order .dl-horizontal dt {
-				width: auto;
-				clear: left;
-				float: left;
-			}
-
-			.side-block-order .dl-horizontal dd {
-				margin-left: 0;
-			}
-
-			/* Food Menu Grid Styles Starts */
-
-			.food-menu-grid .hover-content .overlay h4 {
-				font-size: 26px;
-			}
-
-			/* Login Page Styles Starts */
-
-			.content-login-wrap .btn-prime,
-			.content-login-wrap .btn-tertiary {
-				font-size: 16px;
-			}
-
-			.content-login-wrap .btn-twitter,
-			.content-login-wrap .btn-fb,
-			.content-login-wrap .btn-prime.tiny {
-				padding: 6px 12px;
-				font-size: 14px;
-			}
-
-			.content-login-wrap .btn-prime>.fa,
-			.content-login-wrap .btn-tertiary>.fa,
-			.content-login-wrap .btn-twitter>.fa,
-			.content-login-wrap .btn-fb>.fa {
-				display: none;
-			}
-
-			/* Menu Tabs Styles */
-
-			.nav-menu-tabs {
-				margin-bottom: 30px;
-				padding: 0 14px;
-			}
-
-			.nav-menu-tabs>li {
-				margin: 0 10px;
-			}
-
-			.nav-menu-tabs>li.active {
-				border: none;
-			}
-
-			.nav-menu-tabs>li>a {
-				margin: 0;
-				padding: 5px 10px;
-				font-size: 15px;
-			}
-
-			.nav-menu-tabs>li,
-			.nav-menu-tabs>li>a {
-				width: 100%;
-				float: none !important;
-				display: block !important;
-			}
-
-			.nav-tabs .nav-link.active {
-				border: none;
-			}
-
-			/* Order Menu Tab Pane Starts */
-
-			.order-menu-item .btn {
-				margin-top: 15px;
-				margin-bottom: 5px;
-				padding: 5px 12px;
-				font-size: 20px;
-			}
-
-			.order-menu-item .btn span.price-old {
-				font-size: 18px;
-			}
-
-			.order-menu-item .btn span.price-new {
-				font-size: 20px;
-			}
-
-			.order-menu-item .btn .fa {
-				margin-left: 5px;
-				font-size: 18px;
-			}
-
-			/* Gallery Grid Styles Starts */
-
-			.gallery-grid .hover-content .overlay a.zoom {
-				margin-top: 10%;
-				font-size: 20px;
-			}
-
-			/* Contact Page Styles Starts */
-
-			.contact-left-col {
-				margin-bottom: 30px;
-			}
-
-			.contact-details h5 {
-				line-height: 34px;
-			}
-
-			.contact-left-col ul {
-				margin-bottom: 0;
-			}
-
-			.contact-left-col ul>li {
-				margin-bottom: 20px;
-			}
-
-			.contact-form-section .btn-prime {
-				padding: 10px 40px;
-				font-size: 16px;
-			}
-
-			/* Generic Styles Starts */
-
-			.d-xs-block {
-				display: block !important;
-			}
-
-			.d-xs-none {
-				display: none;
-			}
-
-			.img-center-xs {
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-			.text-xs-left {
-				text-align: left;
-			}
-
-			.text-xs-center {
-				text-align: center;
-			}
-
-			.text-xs-right {
-				text-align: right;
-			}
-
-		}
-
-		/* Small devices - sm (landscape phones, 576px and up) */
-		@media (min-width: 576px) and (max-width: 767px) {
-
-			/* Heading Styles Starts */
-
-			.main-heading-1 .btn-main {
-				margin-top: 15px;
-				margin-left: 0;
-			}
-
-			/* Header Styles Starts */
-
-			.logo {
-				margin-top: 15px;
-				margin-bottom: 15px;
-			}
-
-			/* Main Menu Styles Starts */
-
-			.main-menu .navbar-collapse {
-				padding: 10px 0;
-				-webkit-box-shadow: inset 0 1px 0 #ea4d35;
-				-moz-box-shadow: inset 0 1px 0 #ea4d35;
-				box-shadow: inset 0 1px 0 #ea4d35;
-			}
-
-			.main-menu .navbar-toggler {
-				margin: 6px 0;
-				padding: 4px 4px 8px;
-				color: #fff;
-			}
-
-			.main-menu .navbar-toggler:hover,
-			.main-menu .navbar-toggler:focus {
-				background-color: #ea4d35;
-				outline: none;
-			}
-
-			.main-menu .navbar-toggler span {
-				height: auto;
-			}
-
-			.main-menu .navbar-nav>.nav-item>a {
-				padding: 5px 10px;
-			}
-
-			/* Main Banner Section Styles Starts */
-
-			.main-banner {
-				padding-top: 50px;
-				padding-bottom: 50px;
-			}
-
-			.main-banner h1 {
-				font-size: 48px;
-			}
-
-			/* Search Section Styles Starts */
-
-			.search-area {
-				padding-top: 70px;
-				padding-bottom: 100px;
-			}
-
-			.top-search .input-group-md,
-			.top-search .input-group .form-control,
-			.top-search .input-group-addon,
-			.top-search .input-group-btn {
-				display: block;
-			}
-
-			.top-search .input-group-addon,
-			.top-search .input-group-btn {
-				width: auto;
-			}
-
-			.top-search .search-panel {
-				margin-bottom: 15px;
-			}
-
-			.top-search .btn-prime {
-				margin-top: 15px;
-			}
-
-			.top-search .search-panel .btn,
-			.top-search .btn-prime {
-				width: 100%;
-			}
-
-			/* Welcome Section Styles Starts */
-
-			.welcome-box {
-				padding: 5px 25px 25px;
-				margin-bottom: 30px;
-			}
-
-			.welcome-box h1 {
-				margin-bottom: 15px;
-				font-size: 50px;
-			}
-
-			.welcome-box p.spl {
-				margin-bottom: 10px;
-			}
-
-			.welcome-box .btn-prime {
-				margin-top: 10px;
-				padding: 10px 20px;
-			}
-
-			/* Food Menu Grid Styles Starts */
-
-			.food-menu-grid .hover-content .overlay h4 {
-				margin-top: 13%;
-			}
-
-			/* Menu Card Section Styles Starts */
-
-			.menu-card {
-				padding-bottom: 50px;
-			}
-
-			.menu-card .slide1,
-			.menu-card .slide2 {
-				background-image: none;
-			}
-
-			.menu-card h1 {
-				font-size: 80px;
-			}
-
-			.menu-card h1 small {
-				font-size: 42px;
-			}
-
-			.menu-card h1 sup {
-				top: -25px;
-				font-size: 42px;
-			}
-
-			.menu-card ul {
-				margin-top: 10px;
-			}
-
-			.menu-card ul:first-of-type {
-				margin-top: 20px;
-			}
-
-			/* Special Offers Section Styles Starts */
-
-			.special-offers .owl-carousel .owl-buttons {
-				margin-top: 40px;
-			}
-
-			.special-offers .owl-carousel .owl-buttons div .fa {
-				font-size: 28px;
-			}
-
-			/* Special Offers Section Styles Starts */
-
-			.special-offers .owl-carousel {
-				margin-left: 0;
-			}
-
-			.offer-col {
-				margin-left: 5px;
-				margin-right: 5px;
-			}
-
-			/* News & Event Section Styles Starts */
-
-			.news-event-teaser {
-				padding-top: 40px;
-				padding-bottom: 40px;
-			}
-
-			.news-block {
-				margin-top: 0;
-				margin-bottom: 20px;
-			}
-
-			.news-event-teaser .news-meta {
-				display: none;
-			}
-
-			.news-event-teaser h6 {
-				font-size: 20px;
-				line-height: 30px;
-			}
-
-			/* Hotel List Styles Starts */
-
-			.hotels-list .list-box {
-				padding-bottom: 25px;
-			}
-
-			.hotels-list .list-box-info {
-				margin-left: 0;
-			}
-
-			/* Hotel Grid List Styles Starts */
-
-			.hotels-list-grid .grid-box .delivery-time {
-				left: 45%;
-				right: auto;
-			}
-
-			.hotels-list-grid .grid-box .content {
-				padding-top: 30px;
-			}
-
-			.hotels-list-grid .grid-box-tags,
-			.hotels-list-grid .grid-box-info-links {
-				margin-bottom: 5px;
-			}
-
-			.hotels-list-grid .grid-box-info .btn-prime {
-				margin-top: 10px;
-				margin-bottom: 10px;
-			}
-
-			/* Download App Section Styles Starts */
-
-			.dowload-app h3 {
-				margin-top: 0;
-			}
-
-			.dowload-app li {
-				margin-bottom: 10px;
-			}
-
-			.dowload-app li+li {
-				margin-left: 0;
-			}
-
-			/* Contact Page Styles Starts */
-
-			.contact-left-col {
-				margin-bottom: 30px;
-			}
-
-			.contact-details h5 {
-				line-height: 34px;
-			}
-
-			.contact-left-col ul {
-				margin-bottom: 0;
-			}
-
-			.contact-left-col ul>li {
-				margin-bottom: 20px;
-			}
-
-			/* Menu Tabs Styles */
-
-			.nav-menu-tabs {
-				padding: 0 14px;
-			}
-
-			.nav-menu-tabs>li {
-				margin: 0 10px;
-			}
-
-			.nav-menu-tabs>li.active {
-				border: none;
-			}
-
-			.nav-menu-tabs>li>a {
-				margin-right: 0;
-			}
-
-			/* Order Menu Tab Pane Starts */
-
-			.order-menu-item .pull-left,
-			.order-menu-item .pull-right {
-				float: none !important;
-			}
-
-			.order-menu-item .btn {
-				margin-top: 10px;
-				margin-bottom: 5px;
-			}
-
-			/* Gallery Grid Styles Starts */
-
-			.gallery-grid .hover-content .overlay a.zoom {
-				margin-top: 16%;
-			}
-
-			/* Footer Top Styles Starts */
-
-			.footer-top li:last-of-type {
-				margin-left: 0;
-				margin-top: 10px;
-			}
-
-			.newsletter-form .form-control {
-				margin-bottom: 10px;
-			}
-
-			.newsletter-form .btn-prime {
-				margin-top: 10px;
-			}
-
-			/* Footer Area Styles Starts */
-
-			.page-links {
-				margin-top: 20px;
-				margin-bottom: 10px;
-			}
-
-			/* List Styles Starts */
-
-			.list-style-1 {
-				margin-top: 20px;
-				margin-bottom: 30px;
-			}
-
-			.list-style-1 li {
-				padding-top: 5px;
-			}
-
-			/* Modal Window Styles Starts */
-
-			#registerModal .modal-body {
-				padding-left: 30px;
-				padding-right: 30px;
-			}
-
-			#registerModal .modal-body .btn-tertiary {
-				font-size: 16px;
-			}
-
-			#registerModal .modal-body .btn-tertiary>.fa {
-				display: none;
-			}
-
-			/* Generic Styles Starts */
-
-			.img-center-sm {
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-			.top-search .search-panel .btn,
-			.top-search .btn-prime {
-				-webkit-border-radius: 0;
-				-moz-border-radius: 0;
-				border-radius: 0;
-			}
-
-		}
-
-		/* Medium devices - md (tablets, 768px and up) */
-		@media (min-width: 768px) and (max-width: 991px) {
-
-			/* Heading Styles Starts */
-
-			.main-heading-1 .btn-main {
-				margin-top: 15px;
-				margin-left: 0;
-			}
-
-			/* Header Styles Starts */
-
-			.logo {
-				margin-top: 21px;
-			}
-
-			/* Main Menu Styles Starts */
-
-			.main-menu .navbar-nav>.nav-item>a {
-				padding-left: 6px;
-				padding-right: 6px;
-				font-size: 13px;
-			}
-
-			.main-menu .navbar-nav>.nav-item>a .fa {
-				margin-left: 3px;
-				font-size: 15px;
-			}
-
-			.main-menu .dropdown:hover .dropdown-menu {
-				display: block;
-			}
-
-			/* Main Banner Section Styles Starts */
-
-			.main-banner {
-				padding-top: 50px;
-				padding-bottom: 50px;
-			}
-
-			/* Order Info Styles Starts */
-
-			.order-info li.lead {
-				margin-bottom: 0;
-				font-size: 20px;
-			}
-
-			.order-info li.lead .fa {
-				margin-right: 5px;
-				font-size: 18px;
-			}
-
-			/* Welcome Section Styles Starts */
-
-			.welcome-box {
-				padding: 5px 25px 25px;
-			}
-
-			.welcome-box h1 {
-				margin-bottom: 15px;
-				font-size: 50px;
-			}
-
-			.welcome-box p.spl {
-				margin-bottom: 10px;
-			}
-
-			.welcome-box .btn-prime {
-				margin-top: 10px;
-				padding: 10px 20px;
-			}
-
-			/* Menu Card Section Styles Starts */
-
-			.menu-card .slide1,
-			.menu-card .slide2 {
-				background-image: none;
-			}
-
-			.menu-card h1 {
-				font-size: 80px;
-			}
-
-			.menu-card h1 small {
-				font-size: 42px;
-			}
-
-			.menu-card h1 sup {
-				top: -25px;
-				font-size: 42px;
-			}
-
-			/* Special Offers Section Styles Starts */
-
-			.special-offers .owl-carousel .owl-prev,
-			.special-offers .owl-carousel .owl-next {
-				position: absolute;
-				top: 45%;
-			}
-
-			.special-offers .owl-carousel .owl-prev {
-				left: -30px;
-			}
-
-			.special-offers .owl-carousel .owl-next {
-				right: -30px;
-			}
-
-			.special-offers .owl-carousel .owl-buttons div .fa {
-				font-size: 28px;
-			}
-
-			/* News & Event Section Styles Starts */
-
-			.news-event-teaser {
-				padding-top: 40px;
-				padding-bottom: 40px;
-			}
-
-			.news-block {
-				margin-top: 0;
-				margin-bottom: 40px;
-			}
-
-			.news-event-teaser .news-meta {
-				width: 25%;
-				float: left;
-				position: relative;
-			}
-
-			.news-event-teaser .news-meta:after {
-				content: "";
-				position: absolute;
-				top: 13px;
-				right: 0;
-				width: 2px;
-				height: 90%;
-				background-color: #cf3d27;
-				transform: rotate(20deg);
-			}
-
-			.news-event-teaser h6 {
-				margin-top: 10px;
-				width: 68%;
-				float: right;
-				font-size: 20px;
-				line-height: 26px;
-			}
-
-			/* Hotel List Styles Starts */
-
-			.hotels-list .list-box {
-				padding-bottom: 25px;
-			}
-
-			.hotels-list .list-box-info {
-				margin-left: 0;
-			}
-
-			/* Hotel Grid List Styles Starts */
-
-			.hotels-list-grid .grid-box .delivery-time {
-				left: 45%;
-				right: auto;
-			}
-
-			.hotels-list-grid .grid-box .content {
-				padding-top: 30px;
-			}
-
-			.hotels-list-grid .grid-box-tags,
-			.hotels-list-grid .grid-box-info-links {
-				margin-bottom: 5px;
-			}
-
-			.hotels-list-grid .grid-box-info .btn-prime {
-				margin-top: 5px;
-				margin-bottom: 5px;
-			}
-
-			/* Download App Section Styles Starts */
-
-			.dowload-app h3 {
-				margin-top: 0;
-			}
-
-			.dowload-app ul {
-				margin-bottom: 30px;
-			}
-
-			.dowload-app li+li {
-				margin-left: 0;
-			}
-
-			/* Contact Page Styles Starts */
-
-			.contact-left-col {
-				margin-bottom: 60px;
-			}
-
-			/* Footer Top Styles Starts */
-
-			.footer-top li:last-of-type {
-				margin-left: 0;
-				margin-top: 10px;
-			}
-
-			.newsletter-form .form-control,
-			.newsletter-form .btn-prime {
-				font-size: 16px;
-			}
-
-			/* Footer Area Styles Starts */
-
-			.page-links {
-				margin-top: 30px;
-				margin-bottom: 15px;
-			}
-
-			/* List Styles Starts */
-
-			.list-style-1 {
-				margin-top: 0;
-			}
-
-			.list-style-1 li {
-				padding-top: 5px;
-			}
-
-			/* Generic Styles Starts */
-
-			.img-center-md {
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-		}
-
-		/* Large devices - lg (desktops, 992px and up) */
-		@media (min-width: 992px) and (max-width: 1199px) {
-
-			/* Main Menu Styles Starts */
-
-			.main-menu .navbar-nav>.nav-item>a {
-				padding-left: 15px;
-				padding-right: 15px;
-			}
-
-			.main-menu .dropdown:hover .dropdown-menu {
-				display: block;
-			}
-
-			/* Welcome Section Styles Starts */
-
-			.welcome-box {
-				padding: 5px 25px 25px;
-			}
-
-			.welcome-box h1 {
-				margin-bottom: 15px;
-				font-size: 50px;
-			}
-
-			.welcome-box p.spl {
-				margin-bottom: 10px;
-			}
-
-			.welcome-box .btn-prime {
-				margin-top: 10px;
-				padding: 10px 20px;
-			}
-
-			/* Menu Card Section Styles Starts */
-
-			.menu-card .slide1,
-			.menu-card .slide2 {
-				background-image: none;
-			}
-
-			.menu-card h1 {
-				font-size: 140px;
-			}
-
-			.menu-card h1 small {
-				font-size: 52px;
-			}
-
-			.menu-card h1 sup {
-				top: -60px;
-				font-size: 52px;
-			}
-
-			/* Special Offers Section Styles Starts */
-
-			.special-offers .owl-carousel .owl-prev,
-			.special-offers .owl-carousel .owl-next {
-				position: absolute;
-				top: 45%;
-			}
-
-			.special-offers .owl-carousel .owl-prev {
-				left: -40px;
-			}
-
-			.special-offers .owl-carousel .owl-next {
-				right: -40px;
-			}
-
-			.special-offers .owl-carousel .owl-buttons div .fa {
-				font-size: 38px;
-			}
-
-			/* News & Event Section Styles Starts */
-
-			.news-event-teaser .news-meta {
-				width: 25%;
-				float: left;
-				position: relative;
-			}
-
-			.news-event-teaser .news-meta:after {
-				content: "";
-				position: absolute;
-				top: 13px;
-				right: 0;
-				width: 2px;
-				height: 90%;
-				background-color: #cf3d27;
-				transform: rotate(20deg);
-			}
-
-			.news-event-teaser h6 {
-				margin-top: 10px;
-				width: 68%;
-				float: right;
-				font-size: 20px;
-				line-height: 26px;
-			}
-
-			/* Side Block Styles Starts */
-
-			.side-block-order .dl-horizontal dt {
-				width: auto;
-			}
-
-			.side-block-order .dl-horizontal dd {
-				margin-left: 0;
-			}
-
-			/* Hotel Grid List Styles Starts */
-
-			.hotels-list-grid .grid-box .delivery-time {
-				left: 45%;
-				right: auto;
-			}
-
-			.hotels-list-grid .grid-box .content {
-				padding-top: 30px;
-			}
-
-			.hotels-list-grid .grid-box-tags,
-			.hotels-list-grid .grid-box-info-links {
-				margin-bottom: 5px;
-			}
-
-			.hotels-list-grid .grid-box-info .btn-prime {
-				margin-top: 5px;
-				margin-bottom: 10px;
-			}
-
-			/* Download App Section Styles Starts */
-
-			.dowload-app .content {
-				padding-right: 30px;
-				padding-left: 20px;
-			}
-
-			.dowload-app h3 {
-				margin-top: 25px;
-				margin-bottom: 15px;
-				color: #cf3d27;
-			}
-
-			.dowload-app h5 {
-				margin-bottom: 25px;
-				color: #282828;
-			}
-
-			/* Login Page Styles Starts */
-
-			.content-login-wrap>.row {
-				background: url(../images/divider-1.png) repeat-y center;
-			}
-
-			/* Footer Top Styles Starts */
-
-			.page-links {
-				margin-top: 12px;
-			}
-
-			.page-links li {
-				padding-left: 4px;
-				padding-right: 4px;
-			}
-
-			.sm-links li a.btn-prime {
-				padding: 4px 8px;
-			}
-
-			/* Generic Styles Starts */
-
-			.img-center-lg {
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-		}
-
-		/* Extra large devices - xl (large desktops, 1200px and up) */
-		@media (min-width: 1200px) {
-
-			/* Main Menu Styles Starts */
-
-			.main-menu .dropdown:hover .dropdown-menu {
-				display: block;
-			}
-
-			/* Menu Card Section Styles Starts */
-
-			.menu-card {
-				padding-bottom: 100px;
-			}
-
-			.menu-card .owl-carousel .owl-buttons .owl-prev,
-			.menu-card .owl-carousel .owl-buttons .owl-next {
-				position: absolute;
-			}
-
-			.menu-card .owl-carousel .owl-buttons .owl-prev {
-				right: 14%;
-			}
-
-			.menu-card .owl-carousel .owl-buttons .owl-next {
-				right: 10%;
-			}
-
-			/* Special Offers Section Styles Starts */
-
-			.special-offers .owl-carousel .owl-prev,
-			.special-offers .owl-carousel .owl-next {
-				position: absolute;
-				top: 45%;
-			}
-
-			.special-offers .owl-carousel .owl-prev {
-				left: -70px;
-			}
-
-			.special-offers .owl-carousel .owl-next {
-				right: -70px;
-			}
-
-			.special-offers .owl-carousel .owl-buttons div .fa {
-				font-size: 48px;
-			}
-
-			/* News & Event Section Styles Starts */
-
-			.news-event-teaser .news-meta {
-				width: 25%;
-				float: left;
-				position: relative;
-			}
-
-			.news-event-teaser .news-meta:after {
-				content: "";
-				position: absolute;
-				top: 10px;
-				right: 15px;
-				width: 2px;
-				height: 90%;
-				background-color: #cf3d27;
-				transform: rotate(20deg);
-			}
-
-			.news-event-teaser h6 {
-				margin-top: 20px;
-				width: 73%;
-				float: right;
-				font-size: 20px;
-				line-height: 26px;
-			}
-
-			/* Download App Section Styles Starts */
-
-			.dowload-app .content {
-				padding-top: 30px;
-			}
-
-			/* Login Page Styles Starts */
-
-			.content-login-wrap>.row {
-				background: url(../images/divider-1.png) repeat-y center;
-			}
-
-		}
-
-		/* Editing Bootstrap Core CSS */
-
-		@media (min-width: 576px) {
-
-			#change-location .modal-dialog {
-				margin: 30px auto;
-				max-width: 600px;
-			}
-
-		}
-
-		@media screen (max-width: 990px) {
-			.content-login-wrap {
-				padding: 10px 0 0 0;
-			}
-		}
-
-		/** End **/
-	</style>
+   <title>HangingCage | RestoCafe</title>
+   <meta charset="utf-8">
+   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+   <meta http-equiv="Pragma" content="no-cache" />
+   <meta http-equiv="Expires" content="0" />
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
+   <link rel="icon" href="images/logo.png" type="image/x-icon">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <!-- Google Web Fonts -->
+   <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic"
+      rel="stylesheet" type="text/css">
+   <!-- FontAwesome CDN  -->
+   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <!--   <link href="http://hangingcage.com/WebContent/css/style.css" rel="stylesheet"> -->
+   <style>
+      body {
+         font: 14px/24px 'Lato', Arial, Helvetica, sans-serif;
+         color: #303030;
+         background: #fff;
+         overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+         font-family: 'Lato', sans-serif;
+      }
+
+      h1 {
+         font-size: 60px;
+      }
+
+      h2 {
+         font-size: 48px;
+      }
+
+      h3 {
+         font-size: 36px;
+      }
+
+      h4 {
+         font-size: 30px;
+      }
+
+      h5 {
+         font-size: 24px;
+      }
+
+      h6 {
+         font-size: 18px;
+      }
+
+      .btn-linkedin,
+      .btn-linkedin:hover,
+      .btn-linkedin:focus,
+      .btn-linkedin:active,
+      .btn-linkedin.active,
+      .btn-twitter,
+      .btn-twitter:hover,
+      .btn-twitter:focus,
+      .btn-twitter:active,
+      .btn-twitter.active,
+      .btn-fb,
+      .btn-fb:hover,
+      .btn-fb:focus,
+      .btn-fb:active,
+      .btn-fb.active,
+      .btn-main:hover,
+      .btn-main:focus,
+      .btn-main:active,
+      .btn-main.active,
+      .btn-prime,
+      .btn-prime:hover,
+      .btn-prime:focus,
+      .btn-prime:active,
+      .btn-prime.active,
+      .btn-tertiary,
+      .btn-tertiary:hover,
+      .btn-tertiary:focus,
+      .btn-tertiary:active,
+      .btn-tertiary.active,
+      .btn-black,
+      .btn-black:hover,
+      .btn-black:focus,
+      .btn-black:active,
+      .btn-black.active {
+         color: #fff;
+      }
+
+      .btn-linkedin {
+         background-color: #006dc0;
+      }
+
+      .btn-linkedin:hover,
+      .btn-linkedin:focus,
+      .btn-linkedin:active,
+      .btn-linkedin.active {
+         background-color: #0a548c;
+      }
+
+      .btn-twitter {
+         background-color: #29c5f6;
+      }
+
+      .btn-twitter:hover,
+      .btn-twitter:focus,
+      .btn-twitter:active,
+      .btn-twitter.active {
+         background-color: #23a1c9;
+      }
+
+      .btn-fb {
+         background-color: #3b5998;
+      }
+
+      .btn-fb:hover,
+      .btn-fb:focus,
+      .btn-fb:active,
+      .btn-fb.active {
+         background-color: #2f4778;
+      }
+
+      .btn-linkedin,
+      .btn-twitter,
+      .btn-fb {
+         border: none;
+      }
+
+      .btn-main {
+         color: #222;
+         background-color: #fff;
+         border: 1px solid #cf3d27;
+      }
+
+      .btn-main:hover,
+      .btn-main:focus,
+      .btn-main:active,
+      .btn-main.active {
+         background-color: #cf3d27;
+      }
+
+      .btn-prime {
+         background-color: #cf3d27;
+      }
+
+      .btn-prime:hover,
+      .btn-prime:focus,
+      .btn-prime:active,
+      .btn-prime.active {
+         background-color: #b4321e;
+      }
+
+      .btn-tertiary {
+         background-color: #ffc000;
+      }
+
+      .btn-tertiary:hover,
+      .btn-tertiary:focus,
+      .btn-tertiary:active,
+      .btn-tertiary.active {
+         background-color: #333;
+      }
+
+      .btn-black {
+         background-color: #2e2e2e;
+      }
+
+      .btn-black:hover,
+      .btn-black:focus,
+      .btn-black:active,
+      .btn-black.active {
+         background-color: #000;
+      }
+
+      .btn-light {
+         background-color: #fff;
+      }
+
+      .btn-light,
+      .btn-light:hover,
+      .btn-light:active,
+      .btn-light.active {
+         color: #141414;
+      }
+
+      .btn-light:hover,
+      .btn-light:active,
+      .btn-light.active {
+         background-color: #f4f4f4;
+      }
+
+      .btn-circle,
+      .btn-circle:hover,
+      .btn-circle:focus,
+      .btn-circle:active,
+      .btn-circle.active {
+         width: 120px;
+         height: 60px;
+         line-height: 60px;
+         background-color: #fff;
+      }
+
+      /* Header Styles Starts */
+
+      .main-header {
+         padding-top: 15px;
+         padding-bottom: 20px;
+         background-color: #cf3d27;
+      }
+
+      .logo {
+         margin-top: 19px;
+         transition: all .85s ease-in-out;
+         animation: move 2.5s ease-in-out infinite;
+         -webkit-animation: move 2.5s ease-in-out infinite;
+         -moz-animation: move 2.5s ease-in-out infinite;
+         -o-animation: move 2.5s ease-in-out infinite;
+         height: 60px;
+         margin-right: 20px;
+         border-radius: 50%;
+         border: 1px solid orangered;
+      }
+
+      .logo:hover {
+         transform: rotate(690deg);
+      }
+
+      @keyframes move {
+
+         0%,
+         100% {
+            transform: rotate(20deg);
+         }
+
+         50% {
+            transform: rotate(-20deg);
+         }
+      }
+
+      @-webkit-keyframes move {
+
+         0%,
+         100% {
+            transform: rotate(20deg);
+         }
+
+         50% {
+            transform: rotate(-20deg);
+         }
+      }
+
+      @-moz-keyframes move {
+
+         0%,
+         100% {
+            transform: rotate(20deg);
+         }
+
+         50% {
+            transform: rotate(-20deg);
+         }
+      }
+
+      @-o-keyframes move {
+
+         0%,
+         100% {
+            transform: rotate(20deg);
+         }
+
+         50% {
+            transform: rotate(-20deg);
+         }
+      }
+
+      /* Top Links Styles Starts */
+
+      .top-links {
+         margin-bottom: 20px;
+      }
+
+      .top-links li+li {
+         padding-left: 15px;
+      }
+
+      .top-links li a {
+         color: #fff;
+      }
+
+      /* Order Info Styles Starts */
+
+      .order-info {
+         margin-bottom: 0;
+      }
+
+      .order-info li {
+         color: #fff;
+      }
+
+      .order-info li.lead {
+         margin-bottom: 0;
+         font-size: 24px;
+         font-weight: bold;
+      }
+
+      .order-info li.lead .fa {
+         margin-right: 10px;
+         font-size: 22px;
+      }
+
+      .order-info li.lead,
+      .order-info li.lead .fa {
+         vertical-align: middle;
+      }
+
+      .order-info li .btn-light {
+         padding: 5px 20px;
+      }
+
+      /* Main Menu Styles Starts */
+
+      .main-menu {
+         margin-bottom: 0;
+         padding: 0;
+         background-color: #ba3622;
+         border: solid #ea4d35;
+         border-width: 1px 0 0 0;
+      }
+
+      .main-menu .navbar-collapse {
+         padding-left: 0;
+         padding-right: 0;
+      }
+
+      .main-menu .navbar-nav>.nav-item>a {
+         padding: 15px 18px;
+         color: #fff;
+      }
+
+      .main-menu .navbar-nav>.nav-item:hover>a,
+      .main-menu .navbar-nav>.nav-item>a:hover,
+      .main-menu .navbar-nav>.nav-item>a:focus,
+      .main-menu .navbar-nav>.nav-item.active>a {
+         background-color: #ea4d35;
+      }
+
+      .main-menu .navbar-nav>.nav-item>a .fa {
+         margin-left: 8px;
+         font-size: 18px;
+      }
+
+      .main-menu .dropdown-menu {
+         margin-top: 0;
+         background-color: #ea4d35;
+         border: none;
+      }
+
+      .main-menu .dropdown-menu>a.dropdown-item {
+         padding: 7px 16px;
+         color: #fff;
+         font-size: 13px;
+         font-weight: bold;
+         line-height: normal;
+      }
+
+      .main-menu .dropdown-menu>a.dropdown-item .fa {
+         margin-right: 5px;
+         font-size: 16px;
+      }
+
+      .main-menu .dropdown-menu>a.dropdown-item:hover,
+      .main-menu .dropdown-menu>a.dropdown-item:focus,
+      .main-menu .dropdown-menu>a.dropdown-item.active {
+         background-color: #ca402b;
+      }
+
+      /* Search Section Styles Starts */
+
+
+      /* Breadcrumb Styles Starts */
+
+      /* Main Container Styles Starts */
+
+      .main-container {
+         padding-top: 50px;
+         padding-bottom: 50px;
+      }
+
+      /* Main Banner Section Styles Starts */
+
+      .main-banner {
+         padding-top: 100px;
+         padding-bottom: 100px;
+         color: #fff;
+      }
+
+      .main-banner.one {
+         background-image: url(../images/main-banner-img1.jpg);
+      }
+
+      .main-banner.two {
+         background-image: url(../images/main-banner-img2.jpg);
+      }
+
+      .main-banner.three {
+         padding-top: 30%;
+         padding-bottom: 60px;
+         background-image: url(../images/main-banner-img3.jpg);
+      }
+
+      .main-banner.three.flip {
+         background-image: url(../images/food-wallpaper.png);
+      }
+
+      .main-banner h1 {
+         font-weight: bold;
+      }
+
+      .main-banner ul {
+         margin-top: 15px;
+         margin-bottom: 15px;
+      }
+
+      .main-banner li {
+         padding-top: 15px;
+         font-size: 18px;
+      }
+
+      .banner-area {
+         margin-top: 30px;
+         margin-bottom: 30px;
+      }
+
+      /* Section Styles Starts */
+
+      .section {
+         padding-top: 70px;
+         padding-bottom: 70px;
+      }
+
+      /* Intro Section Styles Starts */
+
+      .intro-section {
+         padding-top: 40px;
+         padding-bottom: 20px;
+         background-color: #eee;
+      }
+
+      .intro-section .fa {
+         width: 90px;
+         height: 90px;
+         line-height: 90px;
+         font-size: 48px;
+         background-color: #fff;
+         border: 1px solid #303030;
+      }
+
+      .intro-section h6 {
+         margin-top: 20px;
+         margin-bottom: 20px;
+      }
+
+      /* Welcome Section Styles Starts */
+
+
+      /* Team Section Styles Starts */
+
+      /* Login Page Styles Starts */
+
+      .content-login-wrap {
+         margin-bottom: 50px;
+         padding: 45px;
+         background-color: #fff;
+         border: 8px solid #eee;
+      }
+
+      .content-login-wrap h4 {
+         margin-top: 0;
+         margin-bottom: 30px;
+      }
+
+      .content-login-wrap .form-control {
+         padding: 10px 20px;
+         height: 42px;
+         color: #222;
+         font-size: 16px;
+         background-color: #f2f2f2;
+         border: 1px solid #ccc;
+      }
+
+      .content-login-wrap .checkbox input[type=checkbox] {
+         margin-top: 6px;
+      }
+
+      .content-login-wrap .btn-prime,
+      .content-login-wrap .btn-tertiary {
+         margin-top: 15px;
+         margin-bottom: 20px;
+         padding: 9px 18px;
+         position: relative;
+         font-size: 24px;
+         font-weight: bold;
+      }
+
+      .content-login-wrap .btn-tertiary {
+         margin-top: 20px;
+         margin-bottom: 20px;
+         padding: 10px 20px;
+      }
+
+      .content-login-wrap .btn-prime>.fa,
+      .content-login-wrap .btn-tertiary>.fa {
+         position: absolute;
+         top: 32%;
+         right: 5%;
+      }
+
+      .content-login-wrap .btn-twitter,
+      .content-login-wrap .btn-fb,
+      .content-login-wrap .btn-prime.tiny {
+         padding: 9px 18px;
+         font-size: 16px;
+         font-weight: bold;
+         text-align: left;
+      }
+
+      .content-login-wrap .btn-prime.tiny {
+         margin-top: 5px;
+      }
+
+      .content-login-wrap .btn-twitter>.fa,
+      .content-login-wrap .btn-fb>.fa,
+      .content-login-wrap .btn-prime.tiny>.fa {
+         margin-right: 10px;
+         padding-top: 5px;
+         padding-bottom: 5px;
+         width: 30px;
+         border-right: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .content-login-wrap .btn-prime.tiny>.fa {
+         position: static;
+      }
+
+      .content-login-wrap .help-block {
+         color: #333;
+         font-weight: bold;
+      }
+
+      /* Contact Page Styles Starts */
+
+      .contact-form-section {
+         margin-bottom: 15px;
+      }
+
+      .contact-form-section h3 {
+         margin-bottom: 50px;
+      }
+
+      .contact-form-section .form-group {
+         margin-bottom: 20px;
+      }
+
+      .contact-form-section .form-control {
+         padding: 12px 20px;
+         font-size: 18px;
+         color: #979797;
+         border-color: #cacaca;
+      }
+
+      .contact-form-section .form-control:focus {
+         border-color: #999;
+      }
+
+      .contact-form-section input.form-control {
+         height: 46px;
+      }
+
+      .contact-form-section textarea.form-control {
+         padding: 20px 30px;
+      }
+
+      .contact-form-section .btn-prime {
+         margin-top: 15px;
+         padding: 10px 50px;
+         font-size: 18px;
+         font-weight: bold;
+      }
+
+      .contact-details {
+         padding-top: 60px;
+         padding-bottom: 60px;
+         background-color: #eee;
+         border-bottom: 1px solid #fff;
+      }
+
+      .contact-details h5 {
+         margin-bottom: 40px;
+         padding-bottom: 15px;
+         color: #4b4b4b;
+         border-bottom: 3px solid #cf3d27;
+      }
+
+      .contact-details h5,
+      .contact-details h6 {
+         font-weight: bold;
+      }
+
+      .contact-details h5,
+      .contact-right-col h6 {
+         margin-top: 0;
+      }
+
+      .contact-left-col ul {
+         margin-bottom: 55px;
+         color: #222;
+      }
+
+      .contact-left-col ul:last-of-type {
+         margin-bottom: 0;
+      }
+
+      .contact-left-col ul>li {
+         font-weight: 300;
+      }
+
+      .contact-left-col ul>li>h6 {
+         margin-top: 3px;
+         color: #1d1d1d;
+      }
+
+      .contact-right-col h6 {
+         line-height: 26px;
+      }
+
+      .contact-right-col ul>li+li {
+         margin-top: 15px;
+      }
+
+      .contact-right-col ul>li,
+      .contact-right-col ul>li a {
+         color: #222;
+         font-weight: 300;
+      }
+
+      .contact-right-col .fa,
+      .contact-right-col ul>li a:hover,
+      .contact-right-col ul>li a:focus {
+         color: #cf3d27;
+      }
+
+      .contact-right-col ul>li>.col-xs-2 {
+         width: 12%;
+      }
+
+      .contact-right-col ul>li>.col-xs-10 {
+         width: 88%;
+      }
+
+      .contact-right-col ul>li:first-of-type>.col-xs-10 {
+         padding-left: 5px;
+      }
+
+      .contact-right-col ul>li:first-of-type .fa {
+         margin-top: 3px;
+      }
+
+      .contact-right-col .fa {
+         font-size: 24px;
+         vertical-align: text-top;
+      }
+
+      /* Pagination Styles Starts */
+
+      .pagination {
+         margin-top: 30px;
+         margin-bottom: 30px;
+      }
+
+      .pagination>li.page-item {
+         display: inline-block;
+         margin-right: 6px;
+      }
+
+      .pagination>li.page-item:last-of-type {
+         margin-right: 0;
+      }
+
+      .pagination>li.page-item>a {
+         padding: 4px 10px;
+         font-size: 16px;
+         color: #4e4e4e;
+         background-color: #fff;
+         border-color: #d1d1d1;
+      }
+
+      .pagination>li.page-item>a:focus,
+      .pagination>li.page-item>a:hover {
+         color: #323232;
+         background-color: #eee;
+         border-color: #d2d2d2;
+      }
+
+      .pagination>li.page-item.active>a,
+      .pagination>li.page-item.active>a:focus,
+      .pagination>li.page-item.active>a:hover {
+         color: #fff;
+         background-color: #cf3d27;
+         border-color: #a62d1b;
+      }
+
+      /* Download App Section Styles Starts */
+
+      .dowload-app .content {
+         padding-right: 40px;
+         padding-left: 30px;
+      }
+
+      .dowload-app h3 {
+         margin-top: 20px;
+         margin-bottom: 20px;
+         color: #cf3d27;
+      }
+
+      .dowload-app h5 {
+         margin-bottom: 30px;
+         color: #282828;
+      }
+
+      .dowload-app li+li {
+         margin-left: 15px;
+      }
+
+      /* Footer Top Styles Starts */
+
+      .footer-top {
+         padding-top: 50px;
+         padding-bottom: 50px;
+         color: #fff;
+         background-color: #282828;
+      }
+
+      .footer-top h3 {
+         margin-top: 0;
+         margin-bottom: 20px;
+      }
+
+      .footer-top ul {
+         margin-bottom: 20px;
+      }
+
+      .footer-top li {
+         font-size: 18px;
+      }
+
+      .footer-top li:last-of-type {
+         margin-left: 20px;
+      }
+
+      .footer-top li .fa {
+         margin-right: 10px;
+         color: #cf3d27;
+      }
+
+      .newsletter-form {
+         margin-top: 40px;
+      }
+
+      .newsletter-form .form-control {
+         padding: 12px 24px;
+         height: 46px;
+         color: #979797;
+         background-color: #fff;
+         border: none;
+      }
+
+      .newsletter-form .form-control,
+      .newsletter-form .btn-prime {
+         font-size: 18px;
+      }
+
+      .newsletter-form .btn-prime {
+         padding-top: 9px;
+         padding-bottom: 9px;
+      }
+
+      .newsletter-form h6 {
+         margin-top: 35px;
+         margin-bottom: 0;
+         font-size: 17px;
+      }
+
+      .newsletter-form h6 span {
+         margin-left: 6px;
+      }
+
+      /* Footer Area Styles Starts */
+
+      .main-footer {
+         padding-top: 55px;
+         background-color: #181818;
+      }
+
+      .main-footer,
+      .main-footer a {
+         color: #fff;
+      }
+
+      .page-links {
+         margin-top: 14px;
+         margin-bottom: 0;
+      }
+
+      .page-links li {
+         padding-left: 5px;
+         padding-right: 5px;
+      }
+
+      .sm-links {
+         margin-top: 10px;
+         margin-bottom: 0;
+      }
+
+      .sm-links li a.btn-prime {
+         padding: 5px 10px;
+      }
+
+      .foot-address {
+         padding-top: 35px;
+         padding-bottom: 35px;
+      }
+
+      .page-links li,
+      .sm-links li .fa,
+      .foot-address li {
+         font-size: 18px;
+      }
+
+      .foot-address li:last-of-type {
+         padding-top: 4px;
+      }
+
+      .footer-links-section {
+         padding-top: 30px;
+         padding-bottom: 30px;
+         border: dashed #474747;
+         border-width: 1px 0;
+      }
+
+      .footer-links-section h5 {
+         margin-bottom: 20px;
+      }
+
+      .footer-links-section li {
+         padding-top: 3px;
+      }
+
+      .copyright {
+         padding-top: 30px;
+         padding-bottom: 20px;
+      }
+
+      /* Modal Window Styles Starts */
+
+      #registerModal .modal-content {
+         border: 8px solid #eee;
+      }
+
+      #registerModal .modal-header {
+         position: relative;
+         border: none;
+      }
+
+      #registerModal .modal-header .modal-title {
+         margin-top: 10px;
+         width: 100%;
+         display: block;
+      }
+
+      #registerModal .modal-header .close {
+         position: absolute;
+         right: 20px;
+      }
+
+      #registerModal .modal-body {
+         padding-left: 60px;
+         padding-right: 60px;
+         padding-bottom: 40px;
+      }
+
+      #registerModal .modal-body .form-control {
+         padding: 10px 20px;
+         min-height: 42px;
+         color: #222;
+         font-size: 16px;
+         background-color: #f2f2f2;
+         border: 1px solid #ccc;
+      }
+
+      #registerModal .modal-body .help-block {
+         color: #333;
+      }
+
+      #registerModal .modal-body .btn-tertiary {
+         padding: 10px 20px;
+         position: relative;
+         font-size: 20px;
+         font-weight: bold;
+      }
+
+      #registerModal .modal-body .btn-tertiary>.fa {
+         position: absolute;
+         top: 32%;
+         right: 5%;
+      }
+
+      #change-location .modal-header {
+         padding: 100px 25px 25px;
+         position: relative;
+         background: url(../images/modal-img1.jpg) no-repeat left top;
+         border: none;
+      }
+
+      #change-location .modal-header .close {
+         margin-top: -90px;
+         position: absolute;
+         right: 20px;
+         opacity: 1;
+      }
+
+      #change-location .modal-header,
+      #change-location .modal-header .close {
+         color: #fff;
+      }
+
+      #change-location .modal-body ul {
+         margin-top: 15px;
+      }
+
+      #change-location .modal-body ul li {
+         padding: 5px;
+         font-size: 18px;
+      }
+
+      #change-location .modal-body ul li a {
+         color: #333;
+      }
+
+      /* List Styles Starts */
+
+      .list-style-1 {
+         margin-top: 15px;
+      }
+
+      .list-style-1 li {
+         padding-top: 10px;
+      }
+
+      .list-style-2 {
+         margin-bottom: 20px;
+      }
+
+      .list-style-2 li {
+         margin-top: 6px;
+         font-size: 16px;
+         color: #646464;
+      }
+
+      .list-style-2 li:before {
+         content: "\f00c";
+         margin-right: 10px;
+         font-size: 15px;
+         color: #8a8a8a;
+      }
+
+      .list-style-3 {
+         list-style-type: lower-alpha;
+      }
+
+      .list-style-3 li {
+         margin-bottom: 10px;
+         padding-left: 6px;
+      }
+
+      .list-style-4 {
+         list-style-type: decimal;
+      }
+
+      .list-style-4 li {
+         margin-bottom: 10px;
+         padding-left: 6px;
+      }
+
+      .list-banner-style-1 {
+         margin-bottom: 0;
+      }
+
+      .list-banner-style-1 li {
+         margin-bottom: 16px;
+      }
+
+      /* Generic Styles Starts */
+
+      .parallax {
+         background-size: cover;
+         background-repeat: no-repeat;
+         background-position: center;
+         background-attachment: fixed;
+      }
+
+      .food-menu-grid .hover-content .overlay h4 a:hover {
+         text-decoration: none;
+      }
+
+      .text-weight-thin {
+         font-weight: 100;
+      }
+
+      .text-weight-extra-light {
+         font-weight: 200;
+      }
+
+      .text-weight-light {
+         font-weight: 300;
+      }
+
+      .text-weight-normal {
+         font-weight: 400;
+      }
+
+      .text-weight-medium {
+         font-weight: 500;
+      }
+
+      .text-weight-bold {
+         font-weight: 700;
+      }
+
+      .text-weight-ultra-bold {
+         font-weight: 900;
+      }
+
+      .text-spl-color {
+         color: #cf3d27;
+      }
+
+      .text-muted {
+         color: #787878;
+      }
+
+      .img-center {
+         margin-left: auto;
+         margin-right: auto;
+      }
+
+      .clause-style-1 {
+         padding-left: 50px;
+         color: #000;
+         font-weight: bold;
+      }
+
+      .spacer {
+         height: 5px;
+      }
+
+      .spacer.big {
+         height: 10px;
+      }
+
+      .spacer-1 {
+         height: 60px;
+      }
+
+      .spacer-1.medium {
+         height: 40px;
+      }
+
+      .spacer-1.condensed {
+         height: 30px;
+      }
+
+      .about-join-team-section .form-control,
+      .about-join-team-section .btn,
+      .nav-menu-tabs>li>a,
+      .pagination,
+      .pagination>li.page-item:first-child>a.page-link,
+      .pagination>li.page-item:last-child>a.page-link {
+         -webkit-border-radius: 0;
+         -moz-border-radius: 0;
+         border-radius: 0;
+      }
+
+      .hotels-list-grid .grid-box .delivery-time,
+      .circle {
+         -webkit-border-radius: 100%;
+         -moz-border-radius: 100%;
+         border-radius: 100%;
+      }
+
+      .btn-circle {
+         -webkit-border-radius: 120px 120px 0 0;
+         -moz-border-radius: 120px 120px 0 0;
+         border-radius: 120px 120px 0 0;
+      }
+
+      .top-search .search-panel .btn {
+         -webkit-border-radius: 3px 0 0 3px;
+         -moz-border-radius: 3px 0 0 3px;
+         border-radius: 3px 0 0 3px;
+      }
+
+      .top-search .btn-prime {
+         -webkit-border-radius: 0 3px 3px 0;
+         -moz-border-radius: 0 3px 3px 0;
+         border-radius: 0 3px 3px 0;
+      }
+
+      .btn-prime,
+      .reviews-form-box .form-control,
+      .newsletter-form .form-control {
+         -webkit-border-radius: 2px;
+         -moz-border-radius: 2px;
+         border-radius: 2px;
+      }
+
+      .border-radius-4,
+      .hotels-list-grid .grid-box,
+      .reviews-form-box,
+      .content-login-wrap,
+      .content-login-wrap .btn-prime.tiny {
+         -webkit-border-radius: 4px;
+         -moz-border-radius: 4px;
+         border-radius: 4px;
+      }
+
+      .hotels-list .right-col .btn-prime,
+      .hotels-list-grid .grid-box-info .btn-prime,
+      .food-menu-grid .hover-content,
+      .offer-col {
+         -webkit-border-radius: 5px;
+         -moz-border-radius: 5px;
+         border-radius: 5px;
+      }
+
+      .main-heading-1 .btn-main,
+      .hotels-list-grid .grid-box-ratings li a.badge {
+         -webkit-border-radius: 25px;
+         -moz-border-radius: 25px;
+         border-radius: 25px;
+      }
+
+      .offer-col .img-fluid {
+         -webkit-border-radius: 5px 5px 0 0;
+         -moz-border-radius: 5px 5px 0 0;
+         border-radius: 5px 5px 0 0;
+      }
+
+      #change-location .modal-header {
+         -webkit-border-radius: 6px 6px 0 0;
+         -moz-border-radius: 6px 6px 0 0;
+         border-radius: 6px 6px 0 0;
+      }
+
+      .no-boxshadow,
+      .top-search .search-panel .btn,
+      .top-search .search-panel .btn:focus,
+      .top-search .form-control:hover,
+      .top-search .form-control:focus,
+      .about-join-team-section .form-control:hover,
+      .about-join-team-section .form-control:focus,
+      .reviews-form-box .form-control:hover,
+      .reviews-form-box .form-control:focus,
+      .reachus-form .form-control:hover,
+      .reachus-form .form-control:focus,
+      .content-login-wrap .form-control:hover,
+      .content-login-wrap .form-control:focus,
+      .contact-form-section .form-control:hover,
+      .contact-form-section .form-control:focus,
+      #registerModal .modal-body .form-control:hover,
+      #registerModal .modal-body .form-control:focus,
+      .btn:hover,
+      .btn:focus,
+      .sidearea-filter .form-control {
+         -webkit-box-shadow: none;
+         -moz-box-shadow: none;
+         box-shadow: none;
+      }
+
+      .top-search .search-panel .dropdown-menu {
+         -webkit-box-shadow: 3px 3px 6px rgba(0, 0, 0, .175);
+         -moz-box-shadow: 3px 3px 6px rgba(0, 0, 0, .175);
+         box-shadow: 3px 3px 6px rgba(0, 0, 0, .175);
+      }
+
+      .hotels-list-grid .grid-box .delivery-time {
+         -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+         -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+         box-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+      }
+
+      .main-menu {
+         -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+         -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+      }
+
+      .main-menu .dropdown-menu {
+         -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+         -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+         box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+      }
+
+      .btn-circle {
+         -webkit-box-shadow: 0 -3px 0 3px rgba(255, 255, 255, 0.4);
+         -moz-box-shadow: 0 -3px 0 3px rgba(255, 255, 255, 0.4);
+         box-shadow: 0 -3px 0 3px rgba(255, 255, 255, 0.4);
+      }
+
+      .btn-circle:hover {
+         -webkit-box-shadow: 0 -4px 0 4px rgba(255, 255, 255, 0.6);
+         -moz-box-shadow: 0 -4px 0 4px rgba(255, 255, 255, 0.6);
+         box-shadow: 0 -4px 0 4px rgba(255, 255, 255, 0.6);
+      }
+
+      .breadcrumb li+li::before,
+      .hotels-list .right-col .sub-title .fa:after,
+      .list-style-2 li::before {
+         font-family: 'FontAwesome';
+         src: url('../font-awesome/fonts/fontawesome-webfont.eot?v=4.4.0');
+         src: url('../font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../font-awesome/fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../font-awesome/fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../font-awesome/fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../font-awesome/fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
+      }
+
+      .animation,
+      .animation a {
+         -webkit-transition: all 0.5s ease 0s;
+         -moz-transition: all 0.5s ease 0s;
+         transition: all 0.5s ease 0s;
+      }
+
+      .animation-1,
+      .animation-1 a {
+         -webkit-transition: all 1s ease;
+         -moz-transition: all 1s ease;
+         transition: all 1s ease;
+      }
+
+      .card {
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+         transition: 0.3s;
+         width: 50%;
+         text-align: center !important;
+      }
+
+      .card img {
+         width: 90%;
+         height: 60%;
+         margin: auto;
+      }
+
+      .card:hover {
+         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .container {
+         padding: 2px 16px;
+      }
+
+      .loader-wrapper {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+         height: 100%;
+         background: antiquewhite;
+      }
+
+      .loader-wrapper .loader {
+         border: 5px solid #f3f3f3;
+         border-radius: 50%;
+         border-top: 5px solid red;
+         width: 30px;
+         height: 30px;
+         -webkit-animation: spin 1s linear infinite;
+         /* Safari */
+         animation: spin 1s linear infinite;
+      }
+
+      /* Safari */
+      @-webkit-keyframes spin {
+         0% {
+            -webkit-transform: rotate(0deg);
+         }
+
+         100% {
+            -webkit-transform: rotate(360deg);
+         }
+      }
+
+      @-moz-keyframes spin {
+         0% {
+            -webkit-transform: rotate(0deg);
+         }
+
+         100% {
+            -webkit-transform: rotate(360deg);
+         }
+      }
+
+      @-o-keyframes spin {
+         0% {
+            -webkit-transform: rotate(0deg);
+         }
+
+         100% {
+            -webkit-transform: rotate(360deg);
+         }
+      }
+
+      @keyframes spin {
+         0% {
+            transform: rotate(0deg);
+         }
+
+         100% {
+            transform: rotate(360deg);
+         }
+      }
+   </style>
+   <!--   <link href="http://hangingcage.com/WebContent/css/responsive.css" rel="stylesheet"> -->
+   <style>
+      :root {
+         --main-bg-color: #cf3d27;
+         --border: #ea4d35;
+         --fg-white: #FFF;
+      }
+
+      a {
+         color: var(--fg-white) !important;
+      }
+
+      /*Overrides*/
+      .navbar-toggle {
+         margin-right: 0;
+      }
+
+      .navbar-brand {
+         padding-right: 0;
+         padding-left: 2px;
+      }
+
+      @media screen and (min-width:768px) {
+         .container-fluid {
+            display: flex;
+         }
+      }
+
+      @media screen and (max-width: 1200px) {
+         .container-fluid .navbar-header {
+            flex: 0 0 50%;
+         }
+      }
+
+      @media screen and (min-width: 1200px) {
+         .container-fluid .navbar-header {
+            flex: 0.5;
+         }
+      }
+
+      /*Overrides End*/
+
+      /* Theme Start */
+      .navbar-inverse {
+         background-color: var(--main-bg-color) !important;
+         padding: 0;
+         border: solid var(--border) !important;
+         border-width: 1px 0 0 0;
+      }
+
+      #nav {
+         background-color: var(--main-bg-color) !important;
+         padding: 0;
+         border: solid var(--border) !important;
+         border-width: 1px 0 0 0;
+      }
+
+      .navbar-inverse .navbar-collapse,
+      .navbar-inverse .navbar-form {
+         border: none;
+      }
+
+      #nav .navbar-toggle,
+      #nav .navbar-toggle:hover,
+      #nav .navbar-toggle:focus,
+      #nav .navbar-toggle:active {
+         border-color: var(--border);
+      }
+
+      #nav .navbar-toggle:focus,
+      #nav .navbar-toggle:active,
+      #nav .navbar-toggle:active,
+      .navbar-inverse .navbar-nav>.active>a,
+      .navbar-inverse .navbar-nav>.active>a:focus,
+      .navbar-inverse .navbar-nav>.active>a:hover {
+         background: var(--border);
+      }
+
+      /*Theme End*/
+
+      /* Logo */
+      .navbar-header .logo {
+         margin: 0;
+         height: 45px;
+         border-radius: 50%;
+         border: 1px solid var(--border);
+         transition: all .85s ease-in-out;
+         animation: move 2.5s ease-in-out infinite;
+         -webkit-animation: move 2.5s ease-in-out infinite;
+         -moz-animation: move 2.5s ease-in-out infinite;
+         -o-animation: move 2.5s ease-in-out infinite;
+      }
+
+      @keyframes identifier {
+
+         0%,
+         100% {
+            transform: rotate(20deg);
+         }
+
+         50% {
+            transform: rotate(-20deg);
+         }
+      }
+
+      @-webkit-keyframes move {
+
+         0%,
+         100% {
+            transform: rotate(20deg);
+         }
+
+         50% {
+            transform: rotate(-20deg);
+         }
+      }
+
+      @-moz-keyframes move {
+
+         0%,
+         100% {
+            transform: rotate(20deg);
+         }
+
+         50% {
+            transform: rotate(-20deg);
+         }
+      }
+
+      @-o-keyframes move {
+
+         0%,
+         100% {
+            transform: rotate(20deg);
+         }
+
+         50% {
+            transform: rotate(-20deg);
+         }
+      }
+
+      /* Logo End */
+
+      /*Aligment Styles*/
+      .items-spaced-center {
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+      }
+
+      .display-content-center {
+         display: flex;
+         justify-content: center;
+      }
+
+      /**Alignment Styles End**/
+
+      /*** Paddings ***/
+      .pd5 {
+         padding: 5px;
+      }
+
+      /** Paddings End **/
+
+      /** Tabs **/
+      .tab-content {
+         position: relative;
+         top: 60px;
+      }
+
+      /** Tabs End **/
+
+      /**Food**/
+      #food .flex-wrap {
+         display: flex;
+         flex-wrap: wrap;
+         width: 90%;
+      }
+
+      #food .flex-wrap .card {
+         position: relative;
+         display: -webkit-box;
+         display: -ms-flexbox;
+         display: flex;
+         -webkit-box-orient: vertical;
+         -webkit-box-direction: normal;
+         -ms-flex-direction: column;
+         flex-direction: column;
+         min-width: 0;
+         word-wrap: break-word;
+         background-color: #fff;
+         background-clip: border-box;
+         border: 1px solid rgba(0, 0, 0, .125);
+         border-radius: .25rem;
+      }
+
+      /** Media Queries **/
+      @media screen and (max-width: 991px) {
+         .content-login-wrap {
+            padding: 36px 0;
+         }
+      }
+
+      /** End **/
+      .container-fluid {
+         font-weight: 600;
+         font-size: large;
+      }
+
+      #food,
+      #about,
+      #contact {
+         display: none;
+      }
+
+      /** Responsive.css **/
+      /* Extra small devices - xs (portrait phones, less than 576px) */
+      @media (max-width: 575px) {
+
+         /* Main Menu Styles Starts */
+
+         .main-menu .navbar-collapse {
+            padding: 10px 0;
+            -webkit-box-shadow: inset 0 1px 0 #ea4d35;
+            -moz-box-shadow: inset 0 1px 0 #ea4d35;
+            box-shadow: inset 0 1px 0 #ea4d35;
+         }
+
+         .main-menu .navbar-toggler {
+            margin: 6px 10px;
+            padding: 4px 4px 8px;
+            color: #fff;
+         }
+
+         .main-menu .navbar-toggler:hover,
+         .main-menu .navbar-toggler:focus {
+            background-color: #ea4d35;
+            outline: none;
+         }
+
+         .main-menu .navbar-toggler span {
+            height: auto;
+         }
+
+         .main-menu .navbar-nav>.nav-item>a {
+            padding: 5px 10px;
+         }
+
+         /* Main Banner Section Styles Starts */
+
+         .main-banner {
+            padding-top: 50px;
+            padding-bottom: 50px;
+         }
+
+         .main-banner h1 {
+            font-size: 48px;
+         }
+
+         /* Main Container Styles Starts */
+
+         .main-container h1 {
+            font-size: 50px;
+         }
+
+         /* Welcome Section Styles Starts */
+
+         .welcome-box {
+            padding: 0 15px 15px;
+            margin-bottom: 20px;
+         }
+
+         .welcome-box h1 {
+            margin-bottom: 15px;
+            font-size: 40px;
+         }
+
+         /* Side Block Styles Starts */
+
+         .side-block-order .dl-horizontal dt {
+            width: auto;
+            clear: left;
+            float: left;
+         }
+
+         .side-block-order .dl-horizontal dd {
+            margin-left: 0;
+         }
+
+         /* Food Menu Grid Styles Starts */
+
+         .food-menu-grid .hover-content .overlay h4 {
+            font-size: 26px;
+         }
+
+         /* Login Page Styles Starts */
+
+         .content-login-wrap .btn-prime,
+         .content-login-wrap .btn-tertiary {
+            font-size: 16px;
+         }
+
+         .content-login-wrap .btn-twitter,
+         .content-login-wrap .btn-fb,
+         .content-login-wrap .btn-prime.tiny {
+            padding: 6px 12px;
+            font-size: 14px;
+         }
+
+         .content-login-wrap .btn-prime>.fa,
+         .content-login-wrap .btn-tertiary>.fa,
+         .content-login-wrap .btn-twitter>.fa,
+         .content-login-wrap .btn-fb>.fa {
+            display: none;
+         }
+
+         /* Menu Tabs Styles */
+
+         .nav-menu-tabs {
+            margin-bottom: 30px;
+            padding: 0 14px;
+         }
+
+         .nav-menu-tabs>li {
+            margin: 0 10px;
+         }
+
+         .nav-menu-tabs>li.active {
+            border: none;
+         }
+
+         .nav-menu-tabs>li>a {
+            margin: 0;
+            padding: 5px 10px;
+            font-size: 15px;
+         }
+
+         .nav-menu-tabs>li,
+         .nav-menu-tabs>li>a {
+            width: 100%;
+            float: none !important;
+            display: block !important;
+         }
+
+         .nav-tabs .nav-link.active {
+            border: none;
+         }
+
+         /* Order Menu Tab Pane Starts */
+
+         .order-menu-item .btn {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            padding: 5px 12px;
+            font-size: 20px;
+         }
+
+         .order-menu-item .btn span.price-old {
+            font-size: 18px;
+         }
+
+         .order-menu-item .btn span.price-new {
+            font-size: 20px;
+         }
+
+         .order-menu-item .btn .fa {
+            margin-left: 5px;
+            font-size: 18px;
+         }
+
+         /* Gallery Grid Styles Starts */
+
+         .gallery-grid .hover-content .overlay a.zoom {
+            margin-top: 10%;
+            font-size: 20px;
+         }
+
+         /* Contact Page Styles Starts */
+
+         .contact-left-col {
+            margin-bottom: 30px;
+         }
+
+         .contact-details h5 {
+            line-height: 34px;
+         }
+
+         .contact-left-col ul {
+            margin-bottom: 0;
+         }
+
+         .contact-left-col ul>li {
+            margin-bottom: 20px;
+         }
+
+         .contact-form-section .btn-prime {
+            padding: 10px 40px;
+            font-size: 16px;
+         }
+
+         /* Generic Styles Starts */
+
+         .d-xs-block {
+            display: block !important;
+         }
+
+         .d-xs-none {
+            display: none;
+         }
+
+         .img-center-xs {
+            margin-left: auto;
+            margin-right: auto;
+         }
+
+         .text-xs-left {
+            text-align: left;
+         }
+
+         .text-xs-center {
+            text-align: center;
+         }
+
+         .text-xs-right {
+            text-align: right;
+         }
+
+      }
+
+      /* Small devices - sm (landscape phones, 576px and up) */
+      @media (min-width: 576px) and (max-width: 767px) {
+
+         /* Heading Styles Starts */
+
+         .main-heading-1 .btn-main {
+            margin-top: 15px;
+            margin-left: 0;
+         }
+
+         /* Header Styles Starts */
+
+         .logo {
+            margin-top: 15px;
+            margin-bottom: 15px;
+         }
+
+         /* Main Menu Styles Starts */
+
+         .main-menu .navbar-collapse {
+            padding: 10px 0;
+            -webkit-box-shadow: inset 0 1px 0 #ea4d35;
+            -moz-box-shadow: inset 0 1px 0 #ea4d35;
+            box-shadow: inset 0 1px 0 #ea4d35;
+         }
+
+         .main-menu .navbar-toggler {
+            margin: 6px 0;
+            padding: 4px 4px 8px;
+            color: #fff;
+         }
+
+         .main-menu .navbar-toggler:hover,
+         .main-menu .navbar-toggler:focus {
+            background-color: #ea4d35;
+            outline: none;
+         }
+
+         .main-menu .navbar-toggler span {
+            height: auto;
+         }
+
+         .main-menu .navbar-nav>.nav-item>a {
+            padding: 5px 10px;
+         }
+
+         /* Main Banner Section Styles Starts */
+
+         .main-banner {
+            padding-top: 50px;
+            padding-bottom: 50px;
+         }
+
+         .main-banner h1 {
+            font-size: 48px;
+         }
+
+         /* Search Section Styles Starts */
+
+         .search-area {
+            padding-top: 70px;
+            padding-bottom: 100px;
+         }
+
+         .top-search .input-group-md,
+         .top-search .input-group .form-control,
+         .top-search .input-group-addon,
+         .top-search .input-group-btn {
+            display: block;
+         }
+
+         .top-search .input-group-addon,
+         .top-search .input-group-btn {
+            width: auto;
+         }
+
+         .top-search .search-panel {
+            margin-bottom: 15px;
+         }
+
+         .top-search .btn-prime {
+            margin-top: 15px;
+         }
+
+         .top-search .search-panel .btn,
+         .top-search .btn-prime {
+            width: 100%;
+         }
+
+         /* Welcome Section Styles Starts */
+
+         .welcome-box {
+            padding: 5px 25px 25px;
+            margin-bottom: 30px;
+         }
+
+         .welcome-box h1 {
+            margin-bottom: 15px;
+            font-size: 50px;
+         }
+
+         .welcome-box p.spl {
+            margin-bottom: 10px;
+         }
+
+         .welcome-box .btn-prime {
+            margin-top: 10px;
+            padding: 10px 20px;
+         }
+
+         /* Food Menu Grid Styles Starts */
+
+         .food-menu-grid .hover-content .overlay h4 {
+            margin-top: 13%;
+         }
+
+         /* Menu Card Section Styles Starts */
+
+         .menu-card {
+            padding-bottom: 50px;
+         }
+
+         .menu-card .slide1,
+         .menu-card .slide2 {
+            background-image: none;
+         }
+
+         .menu-card h1 {
+            font-size: 80px;
+         }
+
+         .menu-card h1 small {
+            font-size: 42px;
+         }
+
+         .menu-card h1 sup {
+            top: -25px;
+            font-size: 42px;
+         }
+
+         .menu-card ul {
+            margin-top: 10px;
+         }
+
+         .menu-card ul:first-of-type {
+            margin-top: 20px;
+         }
+
+         /* Special Offers Section Styles Starts */
+
+         .special-offers .owl-carousel .owl-buttons {
+            margin-top: 40px;
+         }
+
+         .special-offers .owl-carousel .owl-buttons div .fa {
+            font-size: 28px;
+         }
+
+         /* Special Offers Section Styles Starts */
+
+         .special-offers .owl-carousel {
+            margin-left: 0;
+         }
+
+         .offer-col {
+            margin-left: 5px;
+            margin-right: 5px;
+         }
+
+         /* News & Event Section Styles Starts */
+
+         .news-event-teaser {
+            padding-top: 40px;
+            padding-bottom: 40px;
+         }
+
+         .news-block {
+            margin-top: 0;
+            margin-bottom: 20px;
+         }
+
+         .news-event-teaser .news-meta {
+            display: none;
+         }
+
+         .news-event-teaser h6 {
+            font-size: 20px;
+            line-height: 30px;
+         }
+
+         /* Hotel List Styles Starts */
+
+         .hotels-list .list-box {
+            padding-bottom: 25px;
+         }
+
+         .hotels-list .list-box-info {
+            margin-left: 0;
+         }
+
+         /* Hotel Grid List Styles Starts */
+
+         .hotels-list-grid .grid-box .delivery-time {
+            left: 45%;
+            right: auto;
+         }
+
+         .hotels-list-grid .grid-box .content {
+            padding-top: 30px;
+         }
+
+         .hotels-list-grid .grid-box-tags,
+         .hotels-list-grid .grid-box-info-links {
+            margin-bottom: 5px;
+         }
+
+         .hotels-list-grid .grid-box-info .btn-prime {
+            margin-top: 10px;
+            margin-bottom: 10px;
+         }
+
+         /* Download App Section Styles Starts */
+
+         .dowload-app h3 {
+            margin-top: 0;
+         }
+
+         .dowload-app li {
+            margin-bottom: 10px;
+         }
+
+         .dowload-app li+li {
+            margin-left: 0;
+         }
+
+         /* Contact Page Styles Starts */
+
+         .contact-left-col {
+            margin-bottom: 30px;
+         }
+
+         .contact-details h5 {
+            line-height: 34px;
+         }
+
+         .contact-left-col ul {
+            margin-bottom: 0;
+         }
+
+         .contact-left-col ul>li {
+            margin-bottom: 20px;
+         }
+
+         /* Menu Tabs Styles */
+
+         .nav-menu-tabs {
+            padding: 0 14px;
+         }
+
+         .nav-menu-tabs>li {
+            margin: 0 10px;
+         }
+
+         .nav-menu-tabs>li.active {
+            border: none;
+         }
+
+         .nav-menu-tabs>li>a {
+            margin-right: 0;
+         }
+
+         /* Order Menu Tab Pane Starts */
+
+         .order-menu-item .pull-left,
+         .order-menu-item .pull-right {
+            float: none !important;
+         }
+
+         .order-menu-item .btn {
+            margin-top: 10px;
+            margin-bottom: 5px;
+         }
+
+         /* Gallery Grid Styles Starts */
+
+         .gallery-grid .hover-content .overlay a.zoom {
+            margin-top: 16%;
+         }
+
+         /* Footer Top Styles Starts */
+
+         .footer-top li:last-of-type {
+            margin-left: 0;
+            margin-top: 10px;
+         }
+
+         .newsletter-form .form-control {
+            margin-bottom: 10px;
+         }
+
+         .newsletter-form .btn-prime {
+            margin-top: 10px;
+         }
+
+         /* Footer Area Styles Starts */
+
+         .page-links {
+            margin-top: 20px;
+            margin-bottom: 10px;
+         }
+
+         /* List Styles Starts */
+
+         .list-style-1 {
+            margin-top: 20px;
+            margin-bottom: 30px;
+         }
+
+         .list-style-1 li {
+            padding-top: 5px;
+         }
+
+         /* Modal Window Styles Starts */
+
+         #registerModal .modal-body {
+            padding-left: 30px;
+            padding-right: 30px;
+         }
+
+         #registerModal .modal-body .btn-tertiary {
+            font-size: 16px;
+         }
+
+         #registerModal .modal-body .btn-tertiary>.fa {
+            display: none;
+         }
+
+         /* Generic Styles Starts */
+
+         .img-center-sm {
+            margin-left: auto;
+            margin-right: auto;
+         }
+
+         .top-search .search-panel .btn,
+         .top-search .btn-prime {
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+         }
+
+      }
+
+      /* Medium devices - md (tablets, 768px and up) */
+      @media (min-width: 768px) and (max-width: 991px) {
+
+         /* Heading Styles Starts */
+
+         .main-heading-1 .btn-main {
+            margin-top: 15px;
+            margin-left: 0;
+         }
+
+         /* Header Styles Starts */
+
+         .logo {
+            margin-top: 21px;
+         }
+
+         /* Main Menu Styles Starts */
+
+         .main-menu .navbar-nav>.nav-item>a {
+            padding-left: 6px;
+            padding-right: 6px;
+            font-size: 13px;
+         }
+
+         .main-menu .navbar-nav>.nav-item>a .fa {
+            margin-left: 3px;
+            font-size: 15px;
+         }
+
+         .main-menu .dropdown:hover .dropdown-menu {
+            display: block;
+         }
+
+         /* Main Banner Section Styles Starts */
+
+         .main-banner {
+            padding-top: 50px;
+            padding-bottom: 50px;
+         }
+
+         /* Order Info Styles Starts */
+
+         .order-info li.lead {
+            margin-bottom: 0;
+            font-size: 20px;
+         }
+
+         .order-info li.lead .fa {
+            margin-right: 5px;
+            font-size: 18px;
+         }
+
+         /* Welcome Section Styles Starts */
+
+         .welcome-box {
+            padding: 5px 25px 25px;
+         }
+
+         .welcome-box h1 {
+            margin-bottom: 15px;
+            font-size: 50px;
+         }
+
+         .welcome-box p.spl {
+            margin-bottom: 10px;
+         }
+
+         .welcome-box .btn-prime {
+            margin-top: 10px;
+            padding: 10px 20px;
+         }
+
+         /* Menu Card Section Styles Starts */
+
+         .menu-card .slide1,
+         .menu-card .slide2 {
+            background-image: none;
+         }
+
+         .menu-card h1 {
+            font-size: 80px;
+         }
+
+         .menu-card h1 small {
+            font-size: 42px;
+         }
+
+         .menu-card h1 sup {
+            top: -25px;
+            font-size: 42px;
+         }
+
+         /* Special Offers Section Styles Starts */
+
+         .special-offers .owl-carousel .owl-prev,
+         .special-offers .owl-carousel .owl-next {
+            position: absolute;
+            top: 45%;
+         }
+
+         .special-offers .owl-carousel .owl-prev {
+            left: -30px;
+         }
+
+         .special-offers .owl-carousel .owl-next {
+            right: -30px;
+         }
+
+         .special-offers .owl-carousel .owl-buttons div .fa {
+            font-size: 28px;
+         }
+
+         /* News & Event Section Styles Starts */
+
+         .news-event-teaser {
+            padding-top: 40px;
+            padding-bottom: 40px;
+         }
+
+         .news-block {
+            margin-top: 0;
+            margin-bottom: 40px;
+         }
+
+         .news-event-teaser .news-meta {
+            width: 25%;
+            float: left;
+            position: relative;
+         }
+
+         .news-event-teaser .news-meta:after {
+            content: "";
+            position: absolute;
+            top: 13px;
+            right: 0;
+            width: 2px;
+            height: 90%;
+            background-color: #cf3d27;
+            transform: rotate(20deg);
+         }
+
+         .news-event-teaser h6 {
+            margin-top: 10px;
+            width: 68%;
+            float: right;
+            font-size: 20px;
+            line-height: 26px;
+         }
+
+         /* Hotel List Styles Starts */
+
+         .hotels-list .list-box {
+            padding-bottom: 25px;
+         }
+
+         .hotels-list .list-box-info {
+            margin-left: 0;
+         }
+
+         /* Hotel Grid List Styles Starts */
+
+         .hotels-list-grid .grid-box .delivery-time {
+            left: 45%;
+            right: auto;
+         }
+
+         .hotels-list-grid .grid-box .content {
+            padding-top: 30px;
+         }
+
+         .hotels-list-grid .grid-box-tags,
+         .hotels-list-grid .grid-box-info-links {
+            margin-bottom: 5px;
+         }
+
+         .hotels-list-grid .grid-box-info .btn-prime {
+            margin-top: 5px;
+            margin-bottom: 5px;
+         }
+
+         /* Download App Section Styles Starts */
+
+         .dowload-app h3 {
+            margin-top: 0;
+         }
+
+         .dowload-app ul {
+            margin-bottom: 30px;
+         }
+
+         .dowload-app li+li {
+            margin-left: 0;
+         }
+
+         /* Contact Page Styles Starts */
+
+         .contact-left-col {
+            margin-bottom: 60px;
+         }
+
+         /* Footer Top Styles Starts */
+
+         .footer-top li:last-of-type {
+            margin-left: 0;
+            margin-top: 10px;
+         }
+
+         .newsletter-form .form-control,
+         .newsletter-form .btn-prime {
+            font-size: 16px;
+         }
+
+         /* Footer Area Styles Starts */
+
+         .page-links {
+            margin-top: 30px;
+            margin-bottom: 15px;
+         }
+
+         /* List Styles Starts */
+
+         .list-style-1 {
+            margin-top: 0;
+         }
+
+         .list-style-1 li {
+            padding-top: 5px;
+         }
+
+         /* Generic Styles Starts */
+
+         .img-center-md {
+            margin-left: auto;
+            margin-right: auto;
+         }
+
+      }
+
+      /* Large devices - lg (desktops, 992px and up) */
+      @media (min-width: 992px) and (max-width: 1199px) {
+
+         /* Main Menu Styles Starts */
+
+         .main-menu .navbar-nav>.nav-item>a {
+            padding-left: 15px;
+            padding-right: 15px;
+         }
+
+         .main-menu .dropdown:hover .dropdown-menu {
+            display: block;
+         }
+
+         /* Welcome Section Styles Starts */
+
+         .welcome-box {
+            padding: 5px 25px 25px;
+         }
+
+         .welcome-box h1 {
+            margin-bottom: 15px;
+            font-size: 50px;
+         }
+
+         .welcome-box p.spl {
+            margin-bottom: 10px;
+         }
+
+         .welcome-box .btn-prime {
+            margin-top: 10px;
+            padding: 10px 20px;
+         }
+
+         /* Menu Card Section Styles Starts */
+
+         .menu-card .slide1,
+         .menu-card .slide2 {
+            background-image: none;
+         }
+
+         .menu-card h1 {
+            font-size: 140px;
+         }
+
+         .menu-card h1 small {
+            font-size: 52px;
+         }
+
+         .menu-card h1 sup {
+            top: -60px;
+            font-size: 52px;
+         }
+
+         /* Special Offers Section Styles Starts */
+
+         .special-offers .owl-carousel .owl-prev,
+         .special-offers .owl-carousel .owl-next {
+            position: absolute;
+            top: 45%;
+         }
+
+         .special-offers .owl-carousel .owl-prev {
+            left: -40px;
+         }
+
+         .special-offers .owl-carousel .owl-next {
+            right: -40px;
+         }
+
+         .special-offers .owl-carousel .owl-buttons div .fa {
+            font-size: 38px;
+         }
+
+         /* News & Event Section Styles Starts */
+
+         .news-event-teaser .news-meta {
+            width: 25%;
+            float: left;
+            position: relative;
+         }
+
+         .news-event-teaser .news-meta:after {
+            content: "";
+            position: absolute;
+            top: 13px;
+            right: 0;
+            width: 2px;
+            height: 90%;
+            background-color: #cf3d27;
+            transform: rotate(20deg);
+         }
+
+         .news-event-teaser h6 {
+            margin-top: 10px;
+            width: 68%;
+            float: right;
+            font-size: 20px;
+            line-height: 26px;
+         }
+
+         /* Side Block Styles Starts */
+
+         .side-block-order .dl-horizontal dt {
+            width: auto;
+         }
+
+         .side-block-order .dl-horizontal dd {
+            margin-left: 0;
+         }
+
+         /* Hotel Grid List Styles Starts */
+
+         .hotels-list-grid .grid-box .delivery-time {
+            left: 45%;
+            right: auto;
+         }
+
+         .hotels-list-grid .grid-box .content {
+            padding-top: 30px;
+         }
+
+         .hotels-list-grid .grid-box-tags,
+         .hotels-list-grid .grid-box-info-links {
+            margin-bottom: 5px;
+         }
+
+         .hotels-list-grid .grid-box-info .btn-prime {
+            margin-top: 5px;
+            margin-bottom: 10px;
+         }
+
+         /* Download App Section Styles Starts */
+
+         .dowload-app .content {
+            padding-right: 30px;
+            padding-left: 20px;
+         }
+
+         .dowload-app h3 {
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #cf3d27;
+         }
+
+         .dowload-app h5 {
+            margin-bottom: 25px;
+            color: #282828;
+         }
+
+         /* Login Page Styles Starts */
+
+         .content-login-wrap>.row {
+            background: url(../images/divider-1.png) repeat-y center;
+         }
+
+         /* Footer Top Styles Starts */
+
+         .page-links {
+            margin-top: 12px;
+         }
+
+         .page-links li {
+            padding-left: 4px;
+            padding-right: 4px;
+         }
+
+         .sm-links li a.btn-prime {
+            padding: 4px 8px;
+         }
+
+         /* Generic Styles Starts */
+
+         .img-center-lg {
+            margin-left: auto;
+            margin-right: auto;
+         }
+
+      }
+
+      /* Extra large devices - xl (large desktops, 1200px and up) */
+      @media (min-width: 1200px) {
+
+         /* Main Menu Styles Starts */
+
+         .main-menu .dropdown:hover .dropdown-menu {
+            display: block;
+         }
+
+         /* Menu Card Section Styles Starts */
+
+         .menu-card {
+            padding-bottom: 100px;
+         }
+
+         .menu-card .owl-carousel .owl-buttons .owl-prev,
+         .menu-card .owl-carousel .owl-buttons .owl-next {
+            position: absolute;
+         }
+
+         .menu-card .owl-carousel .owl-buttons .owl-prev {
+            right: 14%;
+         }
+
+         .menu-card .owl-carousel .owl-buttons .owl-next {
+            right: 10%;
+         }
+
+         /* Special Offers Section Styles Starts */
+
+         .special-offers .owl-carousel .owl-prev,
+         .special-offers .owl-carousel .owl-next {
+            position: absolute;
+            top: 45%;
+         }
+
+         .special-offers .owl-carousel .owl-prev {
+            left: -70px;
+         }
+
+         .special-offers .owl-carousel .owl-next {
+            right: -70px;
+         }
+
+         .special-offers .owl-carousel .owl-buttons div .fa {
+            font-size: 48px;
+         }
+
+         /* News & Event Section Styles Starts */
+
+         .news-event-teaser .news-meta {
+            width: 25%;
+            float: left;
+            position: relative;
+         }
+
+         .news-event-teaser .news-meta:after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            width: 2px;
+            height: 90%;
+            background-color: #cf3d27;
+            transform: rotate(20deg);
+         }
+
+         .news-event-teaser h6 {
+            margin-top: 20px;
+            width: 73%;
+            float: right;
+            font-size: 20px;
+            line-height: 26px;
+         }
+
+         /* Download App Section Styles Starts */
+
+         .dowload-app .content {
+            padding-top: 30px;
+         }
+
+         /* Login Page Styles Starts */
+
+         .content-login-wrap>.row {
+            background: url(../images/divider-1.png) repeat-y center;
+         }
+
+      }
+
+      /* Editing Bootstrap Core CSS */
+
+      @media (min-width: 576px) {
+
+         #change-location .modal-dialog {
+            margin: 30px auto;
+            max-width: 600px;
+         }
+
+      }
+
+      @media screen (max-width: 990px) {
+         .content-login-wrap {
+            padding: 10px 0 0 0;
+         }
+      }
+
+      /** End **/
+   </style>
 </head>
 
 <body ng-controller="myCtrl">
-	<div>
-		<nav id="nav" class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header items-spaced-center">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<img class="logo" src="images/logo.png" alt="Logo" height="40" />
-					<a class="navbar-brand" href="#home">HangingCage</a>
-					<a href="tel:+91 (636)-014-9357">
-						<i class="fa fa-phone pd5"></i>+91 (636)-014-9357
-					</a>
-				</div>
-				<div class="collapse navbar-collapse" id="myNavbar">
-					<ul class="nav navbar-nav">
-						<li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-						<li><a data-toggle="tab" ng-click="navigateToContent()" href="#food">Food List</a></li>
-						<li><a data-toggle="tab" href="#about">About Us</a></li>
-						<li data-toggle="collapse"><a data-toggle="tab" href="#contact">Contact Us</a></li>
-					</ul>
-					<!-- <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul> -->
-				</div>
-			</div>
-		</nav>
-		<div class="tab-content">
-			<div class="alert alert-success alert-dismissible fade in hide">
-				<a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				<strong>You Appeared to be Offline!</strong>
-			</div>
-			 <div class="alert alert-success" style="padding: 0;margin:10px;">
-			    <marquee behavior="alternate">
-			       <b>Offers Running,Hurry up....</b>
-			    </marquee>
-			  </div>
-			<div id="home" class="tab-pane fade in active">
-				<div class="main-container container">
-					<!-- Content Login Wrap Starts -->
-					<div class="content-login-wrap row">
-						<div class="col-md-6 col-sm-12" ng-switch="ui.content">
-							<div ng-switch-when="loader" class="loader-wrapper">
-								<div class="loader"></div>
-							</div>
-							<form ng-switch-when="form">
-								<!-- Nested Row Starts -->
-								<div
-									style="color:#FFF !important;background:#000;padding-top: 10px;display: flex;flex-direction: column;">
-									<h6 style="margin:12px;" class="text-center"><b>Please Provide Your Information,If
-											any queries...</b>
-									</h6>
-									<div class="col-sm-12">
-										<label class="sr-only" for="newsletter-city">Please Enter your Name</label>
-										<input type="text" ng-model="name" class="form-control" id="newsletter-city"
-											placeholder="Please Enter your Name">
-									</div>
-									<div class="col-sm-12" style="margin-top: 20px;">
-										<label class="sr-only" for="newsletter-email">Enter Phone Number</label>
-										<input type="text" class="form-control" ng-model="phone" id="newsletter-email"
-											placeholder="Enter Phone Number">
-									</div>
-									<div class="col-sm-12">
-										<button
-											class="btn btn-prime btn-block text-uppercase text-weight-bold animation"
-											ng-click="getHelp(name,phone)">Get Help from us</button>
-									</div>
-									<div class="col-sm-12 text-center">
-										<h6 class="text-weight-bold">
-											<label>
-												<input type="checkbox">
-												<span>I have read &amp; accepted the terms and conditions and privacy
-													policy</span>
-											</label>
-										</h6>
-									</div>
-								</div>
-								<!-- Nested Row Ends -->
-							</form>
-						</div>
-						<!-- Divider For Small Devices -->
-						<div class="w-10 d-xs-block d-sm-block d-md-none">
-							<br>
-							<hr><br>
-						</div>
-						<div class="col-md-4 col-sm-12 offset-md-2">
-							<p> One cannot think well, love well, sleep well, if one has not dined well.<br />
-								So,Take a taste. Come join us. Life is so endlessly delicious. </p>
-							<button class="btn btn-block btn-fb animation">
-								<a style="display:flex;justify-content:space-evenly;align-items:center;color:#FFF;text-decoration:none"
-									href="https://www.facebook.com/Hanging-Cage-RestoCafe-100401028139484"
-									target="_blank">
-									<i class="fa fa-facebook"></i>Like on Facebook
-								</a>
-							</button>
-							<button class="btn btn-block btn-prime tiny animation">
-								<a style="color:#FFF;display:flex;justify-content:center;align-items:center;text-decoration:none"
-									href="https://www.zomato.com/hi/bangalore/hanging-cage-resto-cafe-kanakapura-road-bangalore/reviews?city_id=4&tab=reviews"
-									target="_blank"> Reviews on Zomato
-								</a>
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="food" class="tab-pane fade display-content-center">
-				<div class="flex-wrap">
-					<div class="card">
-						<img src="images/burger.png" alt="burger" />
-						<div class="text-center">
-							<h4><b>Burger</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/sandwitch.svg" alt="Sandwitch" />
-						<div class="text-center">
-							<h4><b>Sandwitch</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/fries.jpeg" alt="Fries" />
-						<div class="text-center">
-							<h4><b>Fries</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/chineese.jpg" alt="Chineese" />
-						<div class="text-center">
-							<h4><b>Chineese Veg Starters</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/chineese.jpg" alt="Chineese" />
-						<div class="text-center">
-							<h4><b>Chineese Non-Veg</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/biryani-veg.png" alt="Biriyani" />
-						<div class="text-center">
-							<h4><b>Special Veg Matka Biriyani</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/biryani.png" alt="Biriyani" />
-						<div class="text-center">
-							<h4><b>Chicken Biriyani</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/shakes.png" alt="shakes" />
-						<div class="text-center">
-							<h4><b>Shakes</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/icecream.png" alt="icecream" />
-						<div class="text-center">
-							<h4><b>Ice Creams</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/sundae.png" alt="Sundaes" />
-						<div class="text-center">
-							<h4><b>Sundaes</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/falooda.png" alt="Falooda" />
-						<div class="text-center">
-							<h4><b>Falooda</b></h4>
-						</div>
-					</div>
-					<div class="card">
-						<img src="images/food.png" alt="Food" />
-						<div class="text-center">
-							<h4><b>Time Limited Special Dishes</b></h4>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="about" class="tab-pane fade">
-				<h3>About Us</h3>
-				<p>About us section..</p>
-			</div>
-			<div id="contact" class="tab-pane fade">
-				<h3>Contact Us</h3>
-				<p>Contact us section..</p>
-			</div>
-		</div>
-		<section class="main-banner three flip parallax">
-    <!-- Nested Container Starts -->
-    <div class="container">
-        <h1 class="text-center">Partner With Us</h1>
-    </div>
-    <!-- Nested Container Ends -->
-</section>
-<div class="container main-container">
-    <section class="contact-form-section">
-        <h3 class="text-weight-bold text-center">To Get Listed in HangingCage add your restaurant...</h3>
-        <form action="#">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label class="sr-only" for="contact-email">E-mail</label>
-                        <input type="email" class="form-control rounded-0" id="contact-email" placeholder="E-mail">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label class="sr-only" for="contact-phoneno">Phone No</label>
-                        <input type="text" class="form-control rounded-0" id="contact-phoneno" placeholder="Phone No">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label class="sr-only" for="contact-city">Facebook</label>
-                        <input type="text" class="form-control rounded-0" id="contact-city" placeholder="Your Facebook Page">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="form-group">
-                        <label class="sr-only" for="contact-address">Google Page</label>
-                        <input type="text" class="form-control rounded-0" id="contact-address" placeholder="Your Google Page">
-                    </div>
-                </div>
-                <div class="col-sm-12 text-center">
-                    <button type="submit" class="btn btn-prime text-uppercase animation">Submit Your Details</button>
-                </div>
+   <div>
+      <nav id="nav" class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container-fluid">
+            <div class="navbar-header items-spaced-center">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+               </button>
+               <img class="logo" src="images/logo.png" alt="Logo" height="40" />
+               <a class="navbar-brand" href="#home">HangingCage</a>
+               <a href="tel:+91 (636)-014-9357">
+                  <i class="fa fa-phone pd5"></i>+91 (636)-014-9357
+               </a>
             </div>
-        </form>
-    </section>
-</div>
-<section class="contact-details">
-    <!-- Nested Container Starts -->
-    <div class="container text-xs-center text-sm-center text-md-left">
-        <!-- Nested Row Starts -->
-        <div class="row">
-            <!-- Left Column Starts -->
-            <!--<div class="col-md-8 col-sm-12">
-                <div class="contact-left-col">
-                    <h5>For any enquiries, please call your nearest office</h5>
-                    <ul class="list-unstyled row">
-                        <li class="col-md-3 col-sm-12">
-                            <h6>Australia</h6>
-                            +61 123 456 7890
-                        </li>
-                        <li class="col-md-3 col-sm-12">
-                            <h6>Ireland</h6>
-                            +61 123 456 7890
-                        </li>
-                        <li class="col-md-3 col-sm-12">
-                            <h6>Czech Republic</h6>
-                            +61 123 456 7890
-                        </li>
-                        <li class="col-md-3 col-sm-12">
-                            <h6>India</h6>
-                            +61 123 456 7890
-                        </li>
-                    </ul>
-                    <ul class="list-unstyled row">
-                        <li class="col-md-3 col-sm-12">
-                            <h6>Poland</h6>
-                            +61 123 456 7890
-                        </li>
-                        <li class="col-md-3 col-sm-12">
-                            <h6>China</h6>
-                            +61 123 456 7890
-                        </li>
-                        <li class="col-md-3 col-sm-12">
-                            <h6>USA</h6>
-                            +61 123 456 7890
-                        </li>
-                        <li class="col-md-3 col-sm-12">
-                            <h6>Mexico</h6>
-                            +61 123 456 7890
-                        </li>
-                    </ul>
-                    <ul class="list-unstyled row">
-                        <li class="col-md-3 col-sm-12">
-                            <h6>Vietnam</h6>
-                            +61 123 456 7890
-                        </li>
-                        <li class="col-md-3 col-sm-12">
-                            <h6>Portugal</h6>
-                            +61 123 456 7890
-                        </li>
-                        <li class="col-md-3 col-sm-12">
-                            <h6>Koria</h6>
-                            +61 123 456 7890
-                        </li>
-                        <li class="col-md-3 col-sm-12">
-                            <h6>Africa</h6>
-                            +61 123 456 7890
-                        </li>
-                    </ul>
-                </div>
-            </div>-->
-            <!-- Left Column Ends -->
-            <!-- Right Column Starts -->
-            <div class="col-md-4 col-sm-12">
-                <div class="contact-right-col">
-                    <h5>Contact our customer service</h5>
-                    <ul class="list-unstyled">
-                        <li class="row">
-                            <div class="col-2"><i class="fa fa-map-marker"></i></div>
-                            <div class="col-10">
-                                <h6>Let your loved ones know about us,Spread Binge love on Whatsapp</h6>
-                                <a href="whatsapp://send?text=http://hangingcage.com Hanging Cage |Resto Cage--Bangalore,Kanakapura Road!" data-action="share/whatsapp/share" style="
-    display: flex;
-    align-items: flex-end;
-    text-decoration: none;
-"><i class="fa fa-whatsapp" style="color:green;"></i><span style="margin-left:10px;">Share</span></a>
-                            </div>
-                        </li>
-                        <li class="row">
-                            <div class="col-2"><i class="fa fa-phone"></i></div>
-                            <div class="col-10">
-                                +91-969 956 9999, 960 123 4567
-                            </div>
-                        </li>
-                        <li class="row">
-                            <div class="col-2"><i class="fa fa-comment"></i></div>
-                            <div class="col-10">
-                                <a href="skype:skypechat.live?chat">Start chat</a>
-                            </div>
-                        </li>
-                        <li class="row">
-                            <div class="col-2"><i class="fa fa-envelope "></i></div>
-                            <div class="col-10">
-                                <a href="mailto:info@HangingCagedomain.com">info@HangingCagedomain.com</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul class="nav navbar-nav">
+                  <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+                  <li><a data-toggle="tab" ng-click="navigateToContent('#food')" href="#food">Food List</a></li>
+                  <li><a data-toggle="tab" ng-click="navigateToContent('#about')" href="#about">About Us</a></li>
+                  <li data-toggle="collapse"><a data-toggle="tab" ng-click="navigateToContent('#contact')"
+                        href="#contact">Contact Us</a></li>
+               </ul>
+               <!-- <ul class="nav navbar-nav navbar-right">
+                  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+               </ul> -->
             </div>
-            <!-- Right Column Ends -->
-        </div>
-        <!-- Nested Row Ends -->
-    </div>
-    <!-- Nested Container Ends -->
-</section>
-<!-- <div class="contact-page-map" style="height: 440px; position: relative; overflow: hidden;">
-    <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
-        <div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
-            <div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;">
-                <div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);">
-                    <div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;">
-                        <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
-                            <div style="position: absolute; z-index: 992; transform: matrix(1, 0, 0, 1, -203, -107);">
-                                <div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 512px; top: -256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 512px; top: 0px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 512px; top: 256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 768px; top: -256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 768px; top: 0px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: 768px; top: 256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                                <div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px;">
-                                    <div style="width: 256px; height: 256px;"></div>
-                                </div>
-                            </div>
+         </div>
+      </nav>
+      <div class="tab-content">
+         <div class="alert alert-success alert-dismissible fade in hide">
+            <a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>You Appeared to be Offline!</strong>
+         </div>
+         <div class="alert alert-success" style="padding: 0;margin:10px;">
+            <marquee behavior="alternate">
+               <b>Offers Running,Hurry up....</b>
+            </marquee>
+         </div>
+         <div id="home" class="tab-pane fade in active">
+            <div class="main-container container">
+               <!-- Content Login Wrap Starts -->
+               <div class="content-login-wrap row">
+                  <div class="col-md-6 col-sm-12" ng-switch="ui.content">
+                     <div ng-switch-when="loader" class="loader-wrapper">
+                        <div class="loader"></div>
+                     </div>
+                     <form ng-switch-when="form">
+                        <!-- Nested Row Starts -->
+                        <div
+                           style="color:#FFF !important;background:#000;padding-top: 10px;display: flex;flex-direction: column;">
+                           <h6 style="margin:12px;" class="text-center"><b>Please Provide Your Information,If
+                                 any queries...</b>
+                           </h6>
+                           <div class="col-sm-12">
+                              <label class="sr-only" for="newsletter-city">Please Enter your Name</label>
+                              <input type="text" ng-model="name" class="form-control" id="newsletter-city"
+                                 placeholder="Please Enter your Name">
+                           </div>
+                           <div class="col-sm-12" style="margin-top: 20px;">
+                              <label class="sr-only" for="newsletter-email">Enter Phone Number</label>
+                              <input type="text" class="form-control" ng-model="phone" id="newsletter-email"
+                                 placeholder="Enter Phone Number">
+                           </div>
+                           <div class="col-sm-12">
+                              <button class="btn btn-prime btn-block text-uppercase text-weight-bold animation"
+                                 ng-click="getHelp(name,phone)">Get Help from us</button>
+                           </div>
+                           <div class="col-sm-12 text-center">
+                              <h6 class="text-weight-bold">
+                                 <label>
+                                    <input type="checkbox">
+                                    <span>I have read &amp; accepted the terms and conditions and privacy
+                                       policy</span>
+                                 </label>
+                              </h6>
+                           </div>
                         </div>
-                    </div>
-                    <div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div>
-                    <div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div>
-                    <div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"></div>
-                    <div style="position: absolute; left: 0px; top: 0px; z-index: 0;">
-                        <div style="position: absolute; z-index: 992; transform: matrix(1, 0, 0, 1, -203, -107);">
-                            <div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i184!3i115!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=18137" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i183!3i115!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=17986" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i183!3i114!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=113363" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i184!3i114!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=113514" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 512px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i185!3i114!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=113665" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 512px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i185!3i115!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=18288" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 512px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i185!3i116!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=53982" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i184!3i116!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=53831" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i183!3i116!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=53680" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i182!3i116!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=53529" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i182!3i114!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=113212" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 768px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i186!3i114!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=113816" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i182!3i115!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=17835" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 768px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i186!3i115!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=18439" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: 768px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i186!3i116!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=54133" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i181!3i116!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=53378" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i181!3i115!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=17684" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
-                            <div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i8!2i181!3i114!4i256!2m3!1e0!2sm!3i496207182!2m3!1e2!6m1!3e5!3m17!2sen-GB!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcC5zOi02MHxwLmw6LTYw!4e0&amp;token=113061" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div>
+                        <!-- Nested Row Ends -->
+                     </form>
+                  </div>
+                  <!-- Divider For Small Devices -->
+                  <div class="w-10 d-xs-block d-sm-block d-md-none">
+                     <br>
+                     <hr><br>
+                  </div>
+                  <div class="col-md-4 col-sm-12 offset-md-2">
+                     <p> One cannot think well, love well, sleep well, if one has not dined well.<br />
+                        So,Take a taste. Come join us. Life is so endlessly delicious. </p>
+                     <button class="btn btn-block btn-fb animation">
+                        <a style="display:flex;justify-content:space-evenly;align-items:center;color:#FFF;text-decoration:none"
+                           href="https://www.facebook.com/Hanging-Cage-RestoCafe-100401028139484" target="_blank">
+                           <i class="fa fa-facebook"></i>Like on Facebook
+                        </a>
+                     </button>
+                     <button class="btn btn-block btn-prime tiny animation">
+                        <a style="color:#FFF;display:flex;justify-content:center;align-items:center;text-decoration:none"
+                           href="https://www.zomato.com/hi/bangalore/hanging-cage-resto-cafe-kanakapura-road-bangalore/reviews?city_id=4&tab=reviews"
+                           target="_blank"> Reviews on Zomato
+                        </a>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="food" class="tab-pane fade display-content-center">
+            <div class="flex-wrap">
+               <div class="card">
+                  <img src="images/burger.png" alt="burger" />
+                  <div class="text-center">
+                     <h4><b>Burger</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/sandwitch.svg" alt="Sandwitch" />
+                  <div class="text-center">
+                     <h4><b>Sandwitch</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/fries.jpeg" alt="Fries" />
+                  <div class="text-center">
+                     <h4><b>Fries</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/chineese.jpg" alt="Chineese" />
+                  <div class="text-center">
+                     <h4><b>Chineese Veg Starters</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/chineese.jpg" alt="Chineese" />
+                  <div class="text-center">
+                     <h4><b>Chineese Non-Veg</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/biryani-veg.png" alt="Biriyani" />
+                  <div class="text-center">
+                     <h4><b>Special Veg Matka Biriyani</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/biryani.png" alt="Biriyani" />
+                  <div class="text-center">
+                     <h4><b>Chicken Biriyani</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/shakes.png" alt="shakes" />
+                  <div class="text-center">
+                     <h4><b>Shakes</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/icecream.png" alt="icecream" />
+                  <div class="text-center">
+                     <h4><b>Ice Creams</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/sundae.png" alt="Sundaes" />
+                  <div class="text-center">
+                     <h4><b>Sundaes</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/falooda.png" alt="Falooda" />
+                  <div class="text-center">
+                     <h4><b>Falooda</b></h4>
+                  </div>
+               </div>
+               <div class="card">
+                  <img src="images/food.png" alt="Food" />
+                  <div class="text-center">
+                     <h4><b>Time Limited Special Dishes</b></h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id="about" class="tab-pane fade">
+            <section class="main-banner one parallax">
+               <!-- Nested Container Starts -->
+               <div class="container">
+                  <!-- Nested Row Starts -->
+                  <div class="row">
+                     <!-- Banner Content Starts -->
+                     <div class="col-lg-5 col-md-6 col-sm-12 text-center">
+                        <h1>About <br class="d-xs-block d-sm-block d-md-none">HangingCage!</h1>
+                        <ul class="list-unstyled">
+                           <li>HangingCage Restocafe offers Dine-In, </li>
+                           <li>Ordering Food &amp; </li>
+                           <li>Table booking &amp; Restaurants.</li>
+                           <li>Deals &amp; Discounts</li>
+                           <li>Celebrate Birthday's,Treat for your friends &amp; relatives.</li>
+                        </ul>
+                     </div>
+                     <!-- Banner Content Ends -->
+                  </div>
+                  <!-- Nested Row Ends -->
+               </div>
+               <!-- Nested Container Ends -->
+            </section>
+            <div class="container main-container">
+               <!-- Intro Content Starts -->
+               <div class="row">
+                  <div class="col-sm-10 offset-sm-1">
+                     <h1 class="text-center text-weight-light text-spl-color">What Does HangingCage Offer?</h1><br>
+                     <div class="text-center text-muted">
+                        <p>We offer quality and tasty food at reasonable price.</p>
+                        <p>Visit the resto cafe and enjoy the food and exciting offers.We serve various varieties of
+                           foods like<br /> Chinese Veg/Non Veg, Shakes, fast food, fries, desserts,rolls. </p>
+                        <p>We serve traditional special <strong>Veg Matka Biriyani</strong>,Everone has a favourite
+                           restaurant that he or she loves to eat.
+                           The Best Restaurant to go to is hanging cage.This peaceful place has the most delicious food
+                           for all the italian food lovers out there.The HangingCage is the most exquisiste place to eat
+                           and is truly the finest cafe in town.</p>
+                     </div>
+                  </div>
+               </div>
+               <!-- Intro Content Ends -->
+
+            </div>
+            <div id="contact" class="tab-pane fade">
+               <h3>Contact Us</h3>
+               <p>Contact us section..</p>
+            </div>
+         </div>
+         <div id="contact" class="tab-pane fade">
+            <section class="main-banner three flip parallax">
+               <!-- Nested Container Starts -->
+               <div class="container">
+                  <h1 class="text-center">Partner With Us</h1>
+               </div>
+               <!-- Nested Container Ends -->
+            </section>
+            <div class="container main-container">
+               <section class="contact-form-section">
+                  <h3 class="text-weight-bold text-center">To Get Listed in HangingCage add your restaurant...</h3>
+                  <form action="#">
+                     <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label class="sr-only" for="contact-email">E-mail</label>
+                              <input type="email" class="form-control rounded-0" id="contact-email"
+                                 placeholder="E-mail">
+                           </div>
                         </div>
-                    </div>
-                </div>
-                <div class="gm-style-pbc" style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0; transition-duration: 0.8s;">
-                    <p class="gm-style-pbt">Use ctrl + scroll to zoom the map</p>
-                </div>
-                <div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;">
-                    <div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);">
-                        <div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div>
-                        <div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div>
-                        <div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div>
-                        <div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div>
-                    </div>
-                </div>
-            </div><iframe aria-hidden="true" frameborder="0" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: none;" src="about:blank"></iframe>
-            <div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" rel="noopener" href="https://maps.google.com/maps?ll=17.421306,78.457553&amp;z=8&amp;t=m&amp;hl=en-GB&amp;gl=US&amp;mapclient=apiv3" title="Open this area in Google Maps (opens a new window)" style="position: static; overflow: visible; float: none; display: inline;">
-                    <div style="width: 66px; height: 26px; cursor: pointer;"><img alt="" src="https://maps.gstatic.com/mapfiles/api-3/images/google4.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div>
-                </a></div>
-            <div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 300px; height: 180px; position: absolute; left: 525px; top: 130px;">
-                <div style="padding: 0px 0px 10px; font-size: 16px; box-sizing: border-box;">Map Data</div>
-                <div style="font-size: 13px;">Map data ©2019 Google</div><button draggable="false" title="Close" aria-label="Close" type="button" class="gm-ui-hover-effect" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: absolute; cursor: pointer; user-select: none; top: 0px; right: 0px; width: 37px; height: 37px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000000%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M19%206.41L17.59%205%2012%2010.59%206.41%205%205%206.41%2010.59%2012%205%2017.59%206.41%2019%2012%2013.41%2017.59%2019%2019%2017.59%2013.41%2012z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="pointer-events: none; display: block; width: 13px; height: 13px; margin: 12px;"></button>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label class="sr-only" for="contact-phoneno">Phone No</label>
+                              <input type="text" class="form-control rounded-0" id="contact-phoneno"
+                                 placeholder="Phone No">
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label class="sr-only" for="contact-city">Facebook</label>
+                              <input type="text" class="form-control rounded-0" id="contact-city"
+                                 placeholder="Your Facebook Page">
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                           <div class="form-group">
+                              <label class="sr-only" for="contact-address">Google Page</label>
+                              <input type="text" class="form-control rounded-0" id="contact-address"
+                                 placeholder="Your Google Page">
+                           </div>
+                        </div>
+                        <div class="col-sm-12 text-center">
+                           <button type="submit" class="btn btn-prime text-uppercase animation">Submit Your
+                              Details</button>
+                        </div>
+                     </div>
+                  </form>
+               </section>
             </div>
-            <div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 166px; bottom: 0px; width: 121px;">
-                <div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px;">
-                    <div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
-                        <div style="width: 1px;"></div>
-                        <div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div>
-                    </div>
-                    <div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="text-decoration: none; cursor: pointer; display: none;">Map Data</a><span>Map data ©2019 Google</span></div>
-                </div>
-            </div>
-            <div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;">
-                <div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data ©2019 Google</div>
-            </div>
-            <div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; height: 14px; line-height: 14px; position: absolute; right: 95px; bottom: 0px;">
-                <div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
-                    <div style="width: 1px;"></div>
-                    <div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div>
-                </div>
-                <div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a href="https://www.google.com/intl/en-GB_US/help/terms_maps.html" target="_blank" rel="noopener" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms of Use</a></div>
-            </div><button draggable="false" title="Toggle fullscreen view" aria-label="Toggle fullscreen view" type="button" class="gm-control-active gm-fullscreen-control" style="background: none rgb(255, 255, 255); border: 0px; margin: 10px; padding: 0px; position: absolute; cursor: pointer; user-select: none; border-radius: 2px; height: 40px; width: 40px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; overflow: hidden; display: none; top: 0px; right: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%20018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"></button>
-            <div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;">
-                <div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;">
-                    <div style="width: 1px;"></div>
-                    <div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div>
-                </div>
-                <div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_blank" rel="noopener" title="Report errors in the road map or imagery to Google" href="https://www.google.com/maps/@17.421306,78.457553,8z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Report a map error</a></div>
-            </div>
-        </div>
-    </div>
-    <div style="background-color: white; font-weight: 500; font-family: Roboto, sans-serif; padding: 15px 25px; box-sizing: border-box; top: 5px; border: 1px solid rgba(0, 0, 0, 0.12); border-radius: 5px; left: 50%; max-width: 375px; position: absolute; transform: translateX(-50%); width: calc(100% - 10px); z-index: 1;">
-        <div><img alt="" src="https://maps.gstatic.com/mapfiles/api-3/images/google_gray.svg" draggable="false" style="padding: 0px; margin: 0px; border: 0px; height: 17px; vertical-align: middle; width: 52px; user-select: none;"></div>
-        <div style="line-height: 20px; margin: 15px 0px;"><span style="color: rgba(0, 0, 0, 0.87); font-size: 14px;">This page can't load Google Maps correctly.</span></div>
-        <table style="width: 100%;">
-            <tr>
-                <td style="line-height: 16px; vertical-align: middle;"><a href="https://developers.google.com/maps/documentation/javascript/error-messages?utm_source=maps_js&amp;utm_medium=degraded&amp;utm_campaign=keyless#api-key-and-billing-errors" target="_blank" rel="noopener" style="color: rgba(0, 0, 0, 0.54); font-size: 12px;">Do you own this website?</a></td>
-                <td style="text-align: right;"><button class="dismissButton">OK</button></td>
-            </tr>
-        </table>
-    </div>
-</div> -->
-<center>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.415046951067!2d77.54362331482103!3d12.881011990915335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUyJzUxLjYiTiA3N8KwMzInNDQuOSJF!5e0!3m2!1sen!2sin!4v1577198646587!5m2!1sen!2sin" height="450" frameborder="0" style="border:0;width:100%;" allowfullscreen=""></iframe>
-    <button class="btn btn-prime animation">
-        <a style="color: #FFFF" target="_blank" href="https://goo.gl/maps/WTAzBXLYh7bgHD4w8" rel="noopener noreferrer">
-            <i class="fa fa-map-o"></i>
-            View on Map
-        </a>
-    </button>
-</center>
-	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<script defer>
-		if (navigator.onLine)
-			$(".alert-success").remove("hide");
-	</script>
-	<script defer>
-		if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
-			location.href = "https://blackcyber.herokuapp.com";
-		}
-		if ('serviceWorker' in navigator) {
-			window.addEventListener("load", () => {
-				navigator.serviceWorker.register(
-					// fetch("http://" + location.host + "/sw").then(file => {
-					//   console.log("Rcvd file", file)
-					//   return file;
-					// }).catch(e => console.log("Err in Rcvng file"))
-					"./sw.js"
-				)
-					.then((reg) => {
-						console.log("Reg", reg);
-					}).catch(e => console.log("Err:", e))
-			});
-		} else {
-			console.log("Sw not Supported!");
-		}
-		$(".navbar-nav li").click = function () {
-			$("#myNavbar").toggleClass("in")
-		};
-		var app = angular.module('myApp', []);
-		app.controller('myCtrl', function ($scope) {
-			$scope.firstName = "John";
-			$scope.lastName = "Doe";
-			$scope.ui = {
-				content: 'form'
-			};
-			function enableContent(id) {
-				$(id).css({ display: "block" });
-			}
-			$scope.navigateToContent = function () {
-				enableContent("#food");
-			};
-		});
-	</script>
+            <section class="contact-details">
+               <!-- Nested Container Starts -->
+               <div class="container text-xs-center text-sm-center text-md-left">
+                  <!-- Nested Row Starts -->
+                  <div class="row">
+                     <!-- Right Column Starts -->
+                     <div class="col-md-4 col-sm-12">
+                        <div class="contact-right-col">
+                           <h5>Contact our customer service</h5>
+                           <ul class="list-unstyled">
+                              <li class="row">
+                                 <div class="col-2"><i class="fa fa-map-marker"></i></div>
+                                 <div class="col-10">
+                                    <h6>Let your loved ones know about us,Spread Binge love on Whatsapp</h6>
+                                    <a href="whatsapp://send?text=http://hangingcage.com Hanging Cage |Resto Cage--Bangalore,Kanakapura Road!"
+                                       data-action="share/whatsapp/share" style="
+               display: flex;
+               align-items: flex-end;
+               text-decoration: none;
+           "><i class="fa fa-whatsapp" style="color:green;"></i><span style="margin-left:10px;">Share</span></a>
+                                 </div>
+                              </li>
+                              <li class="row">
+                                 <div class="col-2"><i class="fa fa-phone"></i></div>
+                                 <div class="col-10">
+                                    +91-969 956 9999, 960 123 4567
+                                 </div>
+                              </li>
+                              <li class="row">
+                                 <div class="col-2"><i class="fa fa-comment"></i></div>
+                                 <div class="col-10">
+                                    <a href="skype:skypechat.live?chat">Start chat</a>
+                                 </div>
+                              </li>
+                              <li class="row">
+                                 <div class="col-2"><i class="fa fa-envelope "></i></div>
+                                 <div class="col-10">
+                                    <a href="mailto:info@HangingCagedomain.com">info@HangingCagedomain.com</a>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
+                     <!-- Right Column Ends -->
+                  </div>
+                  <!-- Nested Row Ends -->
+               </div>
+               <!-- Nested Container Ends -->
+            </section>
+            <center>
+               <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.415046951067!2d77.54362331482103!3d12.881011990915335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDUyJzUxLjYiTiA3N8KwMzInNDQuOSJF!5e0!3m2!1sen!2sin!4v1577198646587!5m2!1sen!2sin"
+                  height="450" frameborder="0" style="border:0;width:100%;" allowfullscreen=""></iframe>
+               <button class="btn btn-prime animation">
+                  <a style="color: #FFFF" target="_blank" href="https://goo.gl/maps/WTAzBXLYh7bgHD4w8"
+                     rel="noopener noreferrer">
+                     <i class="fa fa-map-o"></i>
+                     View on Map
+                  </a>
+               </button>
+            </center>
+         </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+      <script defer>
+         if (navigator.onLine)
+            $(".alert-success").remove("hide");
+      </script>
+      <script defer>
+         if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
+            location.href = "https://blackcyber.herokuapp.com";
+         }
+         if ('serviceWorker' in navigator) {
+            window.addEventListener("load", () => {
+               navigator.serviceWorker.register(
+                  // fetch("http://" + location.host + "/sw").then(file => {
+                  //   console.log("Rcvd file", file)
+                  //   return file;
+                  // }).catch(e => console.log("Err in Rcvng file"))
+                  "./sw.js"
+               )
+                  .then((reg) => {
+                     console.log("Reg", reg);
+                  }).catch(e => console.log("Err:", e))
+            });
+         } else {
+            console.log("Sw not Supported!");
+         }
+         $(".navbar-nav li").click = function () {
+            $("#myNavbar").toggleClass("in")
+         };
+         var app = angular.module('myApp', []);
+         app.controller('myCtrl', function ($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Doe";
+            $scope.ui = {
+               content: 'form'
+            };
+            function enableContent(id) {
+               $(id).css({ display: "block" });
+            }
+            $scope.navigateToContent = function (id) {
+               enableContent(id);
+            };
+         });
+      </script>
 
 </body>
 
