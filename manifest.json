@@ -1,0 +1,16 @@
+{
+    "name": "Hanging Cage Resto Cafe",
+    "description": "Hanging Cage Resto Cafe.",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "images/logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "short_name": "Hanging Cage",
+    "theme_color":"#FF0000",
+    "background_color":"#FF0000",
+    "start_url": "/index.html"
+}
