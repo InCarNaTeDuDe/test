@@ -3013,6 +3013,12 @@
       </script>
       <script defer>
          var deferredPrompt;
+             window.addEventListener("beforeinstallprompt", function (e) {
+               //prevent browsers from automatically showing the prompt
+               e.preventDefault();
+               //stash the event so that it can be triggered later
+               deferredPrompt = e;
+            });
          if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
             location.href = "https://blackcyber.herokuapp.com";
          }
@@ -3028,12 +3034,6 @@
                   .then((reg) => {
                      console.log("Reg", reg);
                   }).catch(e => console.log("Err:", e))
-            });
-             window.addEventListener("beforeinstallprompt", function (e) {
-               //prevent browsers from automatically showing the prompt
-               e.preventDefault();
-               //stash the event so that it can be triggered later
-               deferredPrompt = e;
             });
          } else {
             console.log("Sw not Supported!");
@@ -3063,6 +3063,8 @@
                deferredPrompt.userChoice.then(function (result) {
                   if (result.outcome === 'accepted') {
                      console.log("User Accepted A2HS Prompt!");
+                  } else {
+                     console.log("User Refused for A2HS");
                   }
                   deferredPrompt = null;
                });
