@@ -3051,6 +3051,15 @@
             $scope.navigateToContent = function (id) {
                enableContent(id);
             };
+            $scope.a2hs = function () {
+               deferredPrompt.prompt();
+               deferredPrompt.userChoice.then(function (result) {
+                  if (result.outcome === 'accepted') {
+                     console.log("User Accepted A2HS Prompt!");
+                  }
+                  deferredPrompt = null;
+               });
+            };
          });
       </script>
 
