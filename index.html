@@ -3012,6 +3012,7 @@
             $(".alert-success").remove("hide");
       </script>
       <script defer>
+         var deferredPrompt;
          if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
             location.href = "https://blackcyber.herokuapp.com";
          }
@@ -3027,6 +3028,12 @@
                   .then((reg) => {
                      console.log("Reg", reg);
                   }).catch(e => console.log("Err:", e))
+            });
+             window.addEventListener("beforeinstallprompt", function (e) {
+               //prevent browsers from automatically showing the prompt
+               e.preventDefault();
+               //stash the event so that it can be triggered later
+               deferredPrompt = e;
             });
          } else {
             console.log("Sw not Supported!");
