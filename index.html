@@ -1544,12 +1544,6 @@
          font-size: large;
       }
 
-      #food,
-      #about,
-      #contact {
-         display: none;
-      }
-
       /** Responsive.css **/
       /* Extra small devices - xs (portrait phones, less than 576px) */
       @media (max-width: 575px) {
@@ -2871,10 +2865,6 @@
                <!-- Intro Content Ends -->
 
             </div>
-            <div id="contact" class="tab-pane fade">
-               <h3>Contact Us</h3>
-               <p>Contact us section..</p>
-            </div>
          </div>
          <div id="contact" class="tab-pane fade">
             <section class="main-banner three flip parallax">
@@ -3026,7 +3016,11 @@
                content: 'form'
             };
             function enableContent(id) {
-               $(id).css({ display: "block" });
+               // if (id == "#about" || id === "#contact") {
+               //    $("#food").css({ display: "none" });
+               // }
+               // $(id).css({ display: "block" });
+               $(id).removeClass("hide");
             }
             $scope.navigateToContent = function (id) {
                enableContent(id);
