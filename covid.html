@@ -15,6 +15,7 @@
 
     .arc path {
       stroke: #fff;
+      stroke-width: 2px;
     }
   </style>
 </head>
@@ -48,7 +49,7 @@
 
     function drawPie(dataArray) {
       delete dataArray.updated;
-      var color = d3.scale.ordinal().range(['#4daf4a', '#377eb8', '#ff7f00', '#984ea3', '#e41a1c']);
+      var color = d3.scale.ordinal().range(['#ff7f00', '#da3125', '#4daf4a', 'dodgerblue']);
       // Generate the pie
       var pie = d3.layout.pie()
         .value(function (d) { return d; });
@@ -62,7 +63,7 @@
         .style("border-radius", "4px")
         .style("color", "#FFF")
         .style("padding", "8px")
-        .style("text-transform","uppercase")
+        .style("text-transform", "uppercase")
         .style("font-weight", "bold");
 
       // Generate the arcs
@@ -82,9 +83,9 @@
       arc.append("path")
         .attr("d", path)
         .attr("fill", function (d) { return color(d.data); })
-        .on("mouseover", function (d, i) { tooltip.style("background", color(d.data)); tooltip.text(Object.keys(dataArray)[i]); return tooltip.style("visibility", "visible"); })
+        .on("mouseover", function (d, i) { d3.select(this).style("transform", "scale(1.025)"); d3.select(this).style("transition", "all .5s ease-in-out"); tooltip.style("background", color(d.data)); tooltip.text(Object.keys(dataArray)[i]); return tooltip.style("visibility", "visible"); })
         .on("mousemove", function () { return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px"); })
-        .on("mouseout", function () { return tooltip.style("visibility", "hidden"); })
+        .on("mouseout", function () { d3.select(this).style("transform", "none"); return tooltip.style("visibility", "hidden"); })
         .transition()
         .ease("linear")
         .duration(1000)
