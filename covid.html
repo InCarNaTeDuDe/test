@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Covid-19 Tracker,Online Coronavirus Tracker</title>
+  <style>
+    .arc text {
+      font: 14px sans-serif;
+      text-anchor: middle;
+      fill: #FFF;
+    }
+
+    .arc path {
+      stroke: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <svg width="600" height="600"> </svg>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script type="text/javascript">
+    var svg = d3.select("svg"),
+      width = svg.attr("width"),
+      height = svg.attr("height"),
+      radius = Math.min(width, height) / 2,
+      g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    fetch("https://corona.lmao.ninja/all").then(d => d.json()).then(data => {
+      drawPie(data || []);
+    }).catch(e => console.log(e));
+
+    window.addEventListener("resize", function () {
+      width = document.body.clientWidth;
+      height = document.body.clientHeight;
+      console.log("W " + width + " , " + "H " + height);
+      svg
+        .attr("width", '100%')
+        .attr("height", height + "px")
+        .attr('viewBox', '0 0 ' + height + ' ' + width)
+        .attr('preserveAspectRatio', 'xMinYMin')
+        .append("g")
+        .attr("transform", "translate(" + height + "," + width + ")");
+    });
+
+
+    function drawPie(dataArray) {
+      delete dataArray.updated;
+      var color = d3.scale.ordinal().range(['#4daf4a', '#377eb8', '#ff7f00', '#984ea3', '#e41a1c']);
+      // Generate the pie
+      var pie = d3.layout.pie()
+        .value(function (d) { return d; });
+
+      var tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+        .style("border", "1px solid white")
+        .style("border-radius", "4px")
+        .style("color", "#FFF")
+        .style("padding", "8px")
+        .style("text-transform","uppercase")
+        .style("font-weight", "bold");
+
+      // Generate the arcs
+      var path = d3.svg.arc()
+        .outerRadius(radius - 10)
+        .innerRadius(0);
+
+      var label = d3.svg.arc()
+        .outerRadius(radius)
+        .innerRadius(radius - 80);
+
+      var arc = g.selectAll(".arc")
+        .data(pie(Object.values(dataArray)))
+        .enter().append("g")
+        .attr("class", "arc");
+
+      arc.append("path")
+        .attr("d", path)
+        .attr("fill", function (d) { return color(d.data); })
+        .on("mouseover", function (d, i) { tooltip.style("background", color(d.data)); tooltip.text(Object.keys(dataArray)[i]); return tooltip.style("visibility", "visible"); })
+        .on("mousemove", function () { return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px"); })
+        .on("mouseout", function () { return tooltip.style("visibility", "hidden"); })
+        .transition()
+        .ease("linear")
+        .duration(1000)
+        .delay(function (d, i) {
+          return i * 25;
+        })
+        // .attrTween("d", arcTween);
+        .attrTween("d", function (d) {
+          var i = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
+          return function (t) {
+            arc = d3.svg.arc()
+              .outerRadius(300 - 10) //<-- create arc
+              .innerRadius(5); //<-- return arc path
+            return arc(i(t));
+          }
+        });
+
+      arc.append("text")
+        .attr("transform", function (d) {
+          return "translate(" + label.centroid(d) + ")";
+        })
+        .text(function (d) {
+          return d.data;
+        });
+    }
+
+  </script>
+</body>
+
+</html>
