@@ -22,6 +22,7 @@
       text-anchor: middle;
       fill: #FFF;
       font-weight: bold;
+      text-transform: capitalize;
     }
 
     .arc path {
@@ -197,6 +198,11 @@
       div[ui-grid="gridOptions"] {
         display: none;
       }
+
+      .arc text {
+        font: 20px sans-serif;
+      }
+
     }
 
     @media screen and (min-width:600px) {
@@ -381,7 +387,8 @@
           return "translate(" + label.centroid(d) + ")";
         })
         .text(function (d, i) {
-          return d.data;
+          // return d.data;
+          return Object.keys(dataArray)[i];
         });
     }
 
