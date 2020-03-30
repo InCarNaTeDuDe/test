@@ -92,6 +92,67 @@
       text-align: center;
     }
 
+    /* table,
+    th,
+    td {
+      border: 1px solid grey;
+      border-collapse: collapse;
+      padding: 5px;
+      text-align: center;
+    }
+
+    table tr:nth-child(odd) {
+      background-color: #f1f1f1;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #ffffff;
+    } */
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+
+    table tbody {
+      display: block;
+      width: 100%;
+      overflow: auto;
+      height: 400px;
+    }
+
+    table thead tr {
+      display: block;
+    }
+
+    table thead,tbody tr {
+      background: #000 !important;
+      color: #fff;
+      border-bottom: 1px solid goldenrod;
+    }
+    ::-webkit-scrollbar{
+      width: 0;
+    }
+
+    table th,
+    table td {
+      padding: 5px;
+      text-align: center;
+      width: 250px;
+      font-weight: bold;
+      border-right: 1px solid goldenrod;
+    }
+    table thead th{
+      background-color: #000;
+    }
+    table tr:nth-child(odd) {
+      background-color: #f1f1f1;
+    }
+
+    table tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+
     @media screen and (max-width: 600px) {
       .flex-row {
         flex-direction: column;
@@ -106,7 +167,32 @@
     <div id="india"></div>
     <div id="tooltip"></div>
   </div>
+  <table ng-app="myapp" ng-controller="myctrl" ng-cloak>
+    <thead>
+      <th>Country <input ng-model="s" placeholder="search country.." /></th>
+      <th>Cases</th>
+      <th>Today Cases</th>
+      <th>Deaths</th>
+      <th>Deaths Today</th>
+      <th>Active</th>
+      <th>Recovered</th>
+      <th>Last Updated</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in countriesData | filter:s">
+        <td>{{x.country}}</td>
+        <td>{{x.cases}}</td>
+        <td style="color: dodgerblue;">{{x.todayCases}}</td>
+        <td style="color: red;">{{x.deaths}}</td>
+        <td>{{x.todayDeaths}}</td>
+        <td style="color: green;">{{x.recovered}}</td>
+        <td>{{x.active}}</td>
+        <td>{{x.updated |date:"MMM dd hh:mm:ss"}}</td>
+      </tr>
+    </tbody>
+  </table>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script type="text/javascript">
     var svg = d3.select("svg"),
       width = svg.attr("width"),
@@ -283,21 +369,30 @@
           return d.id;
         });
 
-      fetch("https://corona.lmao.ninja/countries/india").then(r => r.json()).then(data => {
-        d3.select("#india").append("div").append("img").attr("src", data.countryInfo.flag).attr("height", 40);
-        d3.select("#india div").append("div").html(indiaInfoTable(data.cases, data.todayCases, data.deaths, data.todayDeaths, data.recovered, data.active, data.updated));
-      }).catch(e => console.log(e));
+      // fetch("https://corona.lmao.ninja/countries/india").then(r => r.json()).then(data => {
+      //   d3.select("#india").append("div").append("img").attr("src", data.countryInfo.flag).attr("height", 40);
+      //   d3.select("#india div").append("div").html(indiaInfoTable(data.cases, data.todayCases, data.deaths, data.todayDeaths, data.recovered, data.active, data.updated));
+      // }).catch(e => console.log(e));
     });
 
-    function indiaInfoTable(cases, todayCases, deaths, todayDeaths, recovered, active, updated) {
-      return "<p>Total: " + cases + "</p>" +
-        "<p>Cases Today: " + todayCases + "</p>" +
-        "<p>Deaths: " + deaths + "</p>" +
-        "<p>Deaths Today: " + todayDeaths + "</p>" +
-        "<p>Recovered: " + recovered + "</p>" +
-        "<p>Active: " + active + "</p>" +
-        "<p>Last updated At: " + new Date(updated) + "</p>"
-    }
+    // function indiaInfoTable(cases, todayCases, deaths, todayDeaths, recovered, active, updated) {
+    //   return "<p>Total: " + cases + "</p>" +
+    //     "<p>Cases Today: " + todayCases + "</p>" +
+    //     "<p>Deaths: " + deaths + "</p>" +
+    //     "<p>Deaths Today: " + todayDeaths + "</p>" +
+    //     "<p>Recovered: " + recovered + "</p>" +
+    //     "<p>Active: " + active + "</p>" +
+    //     "<p>Last updated At: " + new Date(updated) + "</p>"
+    // }
+
+    var app = angular.module("myapp", []).controller("myctrl", function ($scope, $http) {
+      // fetch("https://corona.lmao.ninja/countries/").then(r => r.json()).then(d => {
+      //   console.log(d)
+      //   $scope.countriesData = d.data || [];
+      // }).catch(e => console.log("Error in getting countries data API...."));
+      $http.get("https://corona.lmao.ninja/countries/")
+        .then(function (response) { $scope.countriesData = response.data || []; });
+    });
 
   </script>
 </body>
