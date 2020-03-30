@@ -169,7 +169,7 @@
   </div>
   <table ng-app="myapp" ng-controller="myctrl" ng-cloak>
     <thead>
-      <th>Country <input ng-model="s" placeholder="search country.." /></th>
+      <th style="width: 100px;">Country <input ng-model="s" placeholder="search country.." /></th>
       <th>Cases</th>
       <th>Today Cases</th>
       <th>Deaths</th>
@@ -181,7 +181,7 @@
     <tbody>
       <tr ng-repeat="x in countriesData | filter:s">
         <td>{{x.country}}</td>
-        <td>{{x.cases}}</td>
+        <td style="color: crimson;">{{x.cases}}</td>
         <td style="color: dodgerblue;">{{x.todayCases}}</td>
         <td style="color: red;">{{x.deaths}}</td>
         <td>{{x.todayDeaths}}</td>
