@@ -257,12 +257,40 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script src="http://ui-grid.info/release/ui-grid.min.js"></script>
   <script type="text/javascript">
+    // var width = innerWidth,
+    //   height = innerHeight;
+    // // var svg = d3.select("svg"),
+    // //   width = svg.attr("width"),
+    // //   height = svg.attr("height"),
+    // //   radius = Math.min(width, height) / 2,
+    // //   g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    // var radius = Math.min(width, height) / 2;
+    // var svg = d3.select("svg").attr("height", width).attr("width", width)
+    //   .attr('viewBox', '0 0 ' + height + ' ' + width)
+    //   .attr('preserveAspectRatio', 'xMinYMin')
+    //   .append("g")
+    // // .attr("transform", "translate(" + height + "," + width + ")");
+    // var g = svg.append("g").attr("transform", "translate(" + width / 1.2 + "," + height / 2 + ")");
 
-    var svg = d3.select("svg"),
-      width = svg.attr("width"),
-      height = svg.attr("height"),
-      radius = Math.min(width, height) / 2,
-      g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    if (innerWidth < 600) {
+      var width = innerWidth,
+        height = innerHeight;
+      var radius = Math.min(width, height) / 2;
+      var svg = d3.select("svg").attr("height", width).attr("width", width)
+        .attr('viewBox', '0 0 ' + height + ' ' + width)
+        .attr('preserveAspectRatio', 'xMinYMin')
+        .append("g")
+      // .attr("transform", "translate(" + height + "," + width + ")");
+      var g = svg.append("g").attr("transform", "translate(" + width / 1.2 + "," + height / 2 + ")");
+    } else {
+      var svg = d3.select("svg"),
+        width = svg.attr("width"),
+        height = svg.attr("height"),
+        radius = Math.min(width, height) / 2,
+        g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    }
+
+
     fetch("https://corona.lmao.ninja/all").then(d => d.json()).then(data => {
       drawPie(data || []);
     }).catch(e => console.log(e));
