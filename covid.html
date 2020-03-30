@@ -10,9 +10,12 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
   <style>
-    *,html,body{
-      font-family: 'Lato',sans-serif;
+    *,
+    html,
+    body {
+      font-family: 'Lato', sans-serif;
     }
+
     .arc text {
       font: 14px sans-serif;
       text-anchor: middle;
@@ -184,6 +187,25 @@
       table tr td:nth-child(8) {
         display: none;
       }
+
+      #no-more-tables {
+        display: block;
+        width: 100%;
+      }
+
+      div[ui-grid="gridOptions"] {
+        display: none;
+      }
+    }
+
+    @media screen and (min-width:600px) {
+      #no-more-tables {
+        display: none;
+      }
+
+      div[ui-grid="gridOptions"] {
+        display: block;
+      }
     }
 
     .ui-grid-header-cell-wrapper,
@@ -202,11 +224,11 @@
 <body ng-app="myapp" ng-controller="myctrl" ng-cloak>
   <h5>Covid-19 Tracker</h5>
   <div class="flex-row">
-    <svg width="600" height="600"> </svg>
+    <svg width="600" height="600"></svg>
     <div id="india"></div>
     <div id="tooltip"></div>
   </div>
-  <!-- <table id="no-more-tables" ng-app="myapp" ng-controller="myctrl" ng-cloak>
+  <table id="no-more-tables" ng-cloak>
     <thead>
       <th style="width: 100px;">Country <input ng-model="s" placeholder="search country.." /></th>
       <th>Cases</th>
@@ -218,7 +240,7 @@
       <th>Last Updated</th>
     </thead>
     <tbody>
-      <tr ng-repeat="x in countriesData | filter:s">
+      <tr ng-repeat="x in gridOptions.data | filter:s">
         <td style="max-width: 100px;">{{x.country}}</td>
         <td style="color: crimson;">{{x.cases}}</td>
         <td style="color: dodgerblue;">{{x.todayCases}}</td>
@@ -229,12 +251,13 @@
         <td>{{x.updated |date:"MMM dd hh:mm:ss"}}</td>
       </tr>
     </tbody>
-  </table> -->
+  </table>
   <div ui-grid="gridOptions"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script src="http://ui-grid.info/release/ui-grid.min.js"></script>
   <script type="text/javascript">
+
     var svg = d3.select("svg"),
       width = svg.attr("width"),
       height = svg.attr("height"),
@@ -249,8 +272,8 @@
       height = document.body.clientHeight;
       console.log("W " + width + " , " + "H " + height);
       svg
-        .attr("width", '100%')
-        .attr("height", height / 1.5 + "px")
+        .attr("width", width)
+        .attr("height", width)
         .attr('viewBox', '0 0 ' + height + ' ' + width)
         .attr('preserveAspectRatio', 'xMinYMin')
         .append("g")
@@ -317,7 +340,7 @@
 
       arc.append("text")
         .attr("transform", function (d) {
-          return "translate(" + label.centroid(d)+ ")";
+          return "translate(" + label.centroid(d) + ")";
         })
         .text(function (d) {
           return d.data;
