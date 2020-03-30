@@ -220,6 +220,7 @@
     .ui-grid-canvas {
       background-color: #000;
       color: #FFF;
+      text-align: center;
     }
 
     h3 {
@@ -509,7 +510,7 @@
         }, {
           field: "cases",
           displayName: "Cases",
-          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: crimson'>{{row.entity.cases}}</div>",
+          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: crimson'>{{row.entity.cases|number}}</div>",
           enableFiltering: false
         }, {
           field: "todayCases",
@@ -518,7 +519,7 @@
         }, {
           field: "deaths",
           displayName: "Deaths",
-          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: red'>{{row.entity.deaths}}</div>",
+          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: red'>{{row.entity.deaths|number}}</div>",
           enableFiltering: false
         }, {
           field: "todayDeaths",
@@ -532,7 +533,7 @@
         }, {
           field: "recovered",
           displayName: "Recovered",
-          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: green'>{{row.entity.recovered}}</div>",
+          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: green'>{{row.entity.recovered|number}}</div>",
           enableFiltering: false
         }, {
           field: "updated",
