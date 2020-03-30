@@ -7,12 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Covid-19 Tracker,Online Coronavirus Tracker</title>
   <link rel="shortcut icon" href="images/corona.png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
   <style>
+    *,html,body{
+      font-family: 'Lato',sans-serif;
+    }
     .arc text {
       font: 14px sans-serif;
       text-anchor: middle;
       fill: #FFF;
+      font-weight: bold;
     }
 
     .arc path {
@@ -187,10 +192,15 @@
       background-color: #000;
       color: #FFF;
     }
+
+    h5 {
+      margin: 0;
+    }
   </style>
 </head>
 
 <body ng-app="myapp" ng-controller="myctrl" ng-cloak>
+  <h5>Covid-19 Tracker</h5>
   <div class="flex-row">
     <svg width="600" height="600"> </svg>
     <div id="india"></div>
@@ -250,7 +260,8 @@
 
     function drawPie(dataArray) {
       delete dataArray.updated;
-      var color = d3.scale.ordinal().range(['#ff7f00', '#da3125', '#4daf4a', 'dodgerblue']);
+      delete dataArray.cases;
+      var color = d3.scale.ordinal().range([/*'#ff7f00',*/ '#da3125', '#4daf4a', 'dodgerblue']);
       // Generate the pie
       var pie = d3.layout.pie()
         .value(function (d) { return d; });
@@ -306,7 +317,7 @@
 
       arc.append("text")
         .attr("transform", function (d) {
-          return "translate(" + label.centroid(d) + ")";
+          return "translate(" + label.centroid(d)+ ")";
         })
         .text(function (d) {
           return d.data;
@@ -431,35 +442,35 @@
           field: "cases",
           displayName: "Cases",
           cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: crimson'>{{row.entity.cases}}</div>",
-          enableFiltering:false
+          enableFiltering: false
         }, {
           field: "todayCases",
           displayName: "Today Cases",
-          enableFiltering:false
+          enableFiltering: false
         }, {
           field: "deaths",
           displayName: "Deaths",
           cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: red'>{{row.entity.deaths}}</div>",
-          enableFiltering:false
+          enableFiltering: false
         }, {
           field: "todayDeaths",
           displayName: "Deaths Today",
-          enableFiltering:false
+          enableFiltering: false
         }, {
           field: "active",
           displayName: "Active",
           cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: dodgerblue'>{{row.entity.active}}</div>",
-          enableFiltering:false
+          enableFiltering: false
         }, {
           field: "recovered",
           displayName: "Recovered",
           cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: green'>{{row.entity.recovered}}</div>",
-          enableFiltering:false
+          enableFiltering: false
         }, {
           field: "updated",
           displayName: "Last Updated",
           cellTemplate: "<div class='ui-grid-cell-contents'>{{row.entity.updated | date:'dd MMM hh:mm:ss'}}</div>",
-          enableFiltering:false
+          enableFiltering: false
         }],
         onRegisterApi: function (gridApi) {
           $scope.gridOptions = gridApi;
