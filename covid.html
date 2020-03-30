@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Covid-19 Tracker,Online Coronavirus Tracker</title>
   <link rel="shortcut icon" href="images/corona.png" type="image/x-icon">
+  <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
   <style>
     .arc text {
       font: 14px sans-serif;
@@ -125,12 +126,14 @@
       display: block;
     }
 
-    table thead,tbody tr {
+    table thead,
+    tbody tr {
       background: #000 !important;
       color: #fff;
       border-bottom: 1px solid goldenrod;
     }
-    ::-webkit-scrollbar{
+
+    ::-webkit-scrollbar {
       width: 0;
     }
 
@@ -142,9 +145,11 @@
       font-weight: bold;
       border-right: 1px solid goldenrod;
     }
-    table thead th{
+
+    table thead th {
       background-color: #000;
     }
+
     table tr:nth-child(odd) {
       background-color: #f1f1f1;
     }
@@ -157,17 +162,41 @@
       .flex-row {
         flex-direction: column;
       }
+
+      #india {
+        display: none;
+      }
+
+      th>input {
+        width: 40px;
+      }
+
+      table th:nth-child(3),
+      table th:nth-child(5),
+      table th:nth-child(8),
+      table tr td:nth-child(3),
+      table tr td:nth-child(5),
+      table tr td:nth-child(8) {
+        display: none;
+      }
+    }
+
+    .ui-grid-header-cell-wrapper,
+    .ui-grid-cell-contents,
+    .ui-grid-canvas {
+      background-color: #000;
+      color: #FFF;
     }
   </style>
 </head>
 
-<body>
+<body ng-app="myapp" ng-controller="myctrl" ng-cloak>
   <div class="flex-row">
     <svg width="600" height="600"> </svg>
     <div id="india"></div>
     <div id="tooltip"></div>
   </div>
-  <table ng-app="myapp" ng-controller="myctrl" ng-cloak>
+  <!-- <table id="no-more-tables" ng-app="myapp" ng-controller="myctrl" ng-cloak>
     <thead>
       <th style="width: 100px;">Country <input ng-model="s" placeholder="search country.." /></th>
       <th>Cases</th>
@@ -180,7 +209,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="x in countriesData | filter:s">
-        <td>{{x.country}}</td>
+        <td style="max-width: 100px;">{{x.country}}</td>
         <td style="color: crimson;">{{x.cases}}</td>
         <td style="color: dodgerblue;">{{x.todayCases}}</td>
         <td style="color: red;">{{x.deaths}}</td>
@@ -190,9 +219,11 @@
         <td>{{x.updated |date:"MMM dd hh:mm:ss"}}</td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+  <div ui-grid="gridOptions"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="http://ui-grid.info/release/ui-grid.min.js"></script>
   <script type="text/javascript">
     var svg = d3.select("svg"),
       width = svg.attr("width"),
@@ -385,14 +416,105 @@
     //     "<p>Last updated At: " + new Date(updated) + "</p>"
     // }
 
-    var app = angular.module("myapp", []).controller("myctrl", function ($scope, $http) {
+    var app = angular.module("myapp", ["ui.grid"]).controller("myctrl", function ($scope, $http, uiGridConstants) {
       // fetch("https://corona.lmao.ninja/countries/").then(r => r.json()).then(d => {
       //   console.log(d)
       //   $scope.countriesData = d.data || [];
       // }).catch(e => console.log("Error in getting countries data API...."));
+      $scope.gridOptions = {
+        enableSorting: true,
+        enableFiltering: true,
+        columnDefs: [{
+          field: "country",
+          displayName: "Country"
+        }, {
+          field: "cases",
+          displayName: "Cases",
+          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: crimson'>{{row.entity.cases}}</div>",
+          enableFiltering:false
+        }, {
+          field: "todayCases",
+          displayName: "Today Cases",
+          enableFiltering:false
+        }, {
+          field: "deaths",
+          displayName: "Deaths",
+          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: red'>{{row.entity.deaths}}</div>",
+          enableFiltering:false
+        }, {
+          field: "todayDeaths",
+          displayName: "Deaths Today",
+          enableFiltering:false
+        }, {
+          field: "active",
+          displayName: "Active",
+          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: dodgerblue'>{{row.entity.active}}</div>",
+          enableFiltering:false
+        }, {
+          field: "recovered",
+          displayName: "Recovered",
+          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: green'>{{row.entity.recovered}}</div>",
+          enableFiltering:false
+        }, {
+          field: "updated",
+          displayName: "Last Updated",
+          cellTemplate: "<div class='ui-grid-cell-contents'>{{row.entity.updated | date:'dd MMM hh:mm:ss'}}</div>",
+          enableFiltering:false
+        }],
+        onRegisterApi: function (gridApi) {
+          $scope.gridOptions = gridApi;
+        }
+      };
       $http.get("https://corona.lmao.ninja/countries/")
-        .then(function (response) { $scope.countriesData = response.data || []; });
+        .then(function (response) {
+          $scope.gridOptions.data = response.data || [];
+        });
     });
+    // app.run(['$templateCache', function ($templateCache) {
+    //   $templateCache.put('grid-list.tmpl', '<table width="100%" id="no-more-tables">\
+    //                                             <thead>\
+    //                                             </thead>\
+    //                                             <tbody>\
+    //                                                 <tr ng-repeat="col in config.columnDefs track by $index">\
+    //                                                     <td style="display:flex" data-title="{{col.displayName}}">\
+    //                                                         <span style="flex-basis:50%">{{col.displayName}}</span>\
+    //                                                         <span>{{grid.getCellValue($index,col)}}</span>\
+    //                                                     </td>\
+    //                                                 </tr>\
+    //                                             </tbody>\
+    //                                         </table>');
+    // }]);
+    // app.directive('gridList', [function () {
+    //   return {
+    //     restrict: 'A',
+    //     templateUrl: 'grid-list.tmpl',
+    //     scope: {
+    //       config: "<gridList",
+    //       renderableRows: "="
+    //     },
+    //     controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
+    //       $scope.config = $scope.config || {};
+    //       $scope.grid = {
+    //         getCellValue: function (index, col) {
+    //           if ($scope.config.data.length > 0) {
+    //             var nestedFields;
+    //             if (col.field.indexOf('.') >= 0) {
+    //               nestedFields = col.field.split('.');
+    //               return $scope.config.data[0][nestedFields[0]][nestedFields[1]];
+    //             } else {
+    //               return $scope.config.data[0][col.field];
+    //             }
+    //           }
+    //         }
+    //       };
+    //     }],
+    //     link: function ($scope, $element) {
+    //       $scope.$watch('renderableRows', function (newValue, oldValue) {
+    //         if (newValue && newValue !== oldValue) { }
+    //       });
+    //     }
+    //   }
+    // }]);
 
   </script>
 </body>
