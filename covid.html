@@ -326,6 +326,7 @@
         .style("border-radius", "4px")
         .style("color", "#FFF")
         .style("padding", "8px")
+        .style("white-space","pre")
         .style("text-transform", "uppercase")
         .style("font-weight", "bold");
 
@@ -346,7 +347,13 @@
       arc.append("path")
         .attr("d", path)
         .attr("fill", function (d) { return color(d.data); })
-        .on("mouseover", function (d, i) { d3.select(this).style("transform", "scale(1.025)"); d3.select(this).style("transition", "all .5s ease-in-out"); tooltip.style("background", color(d.data)); tooltip.text(Object.keys(dataArray)[i]); return tooltip.style("visibility", "visible"); })
+        .on("mouseover", function (d, i) {
+          d3.select(this).style("transform", "scale(1.025)");
+          d3.select(this).style("transition", "all .5s ease-in-out");
+          tooltip.style("background", color(d.data));
+          tooltip.text(Object.keys(dataArray)[i] + "\n" + Object.values(dataArray)[i]);
+          return tooltip.style("visibility", "visible");
+        })
         .on("mousemove", function () { return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px"); })
         .on("mouseout", function () { d3.select(this).style("transform", "none"); return tooltip.style("visibility", "hidden"); })
         .transition()
