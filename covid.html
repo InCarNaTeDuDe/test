@@ -223,7 +223,9 @@
 </head>
 
 <body ng-app="myapp" ng-controller="myctrl" ng-cloak>
-  <center><h3>Covid-19 Global Tracker</h3></center>
+  <center>
+    <h3>Covid-19 Global Tracker</h3>
+  </center>
   <div class="flex-row">
     <svg width="600" height="600"></svg>
     <div id="india"></div>
@@ -327,7 +329,7 @@
         .style("border-radius", "4px")
         .style("color", "#FFF")
         .style("padding", "8px")
-        .style("white-space","pre")
+        .style("white-space", "pre")
         .style("text-transform", "uppercase")
         .style("font-weight", "bold");
 
@@ -378,7 +380,7 @@
         .attr("transform", function (d) {
           return "translate(" + label.centroid(d) + ")";
         })
-        .text(function (d) {
+        .text(function (d, i) {
           return d.data;
         });
     }
@@ -422,7 +424,7 @@
 
         d3.select("#tooltip").transition().duration(200).style("opacity", .9);
         d3.select("#tooltip").html(tooltipHtml(d.n, d.id, sampleData[d.id]))
-          .style("left", (d3.event.layerX) + "px")
+          .style("left", (d3.event.layerX + 600) + "px")
           .style("top", (d3.event.layerY) + "px");
       }
 
