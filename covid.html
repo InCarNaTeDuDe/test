@@ -238,7 +238,9 @@
     <div id="india"></div>
     <div id="tooltip"></div>
   </div>
-  <center><h3>Countries Affected Globally</h3></center>
+  <center>
+    <h3>Countries Affected Globally</h3>
+  </center>
   <table id="no-more-tables" ng-cloak>
     <thead>
       <th style="width: 100px;">Country <input ng-model="s" placeholder="search country.." /></th>
@@ -253,12 +255,12 @@
     <tbody>
       <tr ng-repeat="x in gridOptions.data | filter:s">
         <td style="max-width: 100px;">{{x.country}}</td>
-        <td style="color: crimson;">{{x.cases}}</td>
+        <td style="color: crimson;">{{x.cases|number}}</td>
         <td style="color: dodgerblue;">{{x.todayCases}}</td>
-        <td style="color: red;">{{x.deaths}}</td>
+        <td style="color: red;">{{x.deaths|number}}</td>
         <td>{{x.todayDeaths}}</td>
-        <td style="color: green;">{{x.recovered}}</td>
-        <td>{{x.active}}</td>
+        <td style="color: green;">{{x.recovered|number}}</td>
+        <td>{{x.active|number}}</td>
         <td>{{x.updated |date:"MMM dd hh:mm:ss"}}</td>
       </tr>
     </tbody>
