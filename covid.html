@@ -174,7 +174,7 @@
       }
 
       #india {
-        display: none;
+        /* display: none; */
       }
 
       th>input {
@@ -407,11 +407,11 @@
       var stateobj = parsedData.find(function (obj) {
         return obj.state === n;
       });
-      return "<h4>" + n + "</h4>"+
-            "<h4> Deaths - " + stateobj.deaths + "</h4>"+
-            "<h4> Active - " + stateobj.active + "</h4>"+
-            "<h4> Confirmed - " + stateobj.confirmed + "</h4>"+
-            "<h4> Recovered - " + stateobj.recovered + "</h4>";
+      return "<h4>" + n + "</h4>" +
+        "<h4> Deaths - " + stateobj.deaths + "</h4>" +
+        "<h4> Active - " + stateobj.active + "</h4>" +
+        "<h4> Confirmed - " + stateobj.confirmed + "</h4>" +
+        "<h4> Recovered - " + stateobj.recovered + "</h4>";
     }
 
     function getRandomColor() {
@@ -445,8 +445,9 @@
       function mouseOver(d) {
         d3.select("#tooltip").transition().duration(200).style("opacity", .9);
         d3.select("#tooltip").html(tooltipHtml(d.n, d.id, sampleData[d.id]))
-          .style("left", (d3.event.layerX + 600) + "px")
-          .style("top", (d3.event.layerY) + "px");
+          .style("left", innerWidth < 600 ? 0 : (d3.event.layerX + 600) + "px")
+          // .style("top", (d3.event.layerY) + "px");
+          .style("top", innerWidth < 600 ? (360 + d3.event.layerY) + "px" : (d3.event.layerY) + "px");
       }
 
       function mouseOut() {
@@ -455,17 +456,28 @@
 
       function Click(d) {
         delete d.d
+        tooltipHtml(d.n, d.id);
         console.log(d)
       }
 
-      var svg = d3.select("#india")
-        .append("svg")
-        .attr("width", "100%")
-        .attr("height", window.innerWidth < 600 ? document.body.clientHeight : "100%")
-        .append("g");
+      var svg1;
+      if (innerWidth < 600) {
+        svg1 = d3.select("#india")
+          .append("svg").attr("height", window.innerWidth < 600 ? 620 : "100%").attr("width", innerWidth < 600 ? 620 : innerWidth)
+          .style("transform", "scale(.6) translate(-200px,-200px)")
+          .attr('viewBox', '0 0 ' + window.innerWidth < 600 ? document.body.clientHeight : "100%" + ' ' + innerWidth)
+          .attr('preserveAspectRatio', 'xMinYMin')
+          .append("g")
+      } else {
+        svg1 = d3.select("#india")
+          .append("svg")
+          .attr("width", "100%")
+          .attr("height", window.innerWidth < 600 ? document.body.clientHeight : "100%")
+          .append("g");
+      }
 
 
-      var eS = svg.selectAll(".state")
+      var eS = svg1.selectAll(".state")
         .data(json)
         .enter()
         .append("g");
@@ -482,7 +494,7 @@
 
       eS.append("text")
         .attr("fill", "black")
-        .style("pointer-events","none")
+        .style("pointer-events", "none")
         .attr("transform", function (d) {
           var bbox = this.previousSibling.getBBox();
           return "translate(" + (bbox.x + bbox.width / 2) + "," + (bbox.y + bbox.height / 2) + ")";
