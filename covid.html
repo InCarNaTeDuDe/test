@@ -306,6 +306,9 @@
 
     fetch("https://corona.lmao.ninja/all").then(d => d.json()).then(data => {
       drawPie(data || []);
+      fetch("https://api.covid19india.org/data.json").then(d => d.json()).then(indianStatesData => {
+        sessionStorage.setItem("indianStatesData", JSON.stringify(indianStatesData.statewise))
+      }).catch(e => console.log("Error in getting States API...", e));
     }).catch(e => console.log(e));
 
     // window.addEventListener("resize", function () {
@@ -325,7 +328,7 @@
     function drawPie(dataArray) {
       delete dataArray.updated;
       delete dataArray.cases;
-      var color = d3.scale.ordinal().range([/*'#ff7f00',*/ '#da3125', '#4daf4a', 'dodgerblue']);
+      var color = d3.scale.ordinal().range(['#da3125', '#4daf4a', 'dodgerblue', '#ff7f00']);
       // Generate the pie
       var pie = d3.layout.pie()
         .value(function (d) { return d; });
@@ -392,15 +395,23 @@
         })
         .text(function (d, i) {
           // return d.data;
-          return Object.keys(dataArray)[i];
+          var arr = Object.keys(dataArray);
+          arr.pop();
+          return arr[i];
         });
     }
 
 
-
     function tooltipHtml(n, id, d) { /* function to create html content string in tooltip div. */
-      return "<h4>" + id + "</h4>" +
-        "<h4>" + n + "</h4>";
+      var parsedData = JSON.parse(sessionStorage.getItem("indianStatesData"));
+      var stateobj = parsedData.find(function (obj) {
+        return obj.state === n;
+      });
+      return "<h4>" + n + "</h4>"+
+            "<h4> Deaths - " + stateobj.deaths + "</h4>"+
+            "<h4> Active - " + stateobj.active + "</h4>"+
+            "<h4> Confirmed - " + stateobj.confirmed + "</h4>"+
+            "<h4> Recovered - " + stateobj.recovered + "</h4>";
     }
 
     function getRandomColor() {
@@ -432,7 +443,6 @@
         .projection(projection);
 
       function mouseOver(d) {
-
         d3.select("#tooltip").transition().duration(200).style("opacity", .9);
         d3.select("#tooltip").html(tooltipHtml(d.n, d.id, sampleData[d.id]))
           .style("left", (d3.event.layerX + 600) + "px")
@@ -440,7 +450,6 @@
       }
 
       function mouseOut() {
-
         d3.select("#tooltip").transition().duration(500).style("opacity", 0);
       }
 
@@ -473,6 +482,7 @@
 
       eS.append("text")
         .attr("fill", "black")
+        .style("pointer-events","none")
         .attr("transform", function (d) {
           var bbox = this.previousSibling.getBBox();
           return "translate(" + (bbox.x + bbox.width / 2) + "," + (bbox.y + bbox.height / 2) + ")";
