@@ -570,7 +570,7 @@
           $scope.gridOptions = gridApi;
         }
       };
-      $http.get("https://corona.lmao.ninja/countries/")
+      $http.get("https://corona.lmao.ninja/v2/countries/")
         .then(function (response) {
           $scope.gridOptions.data = response.data || [];
         });
