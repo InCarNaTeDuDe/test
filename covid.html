@@ -304,7 +304,7 @@
     }
 
 
-    fetch("https://corona.lmao.ninja/all").then(d => d.json()).then(data => {
+    fetch("https://corona.lmao.ninja/v2/all").then(d => d.json()).then(data => {
       drawPie(data || []);
       fetch("https://api.covid19india.org/data.json").then(d => d.json()).then(indianStatesData => {
         sessionStorage.setItem("indianStatesData", JSON.stringify(indianStatesData.statewise))
