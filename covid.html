@@ -335,7 +335,7 @@
       delete dataArray.deathsPerOneMillion;
       delete dataArray.affectedCountries;
       delete dataArray.testsPerOneMillion;
-      var color = d3.scale.ordinal().range(['#da3125', '#4daf4a', 'dodgerblue', '#ff7f00']);
+      var color = d3.scale.ordinal().range(['dodgerblue','#da3125','#4daf4a','#ff7f00']);
       // Generate the pie
       var pie = d3.layout.pie()
         .value(function (d) { return d; });
@@ -402,9 +402,7 @@
         })
         .text(function (d, i) {
           // return d.data;
-          var arr = Object.keys(dataArray);
-          arr.pop();
-          return arr[i];
+          return Object.keys(dataArray)[i];
         });
     }
 
