@@ -321,11 +321,11 @@
               type: 'pie',
               options: options,
               data: {
-                labels: ['Cases', 'Active', 'Recovered', 'Deaths', 'Critical'],
+                labels: ['Active', 'Recovered', 'Deaths', 'Critical'],
                 datasets: [{
                   label: 'Gobal Stats',
                   backgroundColor: [
-                    "#669999",
+                   
                     "#3399ff",
                     "#79ff4d",
                     "#ff471a",
@@ -339,7 +339,7 @@
                     "#ff5c33"
                   ]
                   ,
-                  data: [data.cases, data.active, data.recovered, data.deaths, data.critical]
+                  data: [data.active, data.recovered, data.deaths, data.critical]
                 }]
               }
             });
