@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CoronaVirus Online Tracker, Covid-19 Statistics Tracker</title>
-  <link rel="icon"
-    href="https://www.iconpacks.net/icons/2/free-corona-virus-icon-3133-thumb.png"
-    type="image/x-icon">
+  <link rel="icon" href="https://www.iconpacks.net/icons/2/free-corona-virus-icon-3133-thumb.png" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <style>
     * {
@@ -19,7 +17,8 @@
       padding: 5px;
       border-radius: 4px;
       position: absolute;
-      right: 0;
+      left: 5px;
+      top: 45px;
     }
 
     .chart-container {
@@ -197,7 +196,8 @@
         content: "Updated";
       }
     }
-    p{
+
+    p {
       text-align: center;
     }
   </style>
@@ -205,217 +205,219 @@
 </head>
 
 <body ng-app="myapp" ng-controller="ctrl">
-  <p>-- Select A state Below -- </p>
-  <select ng-model="ui.selectedState" ng-change="onChangeHandler()">
-    <option value="0">Total</option>
-    <option value="1">Maharastra</option>
-    <option value="2">Delhi</option>
-    <option value="3">Tamil Nadu</option>
-    <option value="4">Rajsatan</option>
-    <option value="5">Madhya Pradesh</option>
-    <option value="6">Gujarat</option>
-    <option value="7">Uttar Pradesh</option>
-    <option value="8">Telangana</option>
-    <option value="9">Andhra Pradesh</option>
-    <option value="10">Kerala</option>
-    <option value="11">Karnataka</option>
-    <option value="12">Jammu And Kashmir</option>
-    <option value="13">West Bengal</option>
-    <option value="14">Haryana</option>
-    <option value="15">Punjab</option>
-    <option value="16">Bihar</option>
-    <option value="17">Odisha</option>
-    <option value="18">Uttarakhand</option>
-    <option value="19">CHattisgarh</option>
-    <option value="20">Himachal Pradesh</option>
-    <option value="21">Assam</option>
-    <option value="22">Jharkhand</option>
-    <option value="23">Chandigarh</option>
-    <option value="24">Ladakh</option>
-    <option value="25">Andaman And Nicobar Islands</option>
-    <option value="26">Meghalaya</option>
-    <option value="27">Goa</option>
-    <option value="28">Puducherry</option>
-    <option value="29">Manipur</option>
-    <option value="30">Tripura</option>
-    <option value="31">Mizoram</option>
-    <option value="32">Arunachal Pradesh</option>
-    <option value="33">Nagaland</option>
-    <option value="34">Dadra and Nagar Haveli</option>
-    <option value="35">Daman and Diu</option>
-    <option value="36">Lakshadweep</option>
-    <option value="37">Sikkhim</option>
-  </select>
-  <div class="chart-container">
-    <canvas id="states"></canvas>
-    <canvas id="piechart"></canvas>
-  </div>
-  <div class="table-holder">
-    <table id="no-more-tables" ng-cloak>
-      <thead>
-        <th>Country <input style="width: 100px;" ng-change="search()" ng-model="s" placeholder="search country.." />
-        </th>
-        <th>Cases</th>
-        <th>Today Cases</th>
-        <th>Deaths</th>
-        <th>Deaths Today</th>
-        <th>Active</th>
-        <th>Recovered</th>
-        <th>Last Updated</th>
-      </thead>
-      <tbody>
-        <tr ng-repeat="x in gridOptions | filter:s">
-          <td>{{x.country}}</td>
-          <td style="color: crimson;">{{x.cases|number}}</td>
-          <td style="color: dodgerblue;">{{x.todayCases}}</td>
-          <td style="color: red;">{{x.deaths|number}}</td>
-          <td>{{x.todayDeaths}}</td>
-          <td style="color: green;">{{x.active|number}}</td>
-          <td>{{x.recovered|number}}</td>
-          <td>{{x.updated |date:"MMM dd hh:mm:ss"}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <div>-- Select A state Below --
+    <select ng-model="ui.selectedState" ng-change="onChangeHandler()">
+      <option value="0">Total</option>
+      <option value="1">Maharastra</option>
+      <option value="2">Delhi</option>
+      <option value="3">Tamil Nadu</option>
+      <option value="4">Rajsatan</option>
+      <option value="5">Madhya Pradesh</option>
+      <option value="6">Gujarat</option>
+      <option value="7">Uttar Pradesh</option>
+      <option value="8">Telangana</option>
+      <option value="9">Andhra Pradesh</option>
+      <option value="10">Kerala</option>
+      <option value="11">Karnataka</option>
+      <option value="12">Jammu And Kashmir</option>
+      <option value="13">West Bengal</option>
+      <option value="14">Haryana</option>
+      <option value="15">Punjab</option>
+      <option value="16">Bihar</option>
+      <option value="17">Odisha</option>
+      <option value="18">Uttarakhand</option>
+      <option value="19">CHattisgarh</option>
+      <option value="20">Himachal Pradesh</option>
+      <option value="21">Assam</option>
+      <option value="22">Jharkhand</option>
+      <option value="23">Chandigarh</option>
+      <option value="24">Ladakh</option>
+      <option value="25">Andaman And Nicobar Islands</option>
+      <option value="26">Meghalaya</option>
+      <option value="27">Goa</option>
+      <option value="28">Puducherry</option>
+      <option value="29">Manipur</option>
+      <option value="30">Tripura</option>
+      <option value="31">Mizoram</option>
+      <option value="32">Arunachal Pradesh</option>
+      <option value="33">Nagaland</option>
+      <option value="34">Dadra and Nagar Haveli</option>
+      <option value="35">Daman and Diu</option>
+      <option value="36">Lakshadweep</option>
+      <option value="37">Sikkhim</option>
+    </select>
+    </p>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <div class="chart-container">
+      <canvas id="states"></canvas>
+      <canvas id="piechart"></canvas>
+    </div>
+    <div class="table-holder">
+      <table id="no-more-tables" ng-cloak>
+        <thead>
+          <th>Country <input style="width: 100px;" ng-change="search()" ng-model="s" placeholder="search country.." />
+          </th>
+          <th>Cases</th>
+          <th>Today Cases</th>
+          <th>Deaths</th>
+          <th>Deaths Today</th>
+          <th>Active</th>
+          <th>Recovered</th>
+          <th>Last Updated</th>
+        </thead>
+        <tbody>
+          <tr ng-repeat="x in gridOptions | filter:s">
+            <td>{{x.country}}</td>
+            <td style="color: crimson;">{{x.cases|number}}</td>
+            <td style="color: dodgerblue;">{{x.todayCases}}</td>
+            <td style="color: red;">{{x.deaths|number}}</td>
+            <td>{{x.todayDeaths}}</td>
+            <td style="color: green;">{{x.active|number}}</td>
+            <td>{{x.recovered|number}}</td>
+            <td>{{x.updated |date:"MMM dd hh:mm:ss"}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
-  <script>
-    Chart.defaults.global.defaultFontFamily = "Lato";
-    var app = angular.module("myapp", [])
-      .controller("ctrl", function ($scope, $http) {
-        $scope.ui = {
-          selectedState: "0"
-        };
-        var options = {
-          responsive: true,
-          maintainAspectRatio: false,
-          title: {
-            display: true,
-            position: "top",
-            fontSize: 18,
-            fontColor: "#111"
-          },
-          legend: {
-            display: true,
-            position: "bottom",
-            labels: {
-              fontColor: "#333",
-              fontSize: 16
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script>
+      Chart.defaults.global.defaultFontFamily = "Lato";
+      var app = angular.module("myapp", [])
+        .controller("ctrl", function ($scope, $http) {
+          $scope.ui = {
+            selectedState: "0"
+          };
+          var options = {
+            responsive: true,
+            maintainAspectRatio: false,
+            title: {
+              display: true,
+              position: "top",
+              fontSize: 18,
+              fontColor: "#111"
+            },
+            legend: {
+              display: true,
+              position: "bottom",
+              labels: {
+                fontColor: "#333",
+                fontSize: 16
+              }
+            },
+            animation: {
+              easing: "easeInOutQuad"
             }
-          },
-          animation: {
-            easing: "easeInOutQuad"
+          };
+
+          fetch("https://corona.lmao.ninja/v2/all").then(d => d.json()).then((d) => { drawChart(d); });
+
+          function drawChart(data) {
+            options.title.text = "Covid-19 Global Tracker";
+            var ctx = document.getElementById('piechart').getContext('2d');
+            var chart = new Chart(ctx, {
+              type: 'pie',
+              options: options,
+              data: {
+                labels: ['Cases', 'Active', 'Recovered', 'Deaths', 'Critical'],
+                datasets: [{
+                  label: 'Gobal Stats',
+                  backgroundColor: [
+                    "#669999",
+                    "#3399ff",
+                    "#79ff4d",
+                    "#ff471a",
+                    "#A766CA"
+                  ]
+                  ,
+                  hoverBackgroundColor: [
+                    "#85adad",
+                    "#4da6ff",
+                    "#9fff80",
+                    "#ff5c33"
+                  ]
+                  ,
+                  data: [data.cases, data.active, data.recovered, data.deaths, data.critical]
+                }]
+              }
+            });
           }
-        };
 
-        fetch("https://corona.lmao.ninja/v2/all").then(d => d.json()).then((d) => { drawChart(d); });
+          function drawStatesChart(array) {
 
-        function drawChart(data) {
-          options.title.text = "Covid-19 Global Tracker";
-          var ctx = document.getElementById('piechart').getContext('2d');
-          var chart = new Chart(ctx, {
-            type: 'pie',
-            options: options,
-            data: {
-              labels: ['Cases', 'Active', 'Recovered', 'Deaths', 'Critical'],
-              datasets: [{
-                label: 'Gobal Stats',
-                backgroundColor: [
-                  "#669999",
-                  "#3399ff",
-                  "#79ff4d",
-                  "#ff471a",
-                  "#A766CA"
-                ]
-                ,
-                hoverBackgroundColor: [
-                  "#85adad",
-                  "#4da6ff",
-                  "#9fff80",
-                  "#ff5c33"
-                ]
-                ,
-                data: [data.cases, data.active, data.recovered, data.deaths, data.critical]
-              }]
-            }
-          });
-        }
-
-        function drawStatesChart(array) {
-
-          drawBar(array, document.getElementById('states').getContext('2d'))
-        }
-
-        var chart;
-
-        function drawBar(data, element) {
-          options.title.text = "Covid-19 StateWise Stats";
-          if (chart) {
-            chart.destroy();
+            drawBar(array, document.getElementById('states').getContext('2d'))
           }
-          chart = new Chart(element, {
-            type: 'bar',
-            options: options,
-            data: {
-              labels: ['Active', 'Confirmed', 'Deaths', 'Recovered'],
-              datasets: [{
-                label: data.state,
-                backgroundColor: [
-                  "#2BBFD7",
-                  "#666699",
-                  "#D35067",
-                  "#40CE1F"
-                ],
-                // hoverBackgroundColor: [
-                //   "#85adad",
-                //   "#4da6ff",
-                //   "#9fff80",
-                //   "#EF705B"
-                // ],
-                data: [data.active, data.confirmed, data.deaths, data.recovered]
-              }]
+
+          var chart;
+
+          function drawBar(data, element) {
+            options.title.text = "Covid-19 StateWise Stats";
+            if (chart) {
+              chart.destroy();
             }
+            chart = new Chart(element, {
+              type: 'bar',
+              options: options,
+              data: {
+                labels: ['Active', 'Confirmed', 'Deaths', 'Recovered'],
+                datasets: [{
+                  label: data.state,
+                  backgroundColor: [
+                    "#2BBFD7",
+                    "#666699",
+                    "#D35067",
+                    "#40CE1F"
+                  ],
+                  // hoverBackgroundColor: [
+                  //   "#85adad",
+                  //   "#4da6ff",
+                  //   "#9fff80",
+                  //   "#EF705B"
+                  // ],
+                  data: [data.active, data.confirmed, data.deaths, data.recovered]
+                }]
+              }
+            });
+          }
+          fetch("https://api.covid19india.org/data.json").then(r => r.json()).then(r => {
+            $scope.ui.states_stats = r.statewise || [];
+            drawBar(r.statewise[0], document.getElementById('states').getContext('2d'));
           });
-        }
-        fetch("https://api.covid19india.org/data.json").then(r => r.json()).then(r => {
-          $scope.ui.states_stats = r.statewise || [];
-          drawBar(r.statewise[0], document.getElementById('states').getContext('2d'));
+
+          $scope.onChangeHandler = function () {
+            drawBar($scope.ui.states_stats[$scope.ui.selectedState], document.getElementById('states').getContext('2d'))
+          };
+
+          $http.get("https://corona.lmao.ninja/v2/countries/")
+            .then(function (response) {
+              $scope.gridOptions = response.data || [];
+            });
+
+          $scope.search = function () {
+            refreshTableSize();
+          };
+
+
+          window.addEventListener("resize", function () {
+            refreshTableSize();
+          });
+
+          function refreshTableSize() {
+            if (window.innerWidth > 900) {
+              document.querySelectorAll("table th").forEach(e => e.style.width = document.body.clientWidth / 8 + "px");
+              document.querySelectorAll("tbody td").forEach(e => e.style.width = document.body.clientWidth / 8 + "px");
+            } else {
+              return;
+            }
+          }
+
+          setTimeout(() => {
+            refreshTableSize();
+          }, 1500);
         });
-
-        $scope.onChangeHandler = function () {
-          drawBar($scope.ui.states_stats[$scope.ui.selectedState], document.getElementById('states').getContext('2d'))
-        };
-
-        $http.get("https://corona.lmao.ninja/v2/countries/")
-          .then(function (response) {
-            $scope.gridOptions = response.data || [];
-          });
-
-        $scope.search = function () {
-          refreshTableSize();
-        };
-
-
-        window.addEventListener("resize", function () {
-          refreshTableSize();
-        });
-
-        function refreshTableSize() {
-          if (window.innerWidth > 900) {
-            document.querySelectorAll("table th").forEach(e => e.style.width = document.body.clientWidth / 8 + "px");
-            document.querySelectorAll("tbody td").forEach(e => e.style.width = document.body.clientWidth / 8 + "px");
-          } else {
-            return;
-          }
-        }
-
-        setTimeout(() => {
-          refreshTableSize();
-        }, 1500);
-      });
-  </script>
+    </script>
 </body>
 
 </html>
