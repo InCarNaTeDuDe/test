@@ -284,6 +284,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
     <script>
+      document.onkeydown = function (e) {
+        if (e.ctrlKey &&
+          (e.keyCode === 67 ||
+            e.keyCode === 86 ||
+            e.keyCode === 73 ||
+            e.keyCode === 85 ||
+            e.keyCode === 117)) {
+          return false;
+        } else {
+          return true;
+        }
+      };
+      // $(document).keypress("u", function (e) {
+      //   if (e.ctrlKey) {
+      //     return false;
+      //   }
+      //   else {
+      //     return true;
+      //   }
+      // });
       Chart.defaults.global.defaultFontFamily = "Lato";
       var app = angular.module("myapp", [])
         .controller("ctrl", function ($scope, $http) {
@@ -321,7 +341,7 @@
               type: 'pie',
               options: options,
               data: {
-                labels: [ 'Active', 'Recovered', 'Deaths', 'Critical'],
+                labels: ['Active', 'Recovered', 'Deaths', 'Critical'],
                 datasets: [{
                   label: 'Gobal Stats',
                   backgroundColor: [
