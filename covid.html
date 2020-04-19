@@ -40,7 +40,6 @@
         width: 96%;
         left: 5px;
         position: absolute;
-        top: 400px;
       }
     }
 
@@ -51,7 +50,7 @@
       }
 
       .chart-container #states {
-        margin-top: 50px;
+        margin-top: 30px;
       }
 
       .table-holder {
@@ -198,11 +197,15 @@
         content: "Updated";
       }
     }
+    p{
+      text-align: center;
+    }
   </style>
 
 </head>
 
 <body ng-app="myapp" ng-controller="ctrl">
+  <p>-- Select A state Below -- </p>
   <select ng-model="ui.selectedState" ng-change="onChangeHandler()">
     <option value="0">Total</option>
     <option value="1">Maharastra</option>
@@ -244,8 +247,8 @@
     <option value="37">Sikkhim</option>
   </select>
   <div class="chart-container">
-    <canvas id="piechart"> </canvas>
     <canvas id="states"></canvas>
+    <canvas id="piechart"></canvas>
   </div>
   <div class="table-holder">
     <table id="no-more-tables" ng-cloak>
