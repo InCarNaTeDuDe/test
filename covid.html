@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>CoronaVirus Online Tracker, Covid-19 Statistics Tracker</title>
+  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSDbgIWU_un6ax8ANXZ0Si3_-3e4EobiNniUsCE2BNIVyQnV9tT&usqp=CAU" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <style>
     * {
@@ -30,6 +31,13 @@
       height: 360px;
       width: 360px;
       float: left;
+    }
+
+    @media screen and (max-width: 600px){
+      select{
+        width: 100%;
+        position: inherit;
+      }
     }
 
     @media screen and (max-width:768px) {
@@ -260,7 +268,7 @@
           <td>{{x.updated |date:"MMM dd hh:mm:ss"}}</td>
         </tr>
       </tbody>
-    </table>s
+    </table>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
