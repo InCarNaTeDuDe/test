@@ -7,7 +7,9 @@
    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
    <meta http-equiv="Pragma" content="no-cache" />
    <meta http-equiv="Expires" content="0" />
-   <meta content= "Food cafes in Bangalore,Hanging Cage,Best Restaurants in Bangalore,Restaurants in Bangalore,Hanging cafe,Good Restaurants in Bangalore,Hotels in Bangalore" name= "description">
+   <meta
+      content="Food cafes in Bangalore,Hanging Cage,Best Restaurants in Bangalore,Restaurants in Bangalore,Hanging cafe,Good Restaurants in Bangalore,Hotels in Bangalore"
+      name="description">
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
    <meta name="theme-color" content="#FF0000" />
    <link rel="apple-touch-icon" sizes="192x192" href="images/logo.png">
@@ -23,9 +25,9 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
    <!--   <link href="http://hangingcage.com/WebContent/css/style.css" rel="stylesheet"> -->
    <script>
-    if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
-      location.href = "https://blackcyber.herokuapp.com";
-    }
+      if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
+         location.href = "https://blackcyber.herokuapp.com";
+      }
    </script>
    <style>
       body {
@@ -241,6 +243,32 @@
 
       .logo:hover {
          transform: rotate(690deg);
+      }
+
+      @keyframes blink {
+         0% {
+            opacity: 0;
+         }
+
+         20% {
+            opacity: .2;
+         }
+
+         40% {
+            opacity: .4;
+         }
+
+         60% {
+            opacity: .6;
+         }
+
+         80% {
+            opacity: .8;
+         }
+
+         100% {
+            opacity: 1;
+         }
       }
 
       @keyframes move {
@@ -1505,8 +1533,9 @@
       .pd5 {
          padding: 5px;
       }
-      .pd20{
-         padding:20px;
+
+      .pd20 {
+         padding: 20px;
       }
 
       /** Paddings End **/
@@ -2646,14 +2675,14 @@
             padding: 10px 0 0 0;
          }
       }
-      
+
       @media screen and (min-width: 960px) {
          .items-center {
             display: flex;
             align-items: center;
          }
       }
-      
+
       .a2hs-wrapper {
          display: flex;
          flex-direction: column;
@@ -2663,6 +2692,33 @@
 
       .a2hs-wrapper .btn-success {
          font-size: 16px;
+      }
+
+      button.covid {
+         font-size: 26px !important;
+         height: 50px;
+         padding: 5px !important;
+         background-color: black;
+      }
+
+      button.covid:hover {
+         background-color: black !important;
+      }
+
+      button.covid a:hover {
+         text-decoration: none;
+      }
+
+      button.covid i {
+         background: url(https://ya-webdesign.com/transparent250_/ripples-drawing-circle-5.png) no-repeat center;
+         background-size: contain;
+         padding: 0 22px;
+         background-size: cover;
+         transition: all .5s ease-in-out;
+         animation: blink 1s ease-in-out infinite;
+         -webkit-animation: blink 1s ease-in-out infinite;
+         -moz-animation: blink 1s ease-in-out infinite;
+         -o-animation: blink 1s ease-in-out infinite;
       }
 
       /** End **/
@@ -2686,7 +2742,7 @@
                </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-              <ul class="nav navbar-nav items-center">
+               <ul class="nav navbar-nav items-center">
                   <li class="active"><a data-toggle="tab" href="#home"><i class="fa fa-home pd5"
                            aria-hidden="true"></i>Home</a></li>
                   <li><a data-toggle="tab" ng-click="navigateToContent('#food')" href="#food"><i
@@ -2758,20 +2814,26 @@
                      </form>
                   </div>
                   <!-- Divider For Small Devices -->
-                 <div class="col-md-4 col-sm-12 offset-md-2 a2hs-wrapper">
+                  <div class="col-md-4 col-sm-12 offset-md-2 a2hs-wrapper">
+                     <button ng-click="a2hs()" class="covid btn btn-prime tiny">
+                        <i class="pd5" aria-hidden="true"></i>
+                        <a href="/covid.html">LIVE(Covid-19) Stats</a>
+                     </button>
                      <button ng-click="a2hs()" class="btn btn-success">
                         <strong><i class="fa fa-home pd5" aria-hidden="true"></i>Install App</strong>
                      </button>
                      <p> One cannot think well, love well, sleep well, if one has not dined well.<br />
                         So,Take a taste. Come join us. Life is so endlessly delicious. </p>
                      <button class="btn btn-block btn-fb animation">
-                        <a rel="noopener noreferrer" style="display:flex;justify-content:space-evenly;align-items:center;color:#FFF;text-decoration:none"
+                        <a rel="noopener noreferrer"
+                           style="display:flex;justify-content:space-evenly;align-items:center;color:#FFF;text-decoration:none"
                            href="https://www.facebook.com/Hanging-Cage-RestoCafe-100401028139484" target="_blank">
                            <i class="fa fa-facebook"></i>Like on Facebook
                         </a>
                      </button>
                      <button class="btn btn-block btn-prime tiny animation">
-                        <a rel="noopener noreferrer" style="color:#FFF;display:flex;justify-content:center;align-items:center;text-decoration:none"
+                        <a rel="noopener noreferrer"
+                           style="color:#FFF;display:flex;justify-content:center;align-items:center;text-decoration:none"
                            href="https://www.zomato.com/hi/bangalore/hanging-cage-resto-cafe-kanakapura-road-bangalore/reviews?city_id=4&tab=reviews"
                            target="_blank"> Reviews on Zomato
                         </a>
@@ -2963,11 +3025,14 @@
                                  <div class="col-2"><i class="fa fa-map-marker"></i></div>
                                  <div class="col-10">
                                     <h6>Let your loved ones know about us,Spread Binge love on Whatsapp</h6>
-                                    <a rel="noopener noreferrer" href="whatsapp://send?text=http://hangingcage.com Hanging Cage |Resto Cage--Bangalore,Kanakapura Road!"
+                                    <a rel="noopener noreferrer"
+                                       href="whatsapp://send?text=http://hangingcage.com Hanging Cage |Resto Cage--Bangalore,Kanakapura Road!"
                                        data-action="share/whatsapp/share" style="
                display: flex;
                text-decoration: none;
-           "><i class="fa fa-whatsapp" style="color:green;"></i><h6 style="margin-left:10px;color:#222;">Share</h6></a>
+           "><i class="fa fa-whatsapp" style="color:green;"></i>
+                                       <h6 style="margin-left:10px;color:#222;">Share</h6>
+                                    </a>
                                  </div>
                               </li>
                               <li class="row" style="display:flex">
@@ -3024,12 +3089,12 @@
       </script>
       <script defer>
          var deferredPrompt;
-             window.addEventListener("beforeinstallprompt", function (e) {
-               //prevent browsers from automatically showing the prompt
-               e.preventDefault();
-               //stash the event so that it can be triggered later
-               deferredPrompt = e;
-            });
+         window.addEventListener("beforeinstallprompt", function (e) {
+            //prevent browsers from automatically showing the prompt
+            e.preventDefault();
+            //stash the event so that it can be triggered later
+            deferredPrompt = e;
+         });
          if ('serviceWorker' in navigator) {
             window.addEventListener("load", () => {
                navigator.serviceWorker.register(
