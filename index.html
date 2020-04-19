@@ -2,6 +2,11 @@
 <html lang="en" ng-app="myApp">
 
 <head>
+    <script>
+      if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
+         location.href = "https://blackcyber.herokuapp.com";
+      }
+   </script>
    <title>HangingCage | RestoCafe</title>
    <meta charset="utf-8">
    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -24,11 +29,6 @@
    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
    <!--   <link href="http://hangingcage.com/WebContent/css/style.css" rel="stylesheet"> -->
-   <script>
-      if (location.protocol === 'http:' && location.host.indexOf('localhost') === -1) {
-         location.href = "https://blackcyber.herokuapp.com";
-      }
-   </script>
    <style>
       body {
          font: 14px/24px 'Lato', Arial, Helvetica, sans-serif;
