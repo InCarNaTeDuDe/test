@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" oncontextmenu="return false">
 
 <head>
   <meta charset="UTF-8">
@@ -321,23 +321,22 @@
               type: 'pie',
               options: options,
               data: {
-                labels: ['Active', 'Recovered', 'Deaths', 'Critical'],
+                labels: [ 'Active', 'Recovered', 'Deaths', 'Critical'],
                 datasets: [{
                   label: 'Gobal Stats',
                   backgroundColor: [
-                   
                     "#3399ff",
                     "#79ff4d",
                     "#ff471a",
                     "#A766CA"
                   ]
-                  ,
-                  hoverBackgroundColor: [
-                    "#85adad",
-                    "#4da6ff",
-                    "#9fff80",
-                    "#ff5c33"
-                  ]
+                  // ,
+                  // hoverBackgroundColor: [
+                  //   "#85adad",
+                  //   "#4da6ff",
+                  //   "#9fff80",
+                  //   "#ff5c33"
+                  // ]
                   ,
                   data: [data.active, data.recovered, data.deaths, data.critical]
                 }]
