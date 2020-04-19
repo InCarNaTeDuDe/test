@@ -1,124 +1,53 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Covid-19 Tracker,Online Coronavirus Tracker</title>
-  <link rel="shortcut icon" href="images/corona.png" type="image/x-icon">
+  <title>CoronaVirus Online Tracker, Covid-19 Statistics Tracker</title>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
   <style>
-    *,
-    html,
-    body {
-      font-family: 'Lato', sans-serif;
-      overflow-x: hidden;
+    * {
+      font-family: "Lato", sans-serif;
     }
 
-    .arc text {
-      font: 14px sans-serif;
-      text-anchor: middle;
-      fill: #FFF;
-      font-weight: bold;
-      text-transform: capitalize;
-    }
-
-    .arc path {
-      stroke: #fff;
-      stroke-width: 2px;
-    }
-
-    .arc path:hover {
-      fill-opacity: .75;
-    }
-
-    .flex-row {
-      display: flex;
-    }
-
-    .flex-row #india {
-      flex: 1;
-    }
-
-    #india>div {
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-    }
-
-    .state {
-      fill: none;
-      stroke: #a9a9a9;
-      stroke-width: 1;
-    }
-
-    .state:hover {
-      fill-opacity: 0.5;
-    }
-
-    #tooltip {
-      position: absolute;
-      text-align: center;
-      padding: 20px;
-      margin: 10px;
-      font: 12px sans-serif;
-      background: lightsteelblue;
-      border: 1px;
-      border-radius: 2px;
-      pointer-events: none;
-    }
-
-    #tooltip h4 {
-      margin: 0;
-      font-size: 14px;
-    }
-
-    #tooltip {
-      background: rgba(0, 0, 0, 0.9);
-      border: 1px solid grey;
-      border-radius: 5px;
-      font-size: 12px;
-      width: auto;
-      padding: 4px;
-      color: white;
-      opacity: 0;
-    }
-
-    #tooltip table {
-      table-layout: fixed;
-    }
-
-    #tooltip tr td {
-      padding: 0;
-      margin: 0;
-    }
-
-    #tooltip tr td:nth-child(1) {
-      width: 50px;
-    }
-
-    #tooltip tr td:nth-child(2) {
-      text-align: center;
-    }
-
-    /* table,
-    th,
-    td {
-      border: 1px solid grey;
-      border-collapse: collapse;
+    select {
       padding: 5px;
-      text-align: center;
+      border-radius: 4px;
+      position: absolute;
+      right: 0;
     }
 
-    table tr:nth-child(odd) {
-      background-color: #f1f1f1;
+    .chart-container {
+      display: flex;
+      width: 50%;
+      height: 380px;
+      /* margin: 0 auto; */
     }
 
-    table tr:nth-child(even) {
-      background-color: #ffffff;
-    } */
+    .chart-container canvas {
+      height: 360px;
+      width: 360px;
+      float: left;
+    }
+
+    @media screen and (max-width:768px) {
+      .chart-container {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .chart-container #states {
+        margin-top: 20px;
+      }
+
+      .table-holder {
+        position: relative;
+        top: 450px;
+      }
+    }
+
     table {
       width: 100%;
       table-layout: fixed;
@@ -151,7 +80,7 @@
     table td {
       padding: 5px;
       text-align: center;
-      width: 250px;
+      /* width: 250px; */
       font-weight: bold;
       border-right: 1px solid goldenrod;
     }
@@ -168,501 +97,93 @@
       background-color: #ffffff;
     }
 
-    @media screen and (max-width: 600px) {
-      .flex-row {
-        flex-direction: column;
-      }
 
-      #india {
-        /* display: none; */
-      }
 
-      th>input {
-        width: 40px;
-      }
 
-      table th:nth-child(3),
-      table th:nth-child(5),
-      table th:nth-child(8),
-      table tr td:nth-child(3),
-      table tr td:nth-child(5),
-      table tr td:nth-child(8) {
-        display: none;
-      }
 
-      #no-more-tables {
-        display: block;
-        width: 100%;
-      }
+    @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
 
-      div[ui-grid="gridOptions"] {
-        display: none;
-      }
+      /**
+      *Excluded styles
+      */
 
-      .arc text {
-        font: 20px sans-serif;
-      }
 
-    }
 
-    @media screen and (min-width:600px) {
-      #no-more-tables {
-        display: none;
-      }
 
-      div[ui-grid="gridOptions"] {
+      /* Force table to not be like tables anymore */
+      table,
+      thead,
+      tbody,
+      th,
+      td,
+      tr {
         display: block;
       }
-    }
 
-    .ui-grid-header-cell-wrapper,
-    .ui-grid-cell-contents,
-    .ui-grid-canvas {
-      background-color: #000;
-      color: #FFF;
-      text-align: center;
-    }
-
-    h3 {
-      margin: 0;
-    }
-  </style>
-</head>
-
-<body ng-app="myapp" ng-controller="myctrl" ng-cloak>
-  <center>
-    <h3>Covid-19 Global Tracker</h3>
-  </center>
-  <div class="flex-row">
-    <svg width="600" height="600"></svg>
-    <div id="india"></div>
-    <div id="tooltip"></div>
-  </div>
-  <center>
-    <h3>Countries Affected Globally</h3>
-  </center>
-  <table id="no-more-tables" ng-cloak>
-    <thead>
-      <th style="width: 100px;">Country <input ng-model="s" placeholder="search country.." /></th>
-      <th>Cases</th>
-      <th>Today Cases</th>
-      <th>Deaths</th>
-      <th>Deaths Today</th>
-      <th>Active</th>
-      <th>Recovered</th>
-      <th>Last Updated</th>
-    </thead>
-    <tbody>
-      <tr ng-repeat="x in gridOptions.data | filter:s">
-        <td style="max-width: 100px;">{{x.country}}</td>
-        <td style="color: crimson;">{{x.cases|number}}</td>
-        <td style="color: dodgerblue;">{{x.todayCases}}</td>
-        <td style="color: red;">{{x.deaths|number}}</td>
-        <td>{{x.todayDeaths}}</td>
-        <td style="color: green;">{{x.recovered|number}}</td>
-        <td>{{x.active|number}}</td>
-        <td>{{x.updated |date:"MMM dd hh:mm:ss"}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <div ui-grid="gridOptions"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <script src="http://ui-grid.info/release/ui-grid.min.js"></script>
-  <script type="text/javascript">
-    // var width = innerWidth,
-    //   height = innerHeight;
-    // // var svg = d3.select("svg"),
-    // //   width = svg.attr("width"),
-    // //   height = svg.attr("height"),
-    // //   radius = Math.min(width, height) / 2,
-    // //   g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-    // var radius = Math.min(width, height) / 2;
-    // var svg = d3.select("svg").attr("height", width).attr("width", width)
-    //   .attr('viewBox', '0 0 ' + height + ' ' + width)
-    //   .attr('preserveAspectRatio', 'xMinYMin')
-    //   .append("g")
-    // // .attr("transform", "translate(" + height + "," + width + ")");
-    // var g = svg.append("g").attr("transform", "translate(" + width / 1.2 + "," + height / 2 + ")");
-
-    if (innerWidth < 600) {
-      var width = innerWidth,
-        height = innerHeight;
-      var radius = Math.min(width, height) / 2;
-      var svg = d3.select("svg").attr("height", width).attr("width", width)
-        .attr('viewBox', '0 0 ' + height + ' ' + width)
-        .attr('preserveAspectRatio', 'xMinYMin')
-        .append("g")
-      // .attr("transform", "translate(" + height + "," + width + ")");
-      var g = svg.append("g").attr("transform", "translate(" + width / 1.2 + "," + height / 2 + ")");
-    } else {
-      var svg = d3.select("svg"),
-        width = svg.attr("width"),
-        height = svg.attr("height"),
-        radius = Math.min(width, height) / 2,
-        g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-    }
-
-
-    fetch("https://corona.lmao.ninja/v2/all").then(d => d.json()).then(data => {
-      drawPie(data || []);
-      fetch("https://api.covid19india.org/data.json").then(d => d.json()).then(indianStatesData => {
-        sessionStorage.setItem("indianStatesData", JSON.stringify(indianStatesData.statewise))
-      }).catch(e => console.log("Error in getting States API...", e));
-    }).catch(e => console.log(e));
-
-    // window.addEventListener("resize", function () {
-    //   width = document.body.clientWidth;
-    //   height = document.body.clientHeight;
-    //   console.log("W " + width + " , " + "H " + height);
-    //   svg
-    //     .attr("width", width)
-    //     .attr("height", width)
-    //     .attr('viewBox', '0 0 ' + height + ' ' + width)
-    //     .attr('preserveAspectRatio', 'xMinYMin')
-    //     .append("g")
-    //     .attr("transform", "translate(" + height + "," + width + ")");
-    // });
-
-
-    function drawPie(dataArray) {
-      delete dataArray.updated;
-      delete dataArray.tests;
-      delete dataArray.todayCases;
-      delete dataArray.todayDeaths;
-      delete dataArray.critical;
-      delete dataArray.casesPerOneMillion;
-      delete dataArray.deathsPerOneMillion;
-      delete dataArray.affectedCountries;
-      delete dataArray.testsPerOneMillion;
-      var color = d3.scale.ordinal().range(['dodgerblue','#da3125','#4daf4a','#ff7f00']);
-      // Generate the pie
-      var pie = d3.layout.pie()
-        .value(function (d) { return d; });
-
-      var tooltip = d3.select("body")
-        .append("div")
-        .style("position", "absolute")
-        .style("z-index", "10")
-        .style("visibility", "hidden")
-        .style("border", "1px solid white")
-        .style("border-radius", "4px")
-        .style("color", "#FFF")
-        .style("padding", "8px")
-        .style("white-space", "pre")
-        .style("text-transform", "uppercase")
-        .style("font-weight", "bold");
-
-      // Generate the arcs
-      var path = d3.svg.arc()
-        .outerRadius(radius - 10)
-        .innerRadius(0);
-
-      var label = d3.svg.arc()
-        .outerRadius(radius)
-        .innerRadius(radius - 80);
-
-      var arc = g.selectAll(".arc")
-        .data(pie(Object.values(dataArray)))
-        .enter().append("g")
-        .attr("class", "arc");
-
-      arc.append("path")
-        .attr("d", path)
-        .attr("fill", function (d) { return color(d.data); })
-        .on("mouseover", function (d, i) {
-          d3.select(this).style("transform", "scale(1.025)");
-          d3.select(this).style("transition", "all .5s ease-in-out");
-          tooltip.style("background", color(d.data));
-          tooltip.text(Object.keys(dataArray)[i] + "\n" + Object.values(dataArray)[i]);
-          return tooltip.style("visibility", "visible");
-        })
-        .on("mousemove", function () { return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px"); })
-        .on("mouseout", function () { d3.select(this).style("transform", "none"); return tooltip.style("visibility", "hidden"); })
-        .transition()
-        .ease("linear")
-        .duration(1000)
-        .delay(function (d, i) {
-          return i * 25;
-        })
-        // .attrTween("d", arcTween);
-        .attrTween("d", function (d) {
-          var i = d3.interpolate({ startAngle: 0, endAngle: 0 }, d);
-          return function (t) {
-            arc = d3.svg.arc()
-              .outerRadius(300 - 10) //<-- create arc
-              .innerRadius(0); //<-- return arc path
-            return arc(i(t));
-          }
-        });
-
-      arc.append("text")
-        .attr("transform", function (d) {
-          return "translate(" + label.centroid(d) + ")";
-        })
-        .text(function (d, i) {
-          // return d.data;
-          return Object.keys(dataArray)[i];
-        });
-    }
-
-
-    function tooltipHtml(n, id, d) { /* function to create html content string in tooltip div. */
-      var parsedData = JSON.parse(sessionStorage.getItem("indianStatesData"));
-      var stateobj = parsedData.find(function (obj) {
-        return obj.state === n;
-      });
-      return "<h4>" + n + "</h4>" +
-        "<h4> Deaths - " + stateobj.deaths + "</h4>" +
-        "<h4> Active - " + stateobj.active + "</h4>" +
-        "<h4> Confirmed - " + stateobj.confirmed + "</h4>" +
-        "<h4> Recovered - " + stateobj.recovered + "</h4>";
-    }
-
-    function getRandomColor() {
-      var letters = '0123456789ABCDEF';
-      var color = '#';
-      for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
-    var sampleData = {}; /* Sample random data. */
-    ["AP", "AR", "AS", "BR", "CT", "DL", "GA", "GJ", "HR", "HP", "JK", "JH", "KA", "KL", "MP", "MH", "MN", "ML", "MZ", "NL", "OR", "PB", "RJ", "SK", "TN", "TR", "UP", "UT", "WB"]
-      .forEach(function (d) {
-        var low = Math.round(100 * Math.random());
-        sampleData[d] = { color: getRandomColor() };
-      });
-
-    /* draw states on id #statesvg */
-    //iStates.draw("#statesvg", sampleData, tooltipHtml);
-
-    d3.select(self.frameElement).style("height", "600px");
-
-    d3.json("https://api.myjson.com/bins/l36bq", function (json) {
-      var projection = d3.geo.mercator()
-        .scale(1)
-        .translate([0, 0]);
-
-      var path = d3.geo.path()
-        .projection(projection);
-
-      function mouseOver(d) {
-        d3.select("#tooltip").transition().duration(200).style("opacity", .9);
-        d3.select("#tooltip").html(tooltipHtml(d.n, d.id, sampleData[d.id]))
-          .style("left", innerWidth < 600 ? 0 : (d3.event.layerX + 600) + "px")
-          // .style("top", (d3.event.layerY) + "px");
-          .style("top", innerWidth < 600 ? (360 + d3.event.layerY) + "px" : (d3.event.layerY) + "px");
+      /* Hide table headers (but not display: none;, for accessibility) */
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
       }
 
-      function mouseOut() {
-        d3.select("#tooltip").transition().duration(500).style("opacity", 0);
+      tr {
+        border: 1px solid #ccc;
       }
 
-      function Click(d) {
-        delete d.d
-        tooltipHtml(d.n, d.id);
-        console.log(d)
+      td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
       }
 
-      var svg1;
-      if (innerWidth < 600) {
-        svg1 = d3.select("#india")
-          .append("svg").attr("height", window.innerWidth < 600 ? 620 : "100%").attr("width", innerWidth < 600 ? 620 : innerWidth)
-          .style("transform", "scale(.6) translate(-200px,-200px)")
-          .attr('viewBox', '0 0 ' + window.innerWidth < 600 ? document.body.clientHeight : "100%" + ' ' + innerWidth)
-          .attr('preserveAspectRatio', 'xMinYMin')
-          .append("g")
-      } else {
-        svg1 = d3.select("#india")
-          .append("svg")
-          .attr("width", "100%")
-          .attr("height", window.innerWidth < 600 ? document.body.clientHeight : "100%")
-          .append("g");
+      td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        /* width: 45%; */
+        padding-right: 10px;
+        white-space: nowrap;
       }
 
+      /*
+	Label the data
+	*/
+      td:nth-of-type(1):before {
+        content: "Country";
+      }
 
-      var eS = svg1.selectAll(".state")
-        .data(json)
-        .enter()
-        .append("g");
+      td:nth-of-type(2):before {
+        content: "Cases";
+      }
 
-      eS.append("path")
-        .attr("class", "state")
-        .attr("d", function (d) {
-          return d.d;
-        })
-        .style("fill", function (d) {
-          return sampleData[d.id].color;
-        })
-        .on("mousemove", mouseOver).on("mouseout", mouseOut).on("click", Click)
+      td:nth-of-type(3):before {
+        content: "Todays Cases";
+      }
 
-      eS.append("text")
-        .attr("fill", "black")
-        .style("pointer-events", "none")
-        .attr("transform", function (d) {
-          var bbox = this.previousSibling.getBBox();
-          return "translate(" + (bbox.x + bbox.width / 2) + "," + (bbox.y + bbox.height / 2) + ")";
-        })
-        .attr("text-anchor", "middle")
-        .attr("dy", ".35em")
-        .text(function (d) {
-          return d.id;
-        });
+      td:nth-of-type(4):before {
+        content: "Deaths";
+      }
 
-      // fetch("https://corona.lmao.ninja/countries/india").then(r => r.json()).then(data => {
-      //   d3.select("#india").append("div").append("img").attr("src", data.countryInfo.flag).attr("height", 40);
-      //   d3.select("#india div").append("div").html(indiaInfoTable(data.cases, data.todayCases, data.deaths, data.todayDeaths, data.recovered, data.active, data.updated));
-      // }).catch(e => console.log(e));
-    });
+      td:nth-of-type(5):before {
+        content: "Deaths Today";
+      }
 
-    // function indiaInfoTable(cases, todayCases, deaths, todayDeaths, recovered, active, updated) {
-    //   return "<p>Total: " + cases + "</p>" +
-    //     "<p>Cases Today: " + todayCases + "</p>" +
-    //     "<p>Deaths: " + deaths + "</p>" +
-    //     "<p>Deaths Today: " + todayDeaths + "</p>" +
-    //     "<p>Recovered: " + recovered + "</p>" +
-    //     "<p>Active: " + active + "</p>" +
-    //     "<p>Last updated At: " + new Date(updated) + "</p>"
-    // }
+      td:nth-of-type(6):before {
+        content: "Active";
+      }
 
-    var app = angular.module("myapp", ["ui.grid"]).controller("myctrl", function ($scope, $http, uiGridConstants) {
-      // fetch("https://corona.lmao.ninja/v2countries/").then(r => r.json()).then(d => {
-      //   console.log(d)
-      //   $scope.countriesData = d.data || [];
-      // }).catch(e => console.log("Error in getting countries data API...."));
-      $scope.gridOptions = {
-        enableSorting: true,
-        enableFiltering: true,
-        columnDefs: [{
-          field: "country",
-          displayName: "Country"
-        }, {
-          field: "cases",
-          displayName: "Cases",
-          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: crimson'>{{row.entity.cases|number}}</div>",
-          enableFiltering: false
-        }, {
-          field: "todayCases",
-          displayName: "Today Cases",
-          enableFiltering: false
-        }, {
-          field: "deaths",
-          displayName: "Deaths",
-          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: red'>{{row.entity.deaths|number}}</div>",
-          enableFiltering: false
-        }, {
-          field: "todayDeaths",
-          displayName: "Deaths Today",
-          enableFiltering: false
-        }, {
-          field: "active",
-          displayName: "Active",
-          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: dodgerblue'>{{row.entity.active}}</div>",
-          enableFiltering: false
-        }, {
-          field: "recovered",
-          displayName: "Recovered",
-          cellTemplate: "<div class='ui-grid-cell-contents' style='font-weight:bold;color: green'>{{row.entity.recovered|number}}</div>",
-          enableFiltering: false
-        }, {
-          field: "updated",
-          displayName: "Last Updated",
-          cellTemplate: "<div class='ui-grid-cell-contents'>{{row.entity.updated | date:'dd MMM hh:mm:ss'}}</div>",
-          enableFiltering: false
-        }],
-        onRegisterApi: function (gridApi) {
-          $scope.gridOptions = gridApi;
-        }
-      };
-      $http.get("https://corona.lmao.ninja/v2/countries/")
-        .then(function (response) {
-          $scope.gridOptions.data = response.data || [];
-        });
-    });
-    // app.run(['$templateCache', function ($templateCache) {
-    //   $templateCache.put('grid-list.tmpl', '<table width="100%" id="no-more-tables">\
-    //                                             <thead>\
-    //                                             </thead>\
-    //                                             <tbody>\
-    //                                                 <tr ng-repeat="col in config.columnDefs track by $index">\
-    //                                                     <td style="display:flex" data-title="{{col.displayName}}">\
-    //                                                         <span style="flex-basis:50%">{{col.displayName}}</span>\
-    //                                                         <span>{{grid.getCellValue($index,col)}}</span>\
-    //                                                     </td>\
-    //                                                 </tr>\
-    //                                             </tbody>\
-    //                                         </table>');
-    // }]);
-    // app.directive('gridList', [function () {
-    //   return {
-    //     restrict: 'A',
-    //     templateUrl: 'grid-list.tmpl',
-    //     scope: {
-    //       config: "<gridList",
-    //       renderableRows: "="
-    //     },
-    //     controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
-    //       $scope.config = $scope.config || {};
-    //       $scope.grid = {
-    //         getCellValue: function (index, col) {
-    //           if ($scope.config.data.length > 0) {
-    //             var nestedFields;
-    //             if (col.field.indexOf('.') >= 0) {
-    //               nestedFields = col.field.split('.');
-    //               return $scope.config.data[0][nestedFields[0]][nestedFields[1]];
-    //             } else {
-    //               return $scope.config.data[0][col.field];
-    //             }
-    //           }
-    //         }
-    //       };
-    //     }],
-    //     link: function ($scope, $element) {
-    //       $scope.$watch('renderableRows', function (newValue, oldValue) {
-    //         if (newValue && newValue !== oldValue) { }
-    //       });
-    //     }
-    //   }
-    // }]);
+      td:nth-of-type(7):before {
+        content: "Recovered";
+      }
 
-  </script>
-</body>
-
-</html>
- -->
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>CoronaVirus Online Tracker, Covid-19 Statistics Tracker</title>
-  <style>
-    select {
-      padding: 5px;
-      border-radius: 4px;
-    }
-
-    .chart-container {
-      display: flex;
-      width: 45%;
-      height: 480px;
-      /* margin: 0 auto; */
-    }
-
-    .chart-container canvas {
-      height: 360px;
-      width: 360px;
-      float: left;
-    }
-
-    @media screen and (max-width:768px) {
-      .chart-container {
-        flex-direction: column;
-        width: 100%;
+      td:nth-of-type(8):before {
+        content: "Updated";
       }
     }
   </style>
@@ -670,28 +191,94 @@
 </head>
 
 <body ng-app="myapp" ng-controller="ctrl">
+  <select ng-model="ui.selectedState" ng-change="onChangeHandler()">
+    <option value="0">Total</option>
+    <option value="1">Maharastra</option>
+    <option value="2">Delhi</option>
+    <option value="3">Tamil Nadu</option>
+    <option value="4">Rajsatan</option>
+    <option value="5">Madhya Pradesh</option>
+    <option value="6">Gujarat</option>
+    <option value="7">Uttar Pradesh</option>
+    <option value="8">Telangana</option>
+    <option value="9">Andhra Pradesh</option>
+    <option value="10">Kerala</option>
+    <option value="11">Karnataka</option>
+    <option value="12">Jammu And Kashmir</option>
+    <option value="13">West Bengal</option>
+    <option value="14">Haryana</option>
+    <option value="15">Punjab</option>
+    <option value="16">Bihar</option>
+    <option value="17">Odisha</option>
+    <option value="18">Uttarakhand</option>
+    <option value="19">CHattisgarh</option>
+    <option value="20">Himachal Pradesh</option>
+    <option value="21">Assam</option>
+    <option value="22">Jharkhand</option>
+    <option value="23">Chandigarh</option>
+    <option value="24">Ladakh</option>
+    <option value="25">Andaman And Nicobar Islands</option>
+    <option value="26">Meghalaya</option>
+    <option value="27">Goa</option>
+    <option value="28">Puducherry</option>
+    <option value="29">Manipur</option>
+    <option value="30">Tripura</option>
+    <option value="31">Mizoram</option>
+    <option value="32">Arunachal Pradesh</option>
+    <option value="33">Nagaland</option>
+    <option value="34">Dadra and Nagar Haveli</option>
+    <option value="35">Daman and Diu</option>
+    <option value="36">Lakshadweep</option>
+    <option value="37">Sikkhim</option>
+  </select>
   <div class="chart-container">
     <canvas id="piechart"> </canvas>
     <canvas id="states"></canvas>
   </div>
-  <select ng-model="ui.selectedState" ng-change="onChangeHandler()">
-    <option ng-repeat="x in ui.state_names track by $index" ng-value="{{$index}}">{{x.state}}</option>
-  </select>
+  <div class="table-holder">
+    <table id="no-more-tables" ng-cloak>
+      <thead>
+        <th>Country <input style="width: 100px;" ng-change="search()" ng-model="s" placeholder="search country.." />
+        </th>
+        <th>Cases</th>
+        <th>Today Cases</th>
+        <th>Deaths</th>
+        <th>Deaths Today</th>
+        <th>Active</th>
+        <th>Recovered</th>
+        <th>Last Updated</th>
+      </thead>
+      <tbody>
+        <tr ng-repeat="x in gridOptions | filter:s">
+          <td>{{x.country}}</td>
+          <td style="color: crimson;">{{x.cases|number}}</td>
+          <td style="color: dodgerblue;">{{x.todayCases}}</td>
+          <td style="color: red;">{{x.deaths|number}}</td>
+          <td>{{x.todayDeaths}}</td>
+          <td style="color: green;">{{x.active|number}}</td>
+          <td>{{x.recovered|number}}</td>
+          <td>{{x.updated |date:"MMM dd hh:mm:ss"}}</td>
+        </tr>
+      </tbody>
+    </table>s
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
   <script>
-
+    Chart.defaults.global.defaultFontFamily = "Lato";
     var app = angular.module("myapp", [])
-      .controller("ctrl", function ($scope) {
-        $scope.ui = {};
+      .controller("ctrl", function ($scope, $http) {
+        $scope.ui = {
+          selectedState: "0"
+        };
         var options = {
           responsive: true,
+          maintainAspectRatio: false,
           title: {
             display: true,
             position: "top",
-            text: "Covid-19 Global Tracker",
             fontSize: 18,
             fontColor: "#111"
           },
@@ -704,7 +291,6 @@
             }
           },
           animation: {
-            duration: 1500,
             easing: "easeInOutQuad"
           }
         };
@@ -712,6 +298,7 @@
         fetch("https://corona.lmao.ninja/v2/all").then(d => d.json()).then((d) => { drawChart(d); });
 
         function drawChart(data) {
+          options.title.text = "Covid-19 Global Tracker";
           var ctx = document.getElementById('piechart').getContext('2d');
           var chart = new Chart(ctx, {
             type: 'pie',
@@ -749,6 +336,7 @@
         var chart;
 
         function drawBar(data, element) {
+          options.title.text = "Covid-19 StateWise Stats";
           if (chart) {
             chart.destroy();
           }
@@ -760,41 +348,58 @@
               datasets: [{
                 label: data.state,
                 backgroundColor: [
-                  "#669999",
-                  "#3399ff",
-                  "#79ff4d",
-                  "#ff471a",
-                ]
-                ,
-                hoverBackgroundColor: [
-                  "#85adad",
-                  "#4da6ff",
-                  "#9fff80",
-                  "#ff5c33"
-                ]
-                ,
+                  "#2BBFD7",
+                  "#666699",
+                  "#D35067",
+                  "#40CE1F"
+                ],
+                // hoverBackgroundColor: [
+                //   "#85adad",
+                //   "#4da6ff",
+                //   "#9fff80",
+                //   "#EF705B"
+                // ],
                 data: [data.active, data.confirmed, data.deaths, data.recovered]
               }]
             }
           });
         }
         fetch("https://api.covid19india.org/data.json").then(r => r.json()).then(r => {
-          var arr = r.statewise;
-          drawBar(arr[0], document.getElementById('states').getContext('2d'));
-          $scope.ui.state_names = arr;
+          $scope.ui.states_stats = r.statewise || [];
+          drawBar(r.statewise[0], document.getElementById('states').getContext('2d'));
         });
 
         $scope.onChangeHandler = function () {
-          drawBar($scope.ui.state_names[$scope.ui.selectedState], document.getElementById('states').getContext('2d'))
+          drawBar($scope.ui.states_stats[$scope.ui.selectedState], document.getElementById('states').getContext('2d'))
         };
 
+        $http.get("https://corona.lmao.ninja/v2/countries/")
+          .then(function (response) {
+            $scope.gridOptions = response.data || [];
+          });
+
+        $scope.search = function () {
+          refreshTableSize();
+        };
+
+
+        window.addEventListener("resize", function () {
+          refreshTableSize();
+        });
+
+        function refreshTableSize() {
+          if (window.innerWidth > 900) {
+            document.querySelectorAll("table th").forEach(e => e.style.width = document.body.clientWidth / 8 + "px");
+            document.querySelectorAll("tbody td").forEach(e => e.style.width = document.body.clientWidth / 8 + "px");
+          } else {
+            return;
+          }
+        }
+
+        setTimeout(() => {
+          refreshTableSize();
+        }, 1500);
       });
-
-
-
-
-
-
   </script>
 </body>
 
