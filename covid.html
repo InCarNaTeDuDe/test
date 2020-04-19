@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -625,6 +625,174 @@
     //     }
     //   }
     // }]);
+
+  </script>
+</body>
+
+</html>
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CoronaVirus Online Tracker, Covid-19 Statistics Tracker</title>
+  <style>
+    select {
+      padding: 5px;
+      border-radius: 4px;
+    }
+
+    .chart-container {
+      display: flex;
+      width: 45%;
+      height: 480px;
+      /* margin: 0 auto; */
+    }
+
+    .chart-container canvas {
+      height: 360px;
+      width: 360px;
+      float: left;
+    }
+
+    @media screen and (max-width:768px) {
+      .chart-container {
+        width: 500px;
+      }
+    }
+  </style>
+
+</head>
+
+<body ng-app="myapp" ng-controller="ctrl">
+  <div class="chart-container">
+    <canvas id="piechart"> </canvas>
+    <canvas id="states"></canvas>
+  </div>
+  <select ng-model="ui.selectedState" ng-change="onChangeHandler()">
+    <option ng-repeat="x in ui.state_names track by $index" ng-value="{{$index}}">{{x.state}}</option>
+  </select>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+  <script>
+
+    var app = angular.module("myapp", [])
+      .controller("ctrl", function ($scope) {
+        $scope.ui = {};
+        var options = {
+          responsive: true,
+          title: {
+            display: true,
+            position: "top",
+            text: "Covid-19 Global Tracker",
+            fontSize: 18,
+            fontColor: "#111"
+          },
+          legend: {
+            display: true,
+            position: "bottom",
+            labels: {
+              fontColor: "#333",
+              fontSize: 16
+            }
+          },
+          animation: {
+            duration: 1500,
+            easing: "easeInOutQuad"
+          }
+        };
+
+        fetch("https://corona.lmao.ninja/v2/all").then(d => d.json()).then((d) => { drawChart(d); });
+
+        function drawChart(data) {
+          var ctx = document.getElementById('piechart').getContext('2d');
+          var chart = new Chart(ctx, {
+            type: 'pie',
+            options: options,
+            data: {
+              labels: ['Cases', 'Active', 'Recovered', 'Deaths', 'Critical'],
+              datasets: [{
+                label: 'Gobal Stats',
+                backgroundColor: [
+                  "#669999",
+                  "#3399ff",
+                  "#79ff4d",
+                  "#ff471a",
+                  "#A766CA"
+                ]
+                ,
+                hoverBackgroundColor: [
+                  "#85adad",
+                  "#4da6ff",
+                  "#9fff80",
+                  "#ff5c33"
+                ]
+                ,
+                data: [data.cases, data.active, data.recovered, data.deaths, data.critical]
+              }]
+            }
+          });
+        }
+
+        function drawStatesChart(array) {
+
+          drawBar(array, document.getElementById('states').getContext('2d'))
+        }
+
+        var chart;
+
+        function drawBar(data, element) {
+          if (chart) {
+            chart.destroy();
+          }
+          chart = new Chart(element, {
+            type: 'bar',
+            options: options,
+            data: {
+              labels: ['Active', 'Confirmed', 'Deaths', 'Recovered'],
+              datasets: [{
+                label: data.state,
+                backgroundColor: [
+                  "#669999",
+                  "#3399ff",
+                  "#79ff4d",
+                  "#ff471a",
+                ]
+                ,
+                hoverBackgroundColor: [
+                  "#85adad",
+                  "#4da6ff",
+                  "#9fff80",
+                  "#ff5c33"
+                ]
+                ,
+                data: [data.active, data.confirmed, data.deaths, data.recovered]
+              }]
+            }
+          });
+        }
+        fetch("https://api.covid19india.org/data.json").then(r => r.json()).then(r => {
+          var arr = r.statewise;
+          drawBar(arr[0], document.getElementById('states').getContext('2d'));
+          $scope.ui.state_names = arr;
+        });
+
+        $scope.onChangeHandler = function () {
+          drawBar($scope.ui.state_names[$scope.ui.selectedState], document.getElementById('states').getContext('2d'))
+        };
+
+      });
+
+
+
+
+
 
   </script>
 </body>
