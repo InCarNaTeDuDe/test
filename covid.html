@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" oncontextmenu="return false">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -56,6 +56,12 @@
         position: relative;
         top: 450px;
       }
+
+      .examples {
+        position: relative;
+        top: 430px;
+      }
+
     }
 
     table {
@@ -112,7 +118,7 @@
 
 
     @media only screen and (max-width: 760px),
-    (min-device-width: 768px) and (max-device-width: 1024px) {
+    (min-width: 768px) and (max-device-width: 1024px) {
 
       /**
       *Excluded styles
@@ -200,6 +206,19 @@
     p {
       text-align: center;
     }
+
+    .examples {
+      max-width: 400px;
+      background: black;
+      color: #FFF;
+      border-radius: 4px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .examples img {
+      float: right;
+    }
   </style>
 
 </head>
@@ -252,6 +271,16 @@
       <canvas id="states"></canvas>
       <canvas id="piechart"></canvas>
     </div>
+    <div class="examples">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/718smiley.svg/30px-718smiley.svg.png"
+        alt="smiley" />
+      <p>Speak With your MicroPhone to Filter Results </p>
+      <p>Ex:Spell Word Country followed by <-- Coutry Name -->
+      </p>
+      <p>Example: Country India, Country USA, Country UK.</p>
+    </div>
+
+
     <div class="table-holder">
       <table id="no-more-tables" ng-cloak>
         <thead>
@@ -282,12 +311,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
 
     <script>
       document.onkeydown = function (e) {
         if (e.ctrlKey &&
           (e.keyCode === 67 ||
             e.keyCode === 86 ||
+            e.keyCode === 83 ||
             e.keyCode === 73 ||
             e.keyCode === 85 ||
             e.keyCode === 117)) {
@@ -303,6 +334,19 @@
       //   else {
       //     return true;
       //   }
+      // });
+      // window.onbeforeunload = function (e) {
+      //   event.preventDefault();
+      //   // Chrome requires returnValue to be set.
+      //   event.returnValue = "";
+      //   location.href = "file:///home/bharath/a.html"
+      //   return false;
+      // };
+      //   window.addEventListener("beforeunload", event => {
+
+      //   event.preventDefault()
+      //   // Chrome requires returnValue to be set.
+      //   event.returnValue = ""
       // });
       Chart.defaults.global.defaultFontFamily = "Lato";
       var app = angular.module("myapp", [])
@@ -424,7 +468,7 @@
           });
 
           function refreshTableSize() {
-            if (window.innerWidth > 900) {
+            if (window.innerWidth > 1024) {
               document.querySelectorAll("table th").forEach(e => e.style.width = document.body.clientWidth / 8 + "px");
               document.querySelectorAll("tbody td").forEach(e => e.style.width = document.body.clientWidth / 8 + "px");
             } else {
@@ -435,6 +479,24 @@
           setTimeout(() => {
             refreshTableSize();
           }, 1500);
+
+
+          /** annyang commands set up **/
+          var commands = {
+            'country *val': function (val) {
+              console.log("--- ", val)
+              $scope.s = val;
+              $scope.$apply();
+              refreshTableSize();
+            }
+          };
+
+          annyang.addCommands(commands);
+          annyang.start();
+          annyang.debug();
+
+          /** End **/
+
         });
     </script>
 </body>
