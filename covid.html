@@ -16,9 +16,6 @@
     select {
       padding: 5px;
       border-radius: 4px;
-      position: absolute;
-      left: 5px;
-      top: 45px;
     }
 
     .chart-container {
@@ -37,8 +34,6 @@
     @media screen and (max-width: 600px) {
       select {
         width: 96%;
-        left: 5px;
-        position: absolute;
       }
     }
 
@@ -159,7 +154,7 @@
       td:before {
         /* Now like a table header */
         position: absolute;
-        /* Top/left values mimic padding */
+        /* Top/left valuesadding  padding */
         top: 6px;
         left: 6px;
         /* width: 45%; */
@@ -224,48 +219,47 @@
 </head>
 
 <body ng-app="myapp" ng-controller="ctrl">
-  <div>-- Select A state Below --
+  <div class="select-holder">-- Select A state Below --
     <select ng-model="ui.selectedState" ng-change="onChangeHandler()">
-      <option value="0">Total</option>
-      <option value="1">Maharastra</option>
-      <option value="2">Delhi</option>
-      <option value="3">Tamil Nadu</option>
-      <option value="4">Rajsatan</option>
-      <option value="5">Madhya Pradesh</option>
-      <option value="6">Gujarat</option>
-      <option value="7">Uttar Pradesh</option>
-      <option value="8">Telangana</option>
-      <option value="9">Andhra Pradesh</option>
-      <option value="10">Kerala</option>
-      <option value="11">Karnataka</option>
-      <option value="12">Jammu And Kashmir</option>
-      <option value="13">West Bengal</option>
-      <option value="14">Haryana</option>
-      <option value="15">Punjab</option>
-      <option value="16">Bihar</option>
-      <option value="17">Odisha</option>
-      <option value="18">Uttarakhand</option>
-      <option value="19">CHattisgarh</option>
-      <option value="20">Himachal Pradesh</option>
-      <option value="21">Assam</option>
-      <option value="22">Jharkhand</option>
-      <option value="23">Chandigarh</option>
-      <option value="24">Ladakh</option>
-      <option value="25">Andaman And Nicobar Islands</option>
-      <option value="26">Meghalaya</option>
-      <option value="27">Goa</option>
-      <option value="28">Puducherry</option>
-      <option value="29">Manipur</option>
-      <option value="30">Tripura</option>
-      <option value="31">Mizoram</option>
-      <option value="32">Arunachal Pradesh</option>
-      <option value="33">Nagaland</option>
-      <option value="34">Dadra and Nagar Haveli</option>
-      <option value="35">Daman and Diu</option>
-      <option value="36">Lakshadweep</option>
-      <option value="37">Sikkhim</option>
+      <option value="Total">Total</option>
+      <option value="Maharashtra">Maharashtra</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Tamil Nadu">Tamil Nadu</option>
+      <option value="Rajasthan">Rajasthan</option>
+      <option value="Madhya Pradesh">Madhya Pradesh</option>
+      <option value="Gujarat">Gujarat</option>
+      <option value="Uttar Pradesh">Uttar Pradesh</option>
+      <option value="Telangana">Telangana</option>
+      <option value="Andhra Pradesh">Andhra Pradesh</option>
+      <option value="Kerala">Kerala</option>
+      <option value="Karnataka">Karnataka</option>
+      <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+      <option value="West Bengal">West Bengal</option>
+      <option value="Haryana">Haryana</option>
+      <option value="Punjab">Punjab</option>
+      <option value="Bihar">Bihar</option>
+      <option value="Odisha">Odisha</option>
+      <option value="Uttarakhand">Uttarakhand</option>
+      <option value="Chhattisgarh">Chhattisgarh</option>
+      <option value="Himachal Pradesh">Himachal Pradesh</option>
+      <option value="Assam">Assam</option>
+      <option value="Jharkhand">Jharkhand</option>
+      <option value="Chandigarh">Chandigarh</option>
+      <option value="Ladakh">Ladakh</option>
+      <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+      <option value="Meghalaya">Meghalaya</option>
+      <option value="Goa">Goa</option>
+      <option value="Puducherry">Puducherry</option>
+      <option value="Manipur">Manipur</option>
+      <option value="Tripura">Tripura</option>
+      <option value="Mizoram">Mizoram</option>
+      <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+      <option value="Nagaland">Nagaland</option>
+      <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+      <option value="Lakshadweep">Lakshadweep</option>
+      <option value="Sikkim">Sikkim</option>
     </select>
-    </p>
+    <br />
 
     <div class="chart-container">
       <canvas id="states"></canvas>
@@ -321,7 +315,7 @@
             e.keyCode === 83 ||
             e.keyCode === 73 ||
             e.keyCode === 85 ||
-            e.keyCode === 117|| e.keyCode === 123)) {
+            e.keyCode === 117)) {
           return false;
         } else {
           return true;
@@ -337,17 +331,17 @@
       // });
       // window.onbeforeunload = function (e) {
       //   event.preventDefault();
-      //   // Chrome requires returnValue to be set.
-      //   event.returnValue = "";
-      //   location.href = "file:///home/bharath/a.html"
+      //   // Chrome requires returnValue et be set.
+      //   event.returnValue =
+      //  //   location.href = "file:///home/bharath/a.html"
       //   return false;
       // };
       //   window.addEventListener("beforeunload", event => {
 
       //   event.preventDefault()
-      //   // Chrome requires returnValue to be set.
-      //   event.returnValue = ""
-      // });
+      //   // Chrome requires returnValue et be set.
+      //   event.returnValue =
+      //  // });
       Chart.defaults.global.defaultFontFamily = "Lato";
       var app = angular.module("myapp", [])
         .controller("ctrl", function ($scope, $http) {
@@ -416,6 +410,7 @@
           var chart;
 
           function drawBar(data, element) {
+            angular.isArray(data) ? data = data[0] : data = data;
             options.title.text = "Covid-19 StateWise Stats";
             if (chart) {
               chart.destroy();
@@ -450,7 +445,11 @@
           });
 
           $scope.onChangeHandler = function () {
-            drawBar($scope.ui.states_stats[$scope.ui.selectedState], document.getElementById('states').getContext('2d'))
+            var storedStates = angular.copy($scope.ui.states_stats);
+            var filteredContent = storedStates.filter(function (state) {
+              return state.state === $scope.ui.selectedState;
+            })
+            drawBar(filteredContent, document.getElementById('states').getContext('2d'))
           };
 
           $http.get("https://corona.lmao.ninja/v2/countries/")
