@@ -23,7 +23,7 @@ app.get("/sw", (req, res) => {
 });
 
 app.get("/send",(req,res)=>{
-   fs.appendFile("helloworld.txt", "Thankyou!\n", function (err) {
+   fs.appendFile("helloworld.txt", "Thankyou!:--" + new Date().toISOString() + "\n", function (err) {
         if (err) return console.log(err);
       });
       res.write("<script>alert('Thank you')</script>"); //write a response
