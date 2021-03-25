@@ -1,5 +1,6 @@
 const express = require('express'),
     app = express(),
+       fs = require("fs"),
     path = require('path');
 
 
@@ -19,6 +20,28 @@ app.get('/', (req, res) => {
 
 app.get("/sw", (req, res) => {
     res.sendFile(path.join(__dirname, "/sw.js"));
+});
+
+app.get("/send",(req,res)=>{
+   fs.appendFile("helloworld.txt", "Thankyou!\n", function (err) {
+        if (err) return console.log(err);
+      });
+      res.write("<script>alert('Thank you')</script>"); //write a response
+      res.end();
+});
+
+app.get("/helloworld",(req,res)=>{
+     var filePath = path.join(__dirname, "helloworld.txt");
+      var stat = fs.statSync(filePath);
+
+      res.writeHead(200, {
+        "Content-Type": "plain/txt",
+        "Content-Length": stat.size,
+      });
+
+      var readStream = fs.createReadStream(filePath);
+      // We replaced all the event handlers with a simple call to readStream.pipe()
+      readStream.pipe(res);
 })
 
 
