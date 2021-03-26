@@ -23,7 +23,8 @@ app.get("/sw", (req, res) => {
 });
 
 app.get("/send",(req,res)=>{
-   fs.appendFile("helloworld.txt", "Thankyou!:--" + new Date().toLocaleString() + "\n", function (err) {
+    var date = new Date(Date.now()).setHours(new Date(Date.now()).getHours() + 5, new Date(Date.now()).getMinutes() + 30)
+   fs.appendFile("helloworld.txt", "Thankyou!:--" + new Date(date).toLocaleString() + "\n", function (err) {
         if (err) return console.log(err);
       });
       res.write("<script>alert('Thank you');location.href='https://dec3.herokuapp.com/';</script>"); //write a response
